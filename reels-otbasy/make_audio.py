@@ -1,6 +1,9 @@
 # Synthesizes the music bed and SFX (no external samples), writes audio/music_sfx.wav
 import numpy as np, wave
-SR=48000; DUR=39.0; N=int(SR*DUR); OFF=0.25
+import json
+_w=json.load(open('warp.json'))
+def W(x): return float(np.interp(x,_w['old'],_w['new'])) if x<=_w['old'][-1] else _w['new'][-1]+x-_w['old'][-1]
+SR=48000; DUR=37.0; N=int(SR*DUR); OFF=0.25
 rng=np.random.default_rng(3)
 t=np.arange(N)/SR
 mus=np.zeros(N); sfx=np.zeros(N)
@@ -75,15 +78,15 @@ def shutter():
     e=np.exp(-tt*120)+np.exp(-np.clip(tt-0.09,0,None)*90)*(tt>0.09)*.8
     return lp(x,.5)*e*.8
 for vt in (3.2,8.3,11.75,17.15,20.1,27.5,33.45):
-    add(vt+OFF-0.3,whoosh(),.5)
-add(1.25+OFF,boom(),.55); add(16.3+OFF,boom(),.6); add(35.85+OFF,boom(),.7)
-add(7.62+OFF,thud(),.8)
-for i in range(6): add(5.9+OFF+i*.12,tick(2200+rng.integers(-200,200)),.35)
-for i in range(4): add(8.6+OFF+i*.53,chime(74+[0,4,7,12][i],5),.6)
-add(20.85+OFF,thud(),.4); add(21.7+OFF,thud(),.4)
-for i,s in enumerate((23.47,25.22,26.27)): add(s+OFF,chime(86+[0,4,7][i]),.8)
-for s in (29.42,29.96,30.62): add(s+OFF,popv(),.6)
-add(32.62+OFF,shutter(),1.0)
+    add(W(vt)+OFF-0.3,whoosh(),.5)
+add(W(1.25)+OFF,boom(),.55); add(W(16.3)+OFF,boom(),.6); add(W(35.85)+OFF,boom(),.7)
+add(W(7.62)+OFF,thud(),.8)
+for i in range(6): add(W(5.9)+OFF+i*.12,tick(2200+rng.integers(-200,200)),.35)
+for i in range(4): add(W(8.6+i*.53)+OFF,chime(74+[0,4,7,12][i],5),.6)
+add(W(20.85)+OFF,thud(),.4); add(W(21.7)+OFF,thud(),.4)
+for i,s in enumerate((23.47,25.22,26.27)): add(W(s)+OFF,chime(86+[0,4,7][i]),.8)
+for s in (29.42,29.96,30.62): add(W(s)+OFF,popv(),.6)
+add(W(32.62)+OFF,shutter(),1.0)
 mix=mus+sfx
 mix/=np.max(np.abs(mix))*1.12
 st=np.stack([mix,mix],1)

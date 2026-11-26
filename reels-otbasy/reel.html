@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="kk"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
 :root{--gold:#dcb771;--gold2:#f3d79b;--txt:#f4efe8;--mute:#8d867d;--card:rgba(255,248,235,.045);--line:rgba(255,240,215,.10)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -9,7 +9,7 @@ html,body{width:1080px;height:1920px;background:#0a0908;overflow:hidden}
 .abs{position:absolute}
 .scene{position:absolute;inset:0;opacity:0;will-change:transform,opacity,filter}
 .lbl{font-weight:600;font-size:52px;letter-spacing:-.5px;text-align:center;width:100%;line-height:1.15}
-.serif{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--gold);text-align:center;width:100%;line-height:1.05;
+.serif{font-family:'Lora',serif;font-style:italic;font-weight:600;color:var(--gold);text-align:center;width:100%;line-height:1.05;
   background:linear-gradient(180deg,#f6dfab 0%,#dcb771 55%,#b98d46 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   filter:drop-shadow(0 0 24px rgba(220,183,113,.28))}
 .sub{font-size:34px;color:var(--mute);text-align:center;width:100%;font-weight:500}
@@ -106,12 +106,12 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
   <div class="card abs" id="cStudio" style="left:90px;top:760px;width:430px;height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
     <svg width="190" height="190" viewBox="0 0 100 100" fill="none" stroke="#8d867d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 22h44l14 22H4z"/><path d="M40 44v40M28 92l12-8 12 8"/><path d="M72 30l20-10v48l-20-10"/></svg>
     <div style="font-size:48px;font-weight:600;color:#a39b91">Студия</div>
-    <div class="abs q" style="right:34px;top:26px;font-family:'Playfair Display';font-style:italic;font-size:80px;color:#6d665e">?</div>
+    <div class="abs q" style="right:34px;top:26px;font-family:'Lora';font-style:italic;font-size:80px;color:#6d665e">?</div>
   </div>
   <div class="card abs" id="cNature" style="left:560px;top:760px;width:430px;height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
     <svg width="190" height="190" viewBox="0 0 100 100" fill="none" stroke="url(#gg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="64" cy="34" r="14"/><path d="M64 10v-4M64 62v-4M40 34h-4M92 34h-4M47 17l-3-3M84 54l-3-3M47 51l-3 3M84 14l-3 3"/><path d="M4 86q24-22 46-6t46-4"/><path d="M24 80V56M24 56l-10 14M24 60l10 12M24 48l-7 10M24 50l7 8"/></svg>
     <div style="font-size:48px;font-weight:600;color:var(--gold2)">Табиғат</div>
-    <div class="abs q" style="right:34px;top:26px;font-family:'Playfair Display';font-style:italic;font-size:80px;color:var(--gold)">?</div>
+    <div class="abs q" style="right:34px;top:26px;font-family:'Lora';font-style:italic;font-size:80px;color:var(--gold)">?</div>
   </div>
 </div>
 
@@ -154,7 +154,7 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
 <!-- S8 CTA -->
 <div class="scene" id="s8">
   <div class="lbl abs" id="s8a" style="top:560px;font-size:40px;color:#bdb5ab;font-weight:500">Түсірілімге жазылу үшін</div>
-  <div class="lbl abs" id="s8b" style="top:690px;font-size:64px">комментарийге</div>
+  <div class="lbl abs" id="s8b" style="top:690px;font-size:64px">директке</div>
   <div class="serif abs" id="s8c" style="top:800px;font-size:150px;font-weight:600">«ОТБАСЫ»</div>
   <div class="lbl abs" id="s8d" style="top:1035px;font-size:64px">деп жазыңыз</div>
   <div class="abs" id="chev" style="left:490px;top:1160px;width:100px"></div>
@@ -233,8 +233,10 @@ function sceneEnv(t,a,b){ // in/out with blur+scale
 const gc=$('grain').getContext('2d');const gimg=gc.createImageData(540,960);
 function grain(f){let s=(f*2654435761)>>>0;const d=gimg.data;for(let i=0;i<d.length;i+=4){s^=s<<13;s^=s>>>17;s^=s<<5;const v=(s>>>0)&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gc.putImageData(gimg,0,0)}
 
+const WO=[0, 2.92, 3.44, 4.88, 5.38, 7.62, 7.92, 8.52, 9.72, 10.1, 11.42, 11.98, 13.98, 14.56, 15.04, 16.3, 16.62, 17.34, 18.62, 19.66, 20.26, 20.85, 21.6, 22.34, 23.42, 25.12, 26.12, 27.18, 27.74, 28.76, 29.42, 29.96, 30.62, 31.18, 31.68, 32.62, 33.22, 33.62, 35.12, 35.92, 36.54, 37.02],WN=[0, 3.04, 3.26, 4.84, 5.06, 7.24, 7.52, 7.96, 9.14, 9.4, 10.84, 11.4, 12.66, 13.66, 13.94, 15.1, 15.34, 15.92, 17.2, 18.1, 18.3, 19.28, 20.14, 21.34, 22.04, 23.56, 24.62, 25.48, 26.0, 26.92, 27.58, 28.26, 28.96, 29.44, 29.8, 30.6, 31.3, 31.56, 32.9, 33.66, 34.36, 34.94];
+function warp(x){if(x<=WN[0])return x;for(let i=1;i<WN.length;i++){if(x<=WN[i]){const k=(x-WN[i-1])/(WN[i]-WN[i-1]);return WO[i-1]+k*(WO[i]-WO[i-1])}}return WO[WO.length-1]+(x-WN[WN.length-1])}
 window.seek=function(T){
- const t=T-OFF, f=Math.round(T*30);
+ const t=warp(T-OFF), f=Math.round(T*30);
  for(const [id,a,b] of SC){const el=$(id);if(t<a-.01||t>b+.01){el.style.opacity=0;el.style.display='none';continue}
   el.style.display='block';const e=sceneEnv(t,a,b);el.style.opacity=e.v;el.style.transform=`scale(${e.s})`;el.style.filter=e.blur>.3?`blur(${e.blur}px)`:'none'}
  // background drift
@@ -331,6 +333,6 @@ window.seek=function(T){
   $('cap').style.opacity=0;
  }
 };
-window.DUR=39.0;
+window.DUR=37.0;
 </script>
 </body></html>
