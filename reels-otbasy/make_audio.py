@@ -3,7 +3,7 @@ import numpy as np, wave
 import json
 _w=json.load(open('warp.json'))
 def W(x): return float(np.interp(x,_w['old'],_w['new'])) if x<=_w['old'][-1] else _w['new'][-1]+x-_w['old'][-1]
-SR=48000; DUR=36.0; N=int(SR*DUR); OFF=0.25
+SR=48000; DUR=43.0; N=int(SR*DUR); OFF=0.25
 rng=np.random.default_rng(3)
 t=np.arange(N)/SR
 mus=np.zeros(N); sfx=np.zeros(N)
