@@ -22,6 +22,16 @@ html,body{width:1080px;height:1920px;background:#0a0908;overflow:hidden}
 #cap{position:absolute;left:70px;right:70px;top:1585px;text-align:center;font-size:46px;font-weight:600;line-height:1.3;letter-spacing:-.3px;text-shadow:0 2px 18px rgba(0,0,0,.8)}
 #cap span{transition:none}
 svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+
+.pill{display:inline-flex;align-items:center;gap:16px;padding:22px 34px;border-radius:999px;background:linear-gradient(180deg,rgba(255,248,235,.07),rgba(255,248,235,.03));border:1.5px solid rgba(220,183,113,.3);font-size:36px;font-weight:600;box-shadow:0 16px 50px rgba(0,0,0,.5)}
+.pol{position:absolute;width:170px;height:205px;background:#ece3d3;border-radius:8px;padding:12px 12px 44px;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.pol>div{width:100%;height:100%;border-radius:3px;background:linear-gradient(160deg,#2d241b,#110e0b);display:flex;align-items:center;justify-content:center;font-family:'Lora';font-style:italic;font-size:80px;color:#dcb771}
+.tag{position:absolute;padding:14px 26px;border-radius:18px;font-size:30px;font-weight:600;color:#cfc8be;background:rgba(30,27,24,.9);border:1px solid rgba(255,255,255,.1);box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.gen{display:flex;flex-direction:column;align-items:center;gap:14px;width:190px}
+.gen .c{border-radius:50%;border:2px solid rgba(220,183,113,.7);background:radial-gradient(circle at 50% 30%,#3a2c1e,#14100c);display:flex;align-items:end;justify-content:center;overflow:hidden;box-shadow:0 0 30px rgba(220,183,113,.18)}
+.gen span{font-size:28px;font-weight:600;color:#cfc8be}
+.star{position:absolute;width:26px;height:26px}
+.fs{position:absolute;top:0;width:150px;height:104px;border-radius:6px;background:linear-gradient(160deg,#3a2c1e,#16110d);border:1px solid rgba(220,183,113,.35);overflow:hidden}
 </style></head>
 <body><div id="stage">
 <!-- background -->
@@ -46,6 +56,11 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     </div>
     <div class="abs" id="s1orbit" style="inset:-70px"></div>
   </div>
+  <div class="pol" id="p1" style="left:40px;top:960px"><div>?</div></div>
+  <div class="pol" id="p2" style="left:870px;top:900px"><div>?</div></div>
+  <div class="pol" id="p3" style="left:820px;top:1330px"><div>?</div></div>
+  <div class="pol" id="p4" style="left:70px;top:1360px"><div>?</div></div>
+  <div class="abs" id="s1pill" style="top:1500px;width:100%;text-align:center"><div class="pill"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#dcb771" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Соңғы ортақ сурет: <span class="serif" style="font-size:52px;width:auto">?</span></div></div>
 </div>
 
 <!-- S2 phone -->
@@ -66,6 +81,18 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     <div class="sub" style="margin-top:34px;text-align:left;font-size:30px">Бәріңіз бір кадрда:</div>
     <div class="serif" id="zero" style="font-size:180px;text-align:left;margin-top:-6px">0</div>
   </div>
+  <div class="tag" id="t1" style="left:40px;top:640px">Скриншот</div>
+  <div class="tag" id="t2" style="left:790px;top:720px">Құжат</div>
+  <div class="tag" id="t3" style="left:70px;top:900px">Тамақ</div>
+  <div class="tag" id="t4" style="left:800px;top:1010px">Селфи</div>
+  <div class="tag" id="t5" style="left:50px;top:1160px">Чек</div>
+  <div class="tag" id="t6" style="left:780px;top:1260px">Мем</div>
+  <div class="abs" id="cnt" style="left:610px;top:470px;padding:12px 24px;border-radius:999px;background:#dcb771;color:#1a140d;font-size:30px;font-weight:700;box-shadow:0 0 30px rgba(220,183,113,.5)">0 фото</div>
+  <div class="abs" id="mem" style="left:110px;top:1460px;width:860px">
+    <div style="display:flex;justify-content:space-between;font-size:30px;font-weight:600;color:#cfc8be"><span>Телефон жады</span><span id="memv" style="color:#dcb771">0%</span></div>
+    <div style="margin-top:16px;height:16px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden"><div id="memb" style="height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,#8a6a3a,#dcb771)"></div></div>
+    <div style="margin-top:14px;font-size:26px;color:#7d766d">Бәрі бар — тек отбасы суреті жоқ</div>
+  </div>
 </div>
 
 <!-- S3 timeline -->
@@ -77,6 +104,8 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
   <div id="tl"></div>
   <div class="lbl abs" id="s3c" style="top:1230px;font-size:44px;color:#cfc8be">Бұл кезең енді</div>
   <div class="serif abs" id="s3d" style="top:1285px;font-size:112px">қайталанбайды</div>
+  <div class="abs" id="s3pill" style="top:1500px;width:100%;text-align:center"><div class="pill"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#dcb771" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12M6 22h12M7 2c0 6 10 6 10 10S7 16 7 22M17 2c0 6-10 6-10 10s10 4 10 10"/></svg>Әр жас — бір рет қана</div></div>
+  <div class="abs" id="yr" style="top:690px;width:100%;text-align:center;font-family:'Lora';font-style:italic;font-size:200px;font-weight:600;color:rgba(220,183,113,.07)">2026</div>
 </div>
 
 <!-- S4 legacy -->
@@ -97,6 +126,8 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
       <svg viewBox="0 0 400 260" style="position:absolute;left:28px;top:70px;width:600px" id="fam2"></svg>
     </div>
   </div>
+  <div class="abs" id="gline" style="left:155px;top:1453px;height:3px;width:0;background:linear-gradient(90deg,#b98d46,#f3d79b);box-shadow:0 0 14px rgba(220,183,113,.7)"></div>
+  <div class="abs" id="gens" style="left:60px;top:1390px;width:960px;display:flex;justify-content:space-between;align-items:flex-start"><div class="gen" id="g0"><div class="c" style="width:130px;height:130px"><svg viewBox="0 0 40 40" style="width:90px"><g fill="none" stroke="#dcb771" stroke-width="2.4"><circle cx="20" cy="14" r="7"/><path d="M6 40c0-9 6-15 14-15s14 6 14 15"/></g></svg></div><span>Ата-әже</span></div><div class="gen" id="g1"><div class="c" style="width:130px;height:130px"><svg viewBox="0 0 40 40" style="width:110px"><g fill="none" stroke="#dcb771" stroke-width="2.4"><circle cx="20" cy="14" r="7"/><path d="M6 40c0-9 6-15 14-15s14 6 14 15"/></g></svg></div><span>Ата-ана</span></div><div class="gen" id="g2"><div class="c" style="width:130px;height:130px"><svg viewBox="0 0 40 40" style="width:90px"><g fill="none" stroke="#dcb771" stroke-width="2.4"><circle cx="20" cy="14" r="7"/><path d="M6 40c0-9 6-15 14-15s14 6 14 15"/></g></svg></div><span>Балалар</span></div><div class="gen" id="g3"><div class="c" style="width:130px;height:130px"><svg viewBox="0 0 40 40" style="width:72px"><g fill="none" stroke="#dcb771" stroke-width="2.4"><circle cx="20" cy="14" r="7"/><path d="M6 40c0-9 6-15 14-15s14 6 14 15"/></g></svg></div><span>Немерелер</span></div></div>
 </div>
 
 <!-- S5 question -->
@@ -113,6 +144,8 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     <div style="font-size:48px;font-weight:600;color:var(--gold2)">Табиғат</div>
     <div class="abs q" style="right:34px;top:26px;font-family:'Lora';font-style:italic;font-size:80px;color:var(--gold)">?</div>
   </div>
+  <div class="abs" id="vs" style="left:478px;top:958px;width:124px;height:124px;border-radius:50%;background:#14110e;border:2px solid #dcb771;display:flex;align-items:center;justify-content:center;font-family:'Lora';font-style:italic;font-weight:600;font-size:50px;color:#f3d79b;box-shadow:0 0 40px rgba(220,183,113,.45);z-index:2">vs</div>
+  <div class="abs" id="s5pill" style="top:1400px;width:100%;text-align:center"><div class="pill">Айырмашылық — <span style="color:#f3d79b">жарық пен эмоцияда</span></div></div>
 </div>
 
 <!-- S6 checklist -->
@@ -128,6 +161,17 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     <div class="row" id="b2"><div class="mark ok"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div><span>Еркін қозғалыс</span></div>
     <div class="row" id="b3"><div class="mark ok"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div><span>Шынайы күлкі</span></div>
   </div>
+  <div class="abs" id="arcw" style="left:110px;top:1330px;width:860px;height:420px">
+    <svg viewBox="0 0 860 420" width="860" height="420" style="position:absolute;inset:0;overflow:visible">
+      <defs><linearGradient id="hz" x1="0" x2="1"><stop offset="0" stop-color="#dcb771"/><stop offset=".22" stop-color="#dcb771" stop-opacity=".15"/><stop offset=".78" stop-color="#dcb771" stop-opacity=".15"/><stop offset="1" stop-color="#dcb771"/></linearGradient></defs>
+      <path id="arcp" d="M40 330 A390 270 0 0 1 820 330" fill="none" stroke="url(#hz)" stroke-width="4" stroke-dasharray="10 12" pathLength="1000"/>
+      <line x1="0" y1="330" x2="860" y2="330" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+      <circle id="sun" r="30" fill="#f3d79b" style="filter:drop-shadow(0 0 22px rgba(243,215,155,.9))"/>
+    </svg>
+    <div class="abs" style="left:0;top:350px;font-size:26px;color:#dcb771;font-weight:600">таңғы алтын сағат</div>
+    <div class="abs" style="right:0;top:350px;font-size:26px;color:#dcb771;font-weight:600;text-align:right">кешкі алтын сағат</div>
+    <div class="abs" style="left:300px;top:350px;width:260px;text-align:center;font-size:26px;color:#7d766d">түскі қатты жарық</div>
+  </div>
 </div>
 
 <!-- S7 kids -->
@@ -138,7 +182,7 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     <div class="chip" id="k1">ойнайды</div><div class="chip" id="k2">жүгіреді</div><div class="chip" id="k3">күледі</div>
   </div>
   <div class="abs" id="shot" style="left:140px;top:790px;width:800px;height:600px;border-radius:30px;overflow:hidden;background:radial-gradient(circle at 75% 20%,rgba(245,190,105,.42),rgba(0,0,0,0) 55%),linear-gradient(180deg,#2c2117,#110d0a)">
-    <svg viewBox="0 0 400 260" style="position:absolute;left:40px;top:60px;width:720px" id="fam3"></svg>
+    <svg viewBox="0 0 400 260" style="position:absolute;left:40px;top:60px;width:720px" id="fam3"></svg><svg class="star" id="st0" viewBox="0 0 20 20" style="left:470px;top:150px"><path d="M10 0L12 8 20 10 12 12 10 20 8 12 0 10 8 8Z" fill="#f3d79b"/></svg><svg class="star" id="st1" viewBox="0 0 20 20" style="left:610px;top:240px"><path d="M10 0L12 8 20 10 12 12 10 20 8 12 0 10 8 8Z" fill="#f3d79b"/></svg><svg class="star" id="st2" viewBox="0 0 20 20" style="left:380px;top:300px"><path d="M10 0L12 8 20 10 12 12 10 20 8 12 0 10 8 8Z" fill="#f3d79b"/></svg><svg class="star" id="st3" viewBox="0 0 20 20" style="left:560px;top:120px"><path d="M10 0L12 8 20 10 12 12 10 20 8 12 0 10 8 8Z" fill="#f3d79b"/></svg><svg class="star" id="st4" viewBox="0 0 20 20" style="left:680px;top:330px"><path d="M10 0L12 8 20 10 12 12 10 20 8 12 0 10 8 8Z" fill="#f3d79b"/></svg>
   </div>
   <div class="abs" id="vf" style="left:140px;top:790px;width:800px;height:600px">
     <div class="abs vfc" style="left:0;top:0;border-left:5px solid;border-top:5px solid"></div>
@@ -146,9 +190,13 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
     <div class="abs vfc" style="left:0;bottom:0;border-left:5px solid;border-bottom:5px solid"></div>
     <div class="abs vfc" style="right:0;bottom:0;border-right:5px solid;border-bottom:5px solid"></div>
     <div class="abs" id="rec" style="left:34px;top:30px;font-size:26px;font-weight:700;letter-spacing:2px;display:flex;align-items:center;gap:10px"><span style="width:16px;height:16px;border-radius:50%;background:#e0584a"></span>REC</div>
+    <div class="abs" id="hud" style="left:34px;bottom:28px;font-size:24px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.8);display:flex;gap:26px"><span>1/1000</span><span>f/2.8</span><span>ISO 200</span><span style="color:#dcb771">AF-C</span></div>
     <div class="abs" id="focus" style="left:340px;top:210px;width:120px;height:120px;border:3px solid var(--gold);border-radius:12px"></div>
   </div>
   <div class="serif abs" id="s7c" style="top:1420px;font-size:84px">сол сәт</div>
+  <div class="abs" id="strip" style="left:0;top:1560px;width:1080px;height:150px;background:rgba(10,9,8,.9);border-top:2px dashed rgba(220,183,113,.25);border-bottom:2px dashed rgba(220,183,113,.25);overflow:hidden">
+    <div class="abs" id="stripin" style="left:0;top:22px;height:104px;width:2100px"><div class="fs" style="left:0px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:170px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:340px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:510px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:680px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:850px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1020px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1190px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1360px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1530px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1700px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div><div class="fs" style="left:1870px"><svg viewBox="0 0 400 260" style="width:150px;margin-top:10px"><path d='M0 236 Q110 200 210 222 T400 214' fill='none' stroke='#dcb771' stroke-width='8'/><circle cx='330' cy='62' r='30' fill='none' stroke='#dcb771' stroke-width='8'/></svg></div></div>
+  </div>
 </div>
 
 <!-- S8 CTA -->
@@ -158,9 +206,16 @@ svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-lin
   <div class="serif abs" id="s8c" style="top:800px;font-size:150px;font-weight:600">«ОТБАСЫ»</div>
   <div class="lbl abs" id="s8d" style="top:1035px;font-size:64px">деп жазыңыз</div>
   <div class="abs" id="chev" style="left:490px;top:1160px;width:100px"></div>
+  <div class="abs" id="dm" style="left:110px;top:1330px;width:860px;height:110px;border-radius:999px;background:linear-gradient(180deg,rgba(255,248,235,.08),rgba(255,248,235,.03));border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;padding:0 18px 0 36px;gap:20px;box-shadow:0 20px 60px rgba(0,0,0,.6)">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8d867d" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>
+    <span id="dmtxt" style="flex:1;font-size:40px;font-weight:600;color:#8d867d">Хабарлама...</span>
+    <div id="send" style="width:78px;height:78px;border-radius:50%;background:linear-gradient(180deg,#f0d394,#c99a52);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(220,183,113,.5)"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1a140d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+  </div>
+  <div class="abs" id="bub" style="right:110px;top:1480px;padding:24px 40px;border-radius:40px 40px 10px 40px;background:linear-gradient(180deg,#f0d394,#c99a52);color:#1a140d;font-size:44px;font-weight:700">ОТБАСЫ</div>
+  <div class="abs" id="sent" style="right:116px;top:1600px;font-size:26px;color:#8d867d;font-weight:600">Жіберілді ✓</div>
 </div>
 
-<div id="cap"></div>
+<div id="cap" style="display:none"></div>
 <div id="vig" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.6) 100%);pointer-events:none"></div>
 <canvas id="grain" width="540" height="960" class="abs" style="inset:0;width:1080px;height:1920px;opacity:.07;mix-blend-mode:screen"></canvas>
 <div id="flash" class="abs" style="inset:0;background:#fff8ea;opacity:0"></div>
@@ -244,7 +299,7 @@ window.seek=function(T){
  $('glowB').style.transform=`translate(${Math.cos(T*.22)*-90}px,${Math.sin(T*.18)*70}px)`;
  const gold=Math.max(P(t,22.3,1.2)*(1-P(t,27.3,.6))*.9, P(t,35.6,.8)*.8, P(t,15.6,.8)*(1-P(t,16.9,.4))*.6);
  $('glowG').style.opacity=gold;
- caps(t); grain(f);
+ grain(f);
 
  // S1
  if(t<3.4){rise($('s1a'),t,-.2,.5);
@@ -281,7 +336,7 @@ window.seek=function(T){
   const h2=$('s4h2');rise(h2,t,15.0,.5);
   const pm=P(t,16.3,.6);const m=$('mura');m.style.opacity=eo(pm);m.style.transform=`scale(${1.35-.35*eo(pm)})`;
   const fr=$('frame');const pf=eo(P(t,11.8,.7));const lift=eio(P(t,15.0,.6));
-  fr.style.opacity=pf;fr.style.transform=`translateY(${(1-pf)*120+ lift*90}px) scale(${.9+.1*pf - lift*.08}) rotate(${(1-pf)*-4+lift*-2}deg)`;
+  fr.style.opacity=pf;fr.style.transform=`translateY(${(1-pf)*120+ lift*10}px) scale(${.9+.1*pf - lift*.1}) rotate(${(1-pf)*-4+lift*-2}deg)`;
   fr.style.boxShadow=`0 50px 120px rgba(0,0,0,.65),0 0 ${70+90*eo(pm)}px rgba(220,183,113,${.12+.3*eo(pm)})`;
   draw($('fam2'),P(t,12.0,1.6));
  }
@@ -332,6 +387,27 @@ window.seek=function(T){
   document.querySelectorAll('#chev .cv').forEach((v,i)=>{const p=P(t,36.9,.4);const w=.3+.7*(0.5+0.5*Math.sin(T*6-i*1.1));v.style.opacity=p*w;v.style.transform=`translateY(${Math.sin(T*6-i*1.1)*4}px)`});
   $('cap').style.opacity=0;
  }
+ // ===== extra elements =====
+ if(t<3.4){[['p1',-12,.2],['p2',10,.45],['p3',-6,.7],['p4',8,.95]].forEach(([id,r,a],i)=>{const e=$(id);const p=eo(P(t,a,.6));e.style.opacity=p*.85;e.style.transform=`translateY(${(1-p)*90+Math.sin(T*1.3+i)*10}px) rotate(${r+Math.sin(T+i)*2}deg) scale(${.8+.2*p})`});
+  rise($('s1pill'),t,2.0,.5)}
+ if(t>3&&t<8.6){const sp=P(t,3.4,3.6);$('cnt').textContent=Math.floor(12486*eo(sp)).toLocaleString('ru-RU').replace(/,/g,' ')+' фото';
+  const sh=eio(P(t,5.2,.6));const pc=pop($('cnt'),t,3.5,.4);$('cnt').style.transform+=` translateX(${-260*sh}px)`;
+  ['t1','t2','t3','t4','t5','t6'].forEach((id,i)=>{const e=$(id);const a=3.6+i*.22;const p=P(t,a,.45);const o=1-P(t,5.1,.35);e.style.opacity=clamp(p*3,0,1)*o;const dir=(i%2?1:-1);e.style.transform=`translate(${dir*(1-eo(p))*-120}px,${Math.sin(T*2+i)*8}px) scale(${p?.6+.4*eb(p):.6}) rotate(${dir*3}deg)`});
+  rise($('mem'),t,4.2,.5);const pm=eo(P(t,4.3,1.2));$('memb').style.width=(92*pm)+'%';$('memv').textContent=Math.round(92*pm)+'%'}
+ if(t>8.1&&t<12){rise($('s3pill'),t,10.9,.5);const y=$('yr');const py=P(t,8.6,1.6);y.textContent=String(2026+Math.round(11*eio(py)));y.style.opacity=P(t,8.4,.4)}
+ if(t>11.5&&t<17.4){const pg=P(t,15.0,1.3);$('gline').style.width=(770*eio(pg))+'px';[0,1,2,3].forEach(i=>{const e=$('g'+i);const p=P(t,15.0+i*.33,.45);e.style.opacity=clamp(p*2,0,1);e.style.transform=`translateY(${(1-eo(p))*30}px) scale(${p?.6+.4*eb(p):.6})`});
+  $('gens').style.opacity=1}
+ if(t>16.9&&t<20.4){pop($('vs'),t,17.7,.45);$('vs').style.transform+=` rotate(${Math.sin(T*2)*4}deg)`;rise($('s5pill'),t,19.0,.5)}
+ if(t>19.9&&t<27.8){const aw=$('arcw');rise(aw,t,20.4,.6,60);const path=$('arcp');const L=path.getTotalLength();
+  const k=eio(P(t,22.3,4.8));const pt=path.getPointAtLength(L*(.04+.92*k));$('sun').setAttribute('cx',pt.x);$('sun').setAttribute('cy',pt.y)}
+ if(t>27.2&&t<33.7){for(let i=0;i<5;i++){const e=$('st'+i);const ph=(T*1.6+i*.37)%1;e.style.opacity=(t>29.4&&t<32.62)?Math.sin(ph*Math.PI):0;e.style.transform=`scale(${.4+Math.sin(ph*Math.PI)}) rotate(${ph*90}deg)`}
+  const st=$('strip');rise(st,t,28.0,.6,40);$('stripin').style.transform=`translateX(${-((t-27.5)*90)%170-170}px)`;
+  $('hud').style.opacity=t<32.62?P(t,31.7,.4):0}
+ if(t>33.2){rise($('dm'),t,34.4,.5,60);const w='ОТБАСЫ';const n=Math.floor(clamp((t-36.2)/.1,0,6));const d=$('dmtxt');
+  if(n>0&&t<37.6){d.textContent=w.slice(0,n);d.style.color='#f4efe8'}else if(t>=37.6){d.textContent='Хабарлама...';d.style.color='#8d867d'}else{d.textContent='Хабарлама...';d.style.color='#8d867d'}
+  const pr=P(t,37.35,.3);$('send').style.transform=`scale(${1-.18*Math.sin(pr*Math.PI)})`;
+  const pb=P(t,37.6,.5);const b=$('bub');b.style.opacity=clamp(pb*3,0,1);b.style.transform=`translateY(${(1-eo(pb))*-60}px) scale(${pb?.5+.5*eb(pb):.5})`;b.style.transformOrigin='100% 100%';
+  rise($('sent'),t,38.0,.4,10,4)}
 };
 window.DUR=37.0;
 </script>
