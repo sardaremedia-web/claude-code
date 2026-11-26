@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet">
+<style>
+:root{--gold:#dcb771;--gold2:#f3d79b;--txt:#f4efe8;--mute:#8d867d;--card:rgba(255,248,235,.045);--line:rgba(255,240,215,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:#0a0908;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:var(--txt)}
+.abs{position:absolute}
+.scene{position:absolute;inset:0;opacity:0;will-change:transform,opacity,filter}
+.lbl{font-weight:600;font-size:52px;letter-spacing:-.5px;text-align:center;width:100%;line-height:1.15}
+.serif{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;color:var(--gold);text-align:center;width:100%;line-height:1.05;
+  background:linear-gradient(180deg,#f6dfab 0%,#dcb771 55%,#b98d46 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 24px rgba(220,183,113,.28))}
+.sub{font-size:34px;color:var(--mute);text-align:center;width:100%;font-weight:500}
+.card{background:linear-gradient(180deg,rgba(255,248,235,.06),rgba(255,248,235,.025));border:1.5px solid var(--line);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06)}
+.row{display:flex;align-items:center;gap:22px;font-size:40px;font-weight:500;height:84px;border-top:1px solid rgba(255,255,255,.06);padding:0 34px}
+.mark{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.mark.ok{background:linear-gradient(180deg,#f0d394,#c99a52);box-shadow:0 0 22px rgba(220,183,113,.45)}
+.mark.no{background:rgba(180,110,95,.18);border:1.5px solid rgba(190,120,105,.45)}
+.chip{padding:20px 38px;border-radius:999px;font-size:44px;font-weight:600;background:var(--card);border:1.5px solid rgba(220,183,113,.35);color:var(--gold2);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+#cap{position:absolute;left:70px;right:70px;top:1585px;text-align:center;font-size:46px;font-weight:600;line-height:1.3;letter-spacing:-.3px;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+#cap span{transition:none}
+svg .ln{fill:none;stroke:url(#gg);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+</style></head>
+<body><div id="stage">
+<!-- background -->
+<div id="bg" class="abs" style="inset:0;background:#0a0908"></div>
+<div id="glowA" class="abs" style="width:1400px;height:1400px;left:-500px;top:-300px;border-radius:50%;background:radial-gradient(circle,rgba(120,72,38,.55),rgba(120,72,38,0) 65%)"></div>
+<div id="glowB" class="abs" style="width:1500px;height:1500px;left:200px;top:900px;border-radius:50%;background:radial-gradient(circle,rgba(70,48,32,.6),rgba(70,48,32,0) 65%)"></div>
+<div id="glowG" class="abs" style="width:1600px;height:1600px;left:-260px;top:200px;border-radius:50%;opacity:0;background:radial-gradient(circle,rgba(226,170,86,.42),rgba(226,170,86,0) 62%)"></div>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+ <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dfab"/><stop offset="1" stop-color="#c3954d"/></linearGradient>
+</defs></svg>
+
+<!-- S1 hook -->
+<div class="scene" id="s1">
+  <div class="lbl abs" id="s1a" style="top:430px">Отбасыңызбен соңғы рет</div>
+  <div class="serif abs" id="s1b" style="top:500px;font-size:190px">қашан</div>
+  <div class="lbl abs" id="s1c" style="top:735px">бірге суретке түстіңіз?</div>
+  <div class="abs" id="s1ring" style="left:290px;top:880px;width:500px;height:500px">
+    <div class="abs" style="inset:0;border-radius:50%;border:2px solid rgba(220,183,113,.55);box-shadow:0 0 60px rgba(220,183,113,.18),inset 0 0 60px rgba(220,183,113,.08)"></div>
+    <div class="abs" style="inset:26px;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 35%,#2b2118,#100d0b)">
+      <svg viewBox="0 0 400 260" style="position:absolute;left:24px;top:110px;width:400px" id="fam1"></svg>
+    </div>
+    <div class="abs" id="s1orbit" style="inset:-70px"></div>
+  </div>
+</div>
+
+<!-- S2 phone -->
+<div class="scene" id="s2">
+  <div class="lbl abs" id="s2a" style="top:250px">Телефонда</div>
+  <div class="serif abs" id="s2b" style="top:310px;font-size:118px">мыңдаған сурет</div>
+  <div class="abs" id="phone" style="left:330px;top:520px;width:420px;height:860px;border-radius:64px;background:#0d0c0b;border:3px solid #2c2925;box-shadow:0 40px 110px rgba(0,0,0,.7),inset 0 0 0 8px #151311;overflow:hidden">
+    <div class="abs" style="left:150px;top:18px;width:120px;height:32px;border-radius:20px;background:#000;z-index:3"></div>
+    <div class="abs" style="left:24px;top:64px;font-size:26px;font-weight:700;z-index:3">Галерея</div>
+    <div class="abs" id="grid" style="left:16px;top:110px;width:388px"></div>
+    <div class="abs" style="left:0;right:0;top:0;height:110px;background:linear-gradient(#0d0c0b 75%,rgba(13,12,11,0));z-index:2"></div>
+  </div>
+  <div class="card abs" id="search" style="left:540px;top:700px;width:470px;height:420px;padding:30px">
+    <div style="display:flex;align-items:center;gap:16px;height:76px;border-radius:24px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);padding:0 22px;font-size:34px">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8d867d" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <span id="typed" style="color:var(--txt)"></span><span id="caret" style="width:3px;height:38px;background:var(--gold)"></span>
+    </div>
+    <div class="sub" style="margin-top:34px;text-align:left;font-size:30px">Бәріңіз бір кадрда:</div>
+    <div class="serif" id="zero" style="font-size:180px;text-align:left;margin-top:-6px">0</div>
+  </div>
+</div>
+
+<!-- S3 timeline -->
+<div class="scene" id="s3">
+  <div class="lbl abs" id="s3a" style="top:330px">Ал балалар</div>
+  <div class="serif abs" id="s3b" style="top:392px;font-size:150px">тез өседі</div>
+  <div class="abs" style="left:120px;top:1010px;width:840px;height:4px;border-radius:4px;background:rgba(255,255,255,.1)"></div>
+  <div class="abs" id="tlfill" style="left:120px;top:1010px;width:0;height:4px;border-radius:4px;background:linear-gradient(90deg,#b98d46,#f3d79b);box-shadow:0 0 20px rgba(220,183,113,.7)"></div>
+  <div id="tl"></div>
+  <div class="lbl abs" id="s3c" style="top:1230px;font-size:44px;color:#cfc8be">Бұл кезең енді</div>
+  <div class="serif abs" id="s3d" style="top:1285px;font-size:112px">қайталанбайды</div>
+</div>
+
+<!-- S4 legacy -->
+<div class="scene" id="s4">
+  <div class="abs" id="s4h1" style="top:300px;width:100%">
+    <div class="lbl" style="font-size:56px">Отбасылық фотосессия —</div>
+    <div style="display:flex;justify-content:center;gap:22px;margin-top:22px;font-size:66px;font-weight:600">
+      <span id="s4plain" style="position:relative;color:#9b948a">жай сурет<span id="strike" class="abs" style="left:-6px;top:50%;height:6px;width:0;background:var(--gold);border-radius:4px;box-shadow:0 0 14px rgba(220,183,113,.8)"></span></span>
+      <span id="s4emes">емес</span>
+    </div>
+  </div>
+  <div class="abs" id="s4h2" style="top:240px;width:100%">
+    <div class="lbl" style="font-size:54px">Бұл — ұрпаққа қалатын</div>
+    <div class="serif" id="mura" style="font-size:230px;margin-top:-6px">мұра</div>
+  </div>
+  <div class="abs" id="frame" style="left:190px;top:700px;width:700px;height:560px;border-radius:40px;padding:22px;background:linear-gradient(160deg,#3a2c1e,#16110d);border:2px solid rgba(220,183,113,.6);box-shadow:0 50px 120px rgba(0,0,0,.65),0 0 70px rgba(220,183,113,.12)">
+    <div style="position:relative;width:100%;height:100%;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 70% 25%,rgba(240,190,110,.35),rgba(0,0,0,0) 55%),linear-gradient(180deg,#2a2017,#120e0b)">
+      <svg viewBox="0 0 400 260" style="position:absolute;left:28px;top:70px;width:600px" id="fam2"></svg>
+    </div>
+  </div>
+</div>
+
+<!-- S5 question -->
+<div class="scene" id="s5">
+  <div class="lbl abs" id="s5a" style="top:330px">Ал неге студияда емес,</div>
+  <div class="serif abs" id="s5b" style="top:400px;font-size:100px">табиғат аясында?</div>
+  <div class="card abs" id="cStudio" style="left:90px;top:760px;width:430px;height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
+    <svg width="190" height="190" viewBox="0 0 100 100" fill="none" stroke="#8d867d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 22h44l14 22H4z"/><path d="M40 44v40M28 92l12-8 12 8"/><path d="M72 30l20-10v48l-20-10"/></svg>
+    <div style="font-size:48px;font-weight:600;color:#a39b91">Студия</div>
+    <div class="abs q" style="right:34px;top:26px;font-family:'Playfair Display';font-style:italic;font-size:80px;color:#6d665e">?</div>
+  </div>
+  <div class="card abs" id="cNature" style="left:560px;top:760px;width:430px;height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
+    <svg width="190" height="190" viewBox="0 0 100 100" fill="none" stroke="url(#gg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="64" cy="34" r="14"/><path d="M64 10v-4M64 62v-4M40 34h-4M92 34h-4M47 17l-3-3M84 54l-3-3M47 51l-3 3M84 14l-3 3"/><path d="M4 86q24-22 46-6t46-4"/><path d="M24 80V56M24 56l-10 14M24 60l10 12M24 48l-7 10M24 50l7 8"/></svg>
+    <div style="font-size:48px;font-weight:600;color:var(--gold2)">Табиғат</div>
+    <div class="abs q" style="right:34px;top:26px;font-family:'Playfair Display';font-style:italic;font-size:80px;color:var(--gold)">?</div>
+  </div>
+</div>
+
+<!-- S6 checklist -->
+<div class="scene" id="s6">
+  <div class="card abs" id="cA" style="left:110px;top:300px;width:860px;padding-bottom:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:30px 34px 22px"><span style="font-size:34px;color:var(--mute);font-weight:600;letter-spacing:1px">СТУДИЯ</span><span style="font-size:28px;color:#6b645c">студия ішінде</span></div>
+    <div class="row" id="a1"><div class="mark no"><svg width="22" height="22" viewBox="0 0 20 20" stroke="#c08778" stroke-width="3" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg></div><span style="color:#a69e94">Жасанды фон</span></div>
+    <div class="row" id="a2"><div class="mark no"><svg width="22" height="22" viewBox="0 0 20 20" stroke="#c08778" stroke-width="3" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg></div><span style="color:#a69e94">Дайын поза</span></div>
+  </div>
+  <div class="card abs" id="cB" style="left:110px;top:740px;width:860px;padding-bottom:8px;border-color:rgba(220,183,113,.45)">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:30px 34px 22px"><span class="serif" style="font-size:60px;text-align:left;width:auto">Табиғат аясында</span><span id="bcount" style="font-size:30px;color:var(--gold);font-weight:600">0 / 3</span></div>
+    <div class="row" id="b1"><div class="mark ok"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div><span>Алтын сағат жарығы</span></div>
+    <div class="row" id="b2"><div class="mark ok"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div><span>Еркін қозғалыс</span></div>
+    <div class="row" id="b3"><div class="mark ok"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div><span>Шынайы күлкі</span></div>
+  </div>
+</div>
+
+<!-- S7 kids -->
+<div class="scene" id="s7">
+  <div class="lbl abs" id="s7a" style="top:280px">Балалар позаға</div>
+  <div class="serif abs" id="s7b" style="top:340px;font-size:150px">тұрмайды</div>
+  <div class="abs" id="chips" style="top:600px;width:100%;display:flex;justify-content:center;gap:20px">
+    <div class="chip" id="k1">ойнайды</div><div class="chip" id="k2">жүгіреді</div><div class="chip" id="k3">күледі</div>
+  </div>
+  <div class="abs" id="shot" style="left:140px;top:790px;width:800px;height:600px;border-radius:30px;overflow:hidden;background:radial-gradient(circle at 75% 20%,rgba(245,190,105,.42),rgba(0,0,0,0) 55%),linear-gradient(180deg,#2c2117,#110d0a)">
+    <svg viewBox="0 0 400 260" style="position:absolute;left:40px;top:60px;width:720px" id="fam3"></svg>
+  </div>
+  <div class="abs" id="vf" style="left:140px;top:790px;width:800px;height:600px">
+    <div class="abs vfc" style="left:0;top:0;border-left:5px solid;border-top:5px solid"></div>
+    <div class="abs vfc" style="right:0;top:0;border-right:5px solid;border-top:5px solid"></div>
+    <div class="abs vfc" style="left:0;bottom:0;border-left:5px solid;border-bottom:5px solid"></div>
+    <div class="abs vfc" style="right:0;bottom:0;border-right:5px solid;border-bottom:5px solid"></div>
+    <div class="abs" id="rec" style="left:34px;top:30px;font-size:26px;font-weight:700;letter-spacing:2px;display:flex;align-items:center;gap:10px"><span style="width:16px;height:16px;border-radius:50%;background:#e0584a"></span>REC</div>
+    <div class="abs" id="focus" style="left:340px;top:210px;width:120px;height:120px;border:3px solid var(--gold);border-radius:12px"></div>
+  </div>
+  <div class="serif abs" id="s7c" style="top:1420px;font-size:84px">сол сәт</div>
+</div>
+
+<!-- S8 CTA -->
+<div class="scene" id="s8">
+  <div class="lbl abs" id="s8a" style="top:560px;font-size:40px;color:#bdb5ab;font-weight:500">Түсірілімге жазылу үшін</div>
+  <div class="lbl abs" id="s8b" style="top:690px;font-size:64px">комментарийге</div>
+  <div class="serif abs" id="s8c" style="top:800px;font-size:150px;font-weight:600">«ОТБАСЫ»</div>
+  <div class="lbl abs" id="s8d" style="top:1035px;font-size:64px">деп жазыңыз</div>
+  <div class="abs" id="chev" style="left:490px;top:1160px;width:100px"></div>
+</div>
+
+<div id="cap"></div>
+<div id="vig" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.6) 100%);pointer-events:none"></div>
+<canvas id="grain" width="540" height="960" class="abs" style="inset:0;width:1080px;height:1920px;opacity:.07;mix-blend-mode:screen"></canvas>
+<div id="flash" class="abs" style="inset:0;background:#fff8ea;opacity:0"></div>
+</div>
+
+<script>
+const OFF=0.25; // voice starts at 0.25s of the video
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+function rise(el,t,a,d=.55,dist=46,blur=14){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;el.style.filter=p<1?`blur(${(1-p)*blur}px)`:'none';return p}
+function pop(el,t,a,d=.5){const p=P(t,a,d);const s=p===0?.6:.6+.4*eb(p);el.style.opacity=clamp(p*3,0,1);el.style.transform=`scale(${s})`;return p}
+
+// family line-art
+const FAM=`
+<path class="ln" pathLength="1" d="M0 236 Q110 200 210 222 T400 214"/>
+<circle class="ln" pathLength="1" cx="330" cy="62" r="30"/>
+<g class="adult1"><circle class="ln" pathLength="1" cx="112" cy="92" r="17"/><path class="ln" pathLength="1" d="M112 110 L112 178 M112 178 L100 228 M112 178 L124 228 M112 126 L88 160 M112 126 L140 150"/></g>
+<g class="adult2"><circle class="ln" pathLength="1" cx="172" cy="100" r="15"/><path class="ln" pathLength="1" d="M172 116 L154 186 L190 186 Z M164 186 L162 228 M180 186 L182 228 M168 128 L142 150 M176 128 L200 156"/></g>
+<g class="kid1"><circle class="ln" pathLength="1" cx="220" cy="150" r="11"/><path class="ln" pathLength="1" d="M220 162 L220 198 M220 198 L211 228 M220 198 L229 228 M220 172 L200 158 M220 172 L240 160"/></g>
+<g class="kid2"><circle class="ln" pathLength="1" cx="262" cy="164" r="9"/><path class="ln" pathLength="1" d="M262 174 L262 204 M262 204 L255 228 M262 204 L269 228 M262 182 L242 164 M262 182 L280 172"/></g>`;
+['fam1','fam2','fam3'].forEach(id=>$(id).innerHTML=FAM);
+function draw(svg,p){svg.querySelectorAll('.ln').forEach((e,i,a)=>{const n=a.length;const q=clamp(p*1.4-i/n*.4,0,1);e.style.strokeDasharray=1;e.style.strokeDashoffset=1-eo(q)})}
+
+// orbit icons
+(function(){const o=$('s1orbit');for(let i=0;i<10;i++){const d=document.createElement('div');d.className='abs orb';d.style.cssText='width:16px;height:16px;border-radius:50%;background:#dcb771;opacity:.55;box-shadow:0 0 14px rgba(220,183,113,.8)';o.appendChild(d)}})();
+
+// phone grid
+(function(){const g=$('grid');let s=7;const r=()=>{s=(s*9301+49297)%233280;return s/233280};
+ const pal=[[64,58,52],[86,74,60],[40,48,58],[92,70,48],[52,62,52],[70,52,50],[110,96,80],[38,36,40],[74,78,86]];
+ let h='';for(let i=0;i<90;i++){const c=pal[Math.floor(r()*pal.length)],c2=pal[Math.floor(r()*pal.length)];
+  const icon=r()<.25?`<div style="position:absolute;left:30%;top:30%;width:40%;height:40%;border-radius:6px;border:2px solid rgba(255,255,255,.18)"></div>`:'';
+  h+=`<div style="position:relative;float:left;width:124px;height:124px;margin:2px;border-radius:6px;background:linear-gradient(${Math.floor(r()*360)}deg,rgb(${c}),rgb(${c2}))">${icon}</div>`}
+ g.innerHTML=h})();
+
+// timeline
+const AGES=['1 жас','3 жас','7 жас','12 жас'];
+(function(){let h='';AGES.forEach((a,i)=>{const x=120+i*280;h+=`<div class="abs tld" style="left:${x-14}px;top:998px;width:28px;height:28px;border-radius:50%;background:#1a1714;border:3px solid rgba(255,255,255,.18)"></div>
+ <div class="abs tll" style="left:${x-90}px;top:1050px;width:180px;text-align:center;font-size:36px;font-weight:600;color:#cfc8be">${a}</div>
+ <svg class="abs tlk" viewBox="0 0 40 80" style="left:${x-40}px;top:${980-(60+i*34)-20}px;width:80px;height:${60+i*34+20}px" preserveAspectRatio="xMidYMax meet"><g fill="none" stroke="url(#gg)" stroke-width="3" stroke-linecap="round"><circle cx="20" cy="12" r="8"/><path d="M20 20v32M20 52l-8 26M20 52l8 26M20 30l-12 12M20 30l12 12"/></g></svg>`});$('tl').innerHTML=h})();
+
+// chevrons
+$('chev').innerHTML=[0,1,2].map(i=>`<svg class="abs cv" viewBox="0 0 40 20" style="left:20px;top:${i*34}px;width:60px"><path d="M4 4l16 12 16-12" fill="none" stroke="#dcb771" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`).join('');
+
+// captions: [start,end,text] voice time
+const CAPS=[[0,2.92,'Отбасыңызбен соңғы рет қашан бірге суретке түстіңіз?'],[3.44,4.88,'Телефонда мыңдаған сурет бар,'],[5.38,7.92,'бірақ бәріңіз бір кадрда тұрған біреуі де жоқ.'],
+[8.52,9.72,'Ал балалар тез өседі.'],[10.1,11.42,'Бұл кезең енді қайталанбайды.'],[11.98,14.56,'Отбасылық фотосессия — жай сурет емес.'],[15.04,16.62,'Бұл — ұрпаққа қалатын мұра.'],
+[17.34,19.66,'Ал неге студияда емес, табиғат аясында?'],[20.26,22.34,'Студияда — жасанды фон мен дайын поза.'],[22.34,24.74,'Табиғатта — алтын сағат жарығы,'],[25.12,27.18,'еркін қозғалыс, шынайы күлкі.'],
+[27.74,29.14,'Балалар позаға тұрмайды —'],[29.42,31.18,'ойнайды, жүгіреді, күледі.'],[31.68,33.22,'Біз сол сәтті ұстаймыз.']];
+let lastCap=-1;
+function caps(t){const cap=$('cap');let idx=-1;for(let i=0;i<CAPS.length;i++){const nx=CAPS[i+1]?CAPS[i+1][0]:CAPS[i][1]+.6;if(t>=CAPS[i][0]-.05&&t<Math.min(nx,CAPS[i][1]+.6))idx=i}
+ if(idx<0){cap.style.opacity=0;return}
+ const [a,b,txt]=CAPS[idx];const words=txt.split(' ');
+ if(idx!==lastCap){cap.innerHTML=words.map(w=>`<span>${w}</span>`).join(' ');lastCap=idx}
+ const tot=words.reduce((s,w)=>s+w.length,0);let acc=0;
+ cap.querySelectorAll('span').forEach((s,i)=>{const ws=a+(b-a)*acc/tot;acc+=words[i].length;const k=P(t,ws-.04,.12);
+  s.style.color=k>0?`rgba(244,239,232,${.35+.65*k})`:'rgba(244,239,232,.32)'});
+ const pin=eo(P(t,a-.05,.25));cap.style.opacity=pin;cap.style.transform=`translateY(${(1-pin)*16}px)`}
+
+// scenes: [id,start,end] in voice time
+const SC=[['s1',-1,3.2],['s2',3.2,8.3],['s3',8.3,11.75],['s4',11.75,17.15],['s5',17.15,20.1],['s6',20.1,27.5],['s7',27.5,33.45],['s8',33.45,40]];
+function sceneEnv(t,a,b){ // in/out with blur+scale
+ const i=a<0?1:eo(P(t,a,.4)),o=1-eio(P(t,b-.3,.3));const v=Math.min(i,o);
+ const s=(1-i)*-.05+(1-o)*.07+1+.025*clamp((t-a)/(b-a),0,1);
+ return {v,s,blur:(1-i)*16+(1-o)*18}}
+
+// grain
+const gc=$('grain').getContext('2d');const gimg=gc.createImageData(540,960);
+function grain(f){let s=(f*2654435761)>>>0;const d=gimg.data;for(let i=0;i<d.length;i+=4){s^=s<<13;s^=s>>>17;s^=s<<5;const v=(s>>>0)&255;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}gc.putImageData(gimg,0,0)}
+
+window.seek=function(T){
+ const t=T-OFF, f=Math.round(T*30);
+ for(const [id,a,b] of SC){const el=$(id);if(t<a-.01||t>b+.01){el.style.opacity=0;el.style.display='none';continue}
+  el.style.display='block';const e=sceneEnv(t,a,b);el.style.opacity=e.v;el.style.transform=`scale(${e.s})`;el.style.filter=e.blur>.3?`blur(${e.blur}px)`:'none'}
+ // background drift
+ $('glowA').style.transform=`translate(${Math.sin(T*.25)*80}px,${Math.cos(T*.2)*60}px)`;
+ $('glowB').style.transform=`translate(${Math.cos(T*.22)*-90}px,${Math.sin(T*.18)*70}px)`;
+ const gold=Math.max(P(t,22.3,1.2)*(1-P(t,27.3,.6))*.9, P(t,35.6,.8)*.8, P(t,15.6,.8)*(1-P(t,16.9,.4))*.6);
+ $('glowG').style.opacity=gold;
+ caps(t); grain(f);
+
+ // S1
+ if(t<3.4){rise($('s1a'),t,-.2,.5);
+  const pb=P(t,1.25,.55);const b=$('s1b');b.style.opacity=eo(pb);b.style.transform=`scale(${1.25-.25*eo(pb)}) translateY(${(1-eo(pb))*20}px)`;b.style.filter=pb<1?`blur(${(1-pb)*20}px) drop-shadow(0 0 24px rgba(220,183,113,.28))`:'';
+  rise($('s1c'),t,1.8,.5);
+  const pr=eo(P(t,-.1,.8));$('s1ring').style.opacity=pr;$('s1ring').style.transform=`translateY(${(1-pr)*80}px) scale(${.9+.1*pr})`;
+  draw($('fam1'),P(t,.2,2.2));
+  document.querySelectorAll('#s1orbit .orb').forEach((o,i)=>{const ang=i/10*Math.PI*2+T*.6;const R=310;o.style.left=(320+Math.cos(ang)*R-8)+'px';o.style.top=(320+Math.sin(ang)*R-8)+'px';o.style.opacity=.25+.45*(0.5+0.5*Math.sin(T*3+i))});
+ }
+ // S2
+ if(t>3&&t<8.6){rise($('s2a'),t,3.25,.45);rise($('s2b'),t,3.85,.55);
+  const pp=eo(P(t,3.2,.6));const sh=eio(P(t,5.2,.6));const ph=$('phone');
+  ph.style.transform=`translate(${-260*sh}px,${(1-pp)*140}px) scale(${.92+.08*pp-.06*sh}) rotate(${-3*sh}deg)`;ph.style.opacity=pp;
+  // scroll: fast then decel
+  const sp=P(t,3.4,3.6);const y=-1900*eo(sp);const vel=sp>0&&sp<1?Math.pow(1-sp,2)*3:0;
+  $('grid').style.transform=`translateY(${y}px)`;$('grid').style.filter=vel>.05?`blur(${vel*4}px)`:'none';
+  const sc=$('search');const ps=eo(P(t,5.4,.55));sc.style.opacity=ps;sc.style.transform=`translate(${(1-ps)*120}px,0)`;
+  const word='отбасы';const n=Math.floor(clamp((t-5.9)/.12,0,word.length));$('typed').textContent=word.slice(0,n);
+  $('caret').style.opacity=(Math.floor(T*2.5)%2)?1:.15;
+  const z=$('zero');const pz=P(t,7.62,.45);z.style.opacity=eo(pz);const shake=pz>0&&pz<1?Math.sin(pz*40)*(1-pz)*14:0;z.style.transform=`translateX(${shake}px) scale(${.7+.3*eb(pz)})`;
+ }
+ // S3
+ if(t>8.1&&t<12){rise($('s3a'),t,8.35,.4);rise($('s3b'),t,8.95,.55);
+  const pf=eio(P(t,8.6,1.6));$('tlfill').style.width=(840*pf)+'px';
+  document.querySelectorAll('#tl .tld').forEach((d,i)=>{const on=pf*3>=i-.001;d.style.background=on?'#dcb771':'#1a1714';d.style.borderColor=on?'#f3d79b':'rgba(255,255,255,.18)';d.style.boxShadow=on?'0 0 22px rgba(220,183,113,.8)':'none'});
+  document.querySelectorAll('#tl .tlk').forEach((k,i)=>{const p=eb(P(t,8.6+i*.53,.45));k.style.opacity=clamp(p,0,1);k.style.transform=`translateY(${(1-p)*30}px) scale(${.5+.5*p})`;k.style.transformOrigin='50% 100%'});
+  document.querySelectorAll('#tl .tll').forEach((l,i)=>rise(l,t,8.6+i*.53,.4,20,6));
+  rise($('s3c'),t,10.05,.45);rise($('s3d'),t,10.55,.6);
+ }
+ // S4
+ if(t>11.5&&t<17.4){const h1=$('s4h1');const o1=1-eio(P(t,14.8,.35));const i1=rise(h1,t,11.95,.5);h1.style.opacity=i1*o1;if(o1<1){h1.style.filter=`blur(${(1-o1)*14}px)`;h1.style.transform=`translateY(${-(1-o1)*40}px)`}
+  $('strike').style.width=(eio(P(t,13.65,.35))*100)+'%';$('strike').style.width=`calc(${eio(P(t,13.65,.35))*100}% + 12px)`;
+  $('s4plain').style.opacity=1-.5*P(t,13.7,.3);rise($('s4emes'),t,14.0,.4,20,8);
+  const h2=$('s4h2');rise(h2,t,15.0,.5);
+  const pm=P(t,16.3,.6);const m=$('mura');m.style.opacity=eo(pm);m.style.transform=`scale(${1.35-.35*eo(pm)})`;
+  const fr=$('frame');const pf=eo(P(t,11.8,.7));const lift=eio(P(t,15.0,.6));
+  fr.style.opacity=pf;fr.style.transform=`translateY(${(1-pf)*120+ lift*90}px) scale(${.9+.1*pf - lift*.08}) rotate(${(1-pf)*-4+lift*-2}deg)`;
+  fr.style.boxShadow=`0 50px 120px rgba(0,0,0,.65),0 0 ${70+90*eo(pm)}px rgba(220,183,113,${.12+.3*eo(pm)})`;
+  draw($('fam2'),P(t,12.0,1.6));
+ }
+ // S5
+ if(t>16.9&&t<20.4){rise($('s5a'),t,17.3,.45);rise($('s5b'),t,18.5,.6);
+  const cs=$('cStudio'),cn=$('cNature');rise(cs,t,17.35,.55,80);rise(cn,t,17.5,.55,80);
+  const dim=P(t,18.1,.4);cs.style.opacity=parseFloat(cs.style.opacity)*(1-.55*dim);cs.style.transform+=` scale(${1-.06*dim})`;
+  const hl=eo(P(t,18.6,.5));cn.style.transform+=` scale(${1+.05*hl})`;cn.style.borderColor=`rgba(220,183,113,${.1+.6*hl})`;cn.style.boxShadow=`0 30px 80px rgba(0,0,0,.55),0 0 ${80*hl}px rgba(220,183,113,${.35*hl})`;
+  document.querySelectorAll('#s5 .q').forEach((q,i)=>{q.style.transform=`translateY(${Math.sin(T*3+i*2)*8}px) rotate(${Math.sin(T*2+i)*8}deg)`});
+ }
+ // S6
+ if(t>19.9&&t<27.8){const a=$('cA'),b=$('cB');rise(a,t,20.15,.5,60);
+  [['a1',20.75],['a2',21.6]].forEach(([id,s])=>{const r=$(id);rise(r,t,s,.4,24,8);const mk=r.querySelector('.mark');const p=P(t,s+.1,.35);mk.style.transform=`scale(${p?.4+.6*eb(p):0})`});
+  const dm=P(t,22.25,.5);a.style.opacity=parseFloat(a.style.opacity)*(1-.5*dm);a.style.transform+=` scale(${1-.04*dm})`;
+  rise(b,t,22.3,.55,80);const pb=P(t,22.3,.55);b.style.boxShadow=`0 30px 80px rgba(0,0,0,.55),0 0 ${90*dm}px rgba(220,183,113,${.22*dm})`;
+  let cnt=0;[['b1',23.35],['b2',25.1],['b3',26.15]].forEach(([id,s])=>{const r=$(id);rise(r,t,s,.4,24,8);const mk=r.querySelector('.mark');const p=P(t,s+.12,.4);mk.style.transform=`scale(${p?.3+.7*eb(p):0}) rotate(${(1-p)*-90}deg)`;if(t>=s+.15)cnt++});
+  $('bcount').textContent=cnt+' / 3';
+ }
+ // S7
+ if(t>27.2&&t<33.7){rise($('s7a'),t,27.55,.45);rise($('s7b'),t,28.3,.55);
+  [['k1',29.42],['k2',29.96],['k3',30.62]].forEach(([id,s])=>pop($(id),t,s,.45));
+  const sh=$('shot');const ps=eo(P(t,27.6,.6));sh.style.opacity=ps;
+  const frozen=t>=32.62;
+  draw($('fam3'),frozen?1:P(t,27.7,1.4));
+  const tt=frozen?32.62:t;
+  const fam=$('fam3');
+  fam.querySelector('.kid1').style.transform=`translateY(${-Math.abs(Math.sin(tt*5.2))*16}px)`;
+  fam.querySelector('.kid2').style.transform=`translate(${Math.sin(tt*2.4)*10}px,${-Math.abs(Math.sin(tt*6+1))*20}px)`;
+  fam.querySelector('.adult1').style.transform=`rotate(${Math.sin(tt*2)*1.5}deg)`;fam.querySelector('.adult1').style.transformOrigin='112px 228px';
+  fam.style.transform=`translateX(${Math.sin(tt*.9)*14}px)`;
+  const vf=$('vf');const pv=eio(P(t,31.65,.6));
+  const ins=60*(1-pv)+0;vf.style.opacity=ps;
+  vf.querySelectorAll('.vfc').forEach(c=>{const L=70+40*pv;c.style.width=L+'px';c.style.height=L+'px';c.style.borderColor=pv>0?`rgba(220,183,113,${.6+.4*pv})`:'rgba(255,255,255,.55)'});
+  vf.style.transform=`scale(${1.08-.1*pv})`;
+  $('rec').style.opacity=frozen?0:(Math.floor(T*2)%2?1:.3);
+  const fo=$('focus');fo.style.opacity=pv*(frozen?0:1);fo.style.transform=`scale(${1.4-.4*pv})`;
+  sh.style.transform=frozen?`scale(${1-.04*eo(P(t,32.62,.5))}) rotate(${-1.5*eo(P(t,32.62,.5))}deg)`:'none';
+  sh.style.boxShadow=frozen?`0 0 0 14px #efe6d6,0 40px 100px rgba(0,0,0,.7)`:'none';
+  if(frozen){vf.style.opacity=1-P(t,32.62,.2)}
+  rise($('s7c'),t,32.8,.5);
+ }
+ $('flash').style.opacity=t>=32.6&&t<33.0?(1-P(t,32.6,.4))*.85:0;
+ // S8
+ if(t>33.2){rise($('s8a'),t,33.6,.5);rise($('s8b'),t,35.05,.45);
+  const pc=P(t,35.85,.6);const c=$('s8c');c.style.opacity=eo(pc);c.style.transform=`scale(${1.4-.4*eo(pc)})`;
+  c.style.filter=`drop-shadow(0 0 ${30+20*Math.sin(T*3)}px rgba(220,183,113,${.35*eo(pc)}))`+(pc<1?` blur(${(1-pc)*18}px)`:'');
+  rise($('s8d'),t,36.55,.45);
+  document.querySelectorAll('#chev .cv').forEach((v,i)=>{const p=P(t,36.9,.4);const w=.3+.7*(0.5+0.5*Math.sin(T*6-i*1.1));v.style.opacity=p*w;v.style.transform=`translateY(${Math.sin(T*6-i*1.1)*4}px)`});
+  $('cap').style.opacity=0;
+ }
+};
+window.DUR=39.0;
+</script>
+</body></html>
