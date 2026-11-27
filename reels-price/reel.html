@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&family=Montserrat:wght@400;500;600;700;800&family=Fredoka:wght@600;700&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#1e2130}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;background:#1e2130}
+.abs{position:absolute}
+.sc{position:absolute;inset:0;display:none}
+.anton{font-family:Anton,sans-serif;letter-spacing:1px;line-height:.95}
+.h{font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.pill{display:inline-block;border:3px solid #fff;border-radius:16px;padding:6px 34px;font-size:28px;font-weight:500;letter-spacing:1px}
+.price{position:absolute;left:110px;right:110px;height:200px;background:#fff;border-radius:44px;display:flex;align-items:center;justify-content:center;font-family:Fredoka,sans-serif;font-weight:700;font-size:150px;letter-spacing:-2px;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.item{position:absolute;left:110px;right:110px;display:flex;align-items:center;gap:30px;padding:20px 0;border-bottom:2px solid rgba(255,255,255,.22)}
+.item .ic{width:78px;height:78px;flex:none;display:flex;align-items:center;justify-content:center}
+.item b{display:block;font-size:40px;font-weight:700}
+.item span{display:block;font-size:31px;font-weight:500;opacity:.9;margin-top:4px}
+.card{position:absolute;border-radius:36px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.14)}
+.chk{width:64px;height:64px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;flex:none}
+.photo{position:absolute;background-size:cover;background-position:center;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.tag{display:inline-flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;background:#fff;font-weight:800;font-size:38px}
+</style></head>
+<body><div id="stage">
+<div id="bg" class="abs" style="inset:0;background:#1e2130"></div>
+
+<!-- persistent header (as on the price sheets) -->
+<div id="hdr" class="abs" style="left:110px;right:110px;top:110px;opacity:0">
+  <div style="display:flex;justify-content:space-between;font-size:28px;font-weight:500;letter-spacing:.5px"><span id="hdrL">ПАКЕТТЕР</span><span>SARDARE MEDIA</span></div>
+  <div style="height:2px;background:#fff;margin-top:22px;opacity:.9"></div>
+</div>
+
+<!-- S0 INTRO -->
+<div class="sc" id="s0">
+  <img id="logo0" src="assets/logo.png" class="abs" style="left:240px;top:560px;width:600px">
+  <div id="q0" class="abs" style="left:90px;right:90px;top:1060px;text-align:center">
+    <div class="h" style="font-size:60px;line-height:1.15">Пакеттердің<br>айырмашылығы неде?</div>
+    <div style="display:flex;justify-content:center;gap:14px;margin-top:50px" id="dots0"></div>
+  </div>
+</div>
+
+<!-- S1 ROLES OVERVIEW -->
+<div class="sc" id="s1">
+  <div class="h abs" id="s1t" style="left:110px;top:300px;font-size:84px;line-height:1">Мамандар</div>
+  <div class="abs" id="s1s" style="left:110px;top:400px;font-size:36px;font-weight:500;opacity:.85">кім не істейді?</div>
+  <div id="roles" class="abs" style="left:110px;right:110px;top:560px;display:grid;grid-template-columns:1fr 1fr;gap:30px"></div>
+</div>
+
+<!-- S2 OPERATOR -->
+<div class="sc" id="s2">
+  <div class="pill abs" id="s2p" style="left:110px;top:280px">МАМАН</div>
+  <div class="abs" id="s2t" style="left:110px;top:345px;font-size:140px;font-family:Oswald;font-weight:700;line-height:1;letter-spacing:1px">ОПЕРАТОР</div>
+  <div class="abs" id="s2d" style="left:110px;right:110px;top:540px;font-size:40px;font-weight:600;line-height:1.3">Іс-шараны басынан аяғына дейін<br>толық түсіреді</div>
+  <div class="card abs" id="s2map" style="left:110px;right:110px;top:720px;height:600px">
+    <div class="abs" style="left:24px;top:20px;font-size:26px;font-weight:700;letter-spacing:2px;opacity:.75">БАНКЕТ · БІРНЕШЕ ЖАҚТАН</div>
+    <svg class="abs" style="left:0;top:0" width="860" height="600" viewBox="0 0 860 600" id="s2svg">
+      <g opacity=".85" fill="none" stroke="#fff" stroke-width="3">
+        <rect x="300" y="190" width="260" height="180" rx="20" opacity=".5"/>
+        <circle cx="430" cy="280" r="46" opacity=".9"/><path d="M412 268c6-14 30-14 36 0M410 300h40" opacity=".9"/>
+      </g>
+      <text x="430" y="410" text-anchor="middle" fill="#fff" font-size="24" font-weight="600" opacity=".7">сахна / дастарқан</text>
+      <g id="cam1" class="cam"><path class="ray" d="M150 470 L380 300" stroke="#fff" stroke-width="2" stroke-dasharray="6 8" opacity=".6"/><g transform="translate(110,450)"><rect width="80" height="56" rx="12" fill="#fff"/><path d="M80 18l26-14v48l-26-14z" fill="#fff"/><circle cx="40" cy="28" r="12" fill="#1e2130"/></g><text x="150" y="540" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">1</text></g>
+      <g id="cam2" class="cam"><path class="ray" d="M720 470 L480 300" stroke="#fff" stroke-width="2" stroke-dasharray="6 8" opacity=".6"/><g transform="translate(680,450)"><rect width="80" height="56" rx="12" fill="#fff"/><path d="M0 18l-26-14v48l26-14z" fill="#fff"/><circle cx="40" cy="28" r="12" fill="#1e2130"/></g><text x="720" y="540" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">2</text></g>
+      <g id="cam3" class="cam"><path class="ray" d="M430 120 L430 228" stroke="#fff" stroke-width="2" stroke-dasharray="6 8" opacity=".6"/><g transform="translate(390,62)"><rect width="80" height="56" rx="12" fill="#fff"/><circle cx="40" cy="28" r="12" fill="#1e2130"/></g><text x="500" y="100" fill="#fff" font-size="26" font-weight="700">3</text></g>
+    </svg>
+  </div>
+  <div class="abs" id="s2plus" style="left:110px;right:110px;top:1380px;display:flex;align-items:center;gap:30px">
+    <div class="price" style="position:relative;left:0;right:0;width:460px;height:170px;font-size:110px;color:#1e2130"><span id="s2pv">+65 000</span></div>
+    <div style="font-size:36px;font-weight:600;line-height:1.3">әр қосымша<br>операторға</div>
+  </div>
+</div>
+
+<!-- S3/S4/S5 role detail (shared layout, content swapped) -->
+<div class="sc" id="s3">
+  <div class="pill abs" style="left:110px;top:280px">МАМАН</div>
+  <div class="abs" id="r_t" style="left:110px;top:345px;font-size:140px;font-family:Oswald;font-weight:700;line-height:1;letter-spacing:1px">ВИДЕОГРАФ</div>
+  <div class="abs" id="r_d" style="left:110px;right:110px;top:540px;font-size:40px;font-weight:600;line-height:1.3"></div>
+  <div class="abs" id="r_vis" style="left:110px;right:110px;top:760px;height:640px"></div>
+</div>
+
+<!-- S6 DEADLINES -->
+<div class="sc" id="s6">
+  <div class="h abs" style="left:110px;top:290px;font-size:76px;line-height:1">Дайын болу<br>мерзімі</div>
+  <div class="abs" style="left:110px;right:110px;top:560px" id="dl"></div>
+</div>
+
+<!-- S7 PACKAGES INTRO -->
+<div class="sc" id="s7">
+  <div class="h abs" style="left:110px;top:300px;font-size:84px">Пакеттер</div>
+  <div class="abs" id="strips" style="left:110px;right:110px;top:450px"></div>
+</div>
+
+<!-- S8 PACKAGE (one template, content swapped per package) -->
+<div class="sc" id="sp">
+  <div class="pill abs" id="pPill" style="left:110px;top:250px">ПАКЕТ</div>
+  <div class="anton abs" id="pName" style="left:110px;top:318px;font-size:230px">MINI</div>
+  <div class="abs" id="pDesc" style="left:110px;width:460px;top:600px;font-size:34px;font-weight:500;line-height:1.3"></div>
+  <div class="photo" id="pPhoto" style="left:610px;top:250px;width:360px;height:480px"></div>
+  <div class="abs" style="left:110px;right:110px;top:800px;height:2px;background:#fff;opacity:.9" id="pLine"></div>
+  <div class="h abs" style="left:110px;top:836px;font-size:40px" id="pInc">Не кіреді:</div>
+  <div id="pItems"></div>
+  <div class="abs" id="pNote" style="left:0;right:0;top:1560px;text-align:center;font-size:28px;font-weight:500;opacity:.9">Қаладан тыс шығу бөлек төленеді</div>
+  <div class="price" id="pPrice" style="top:1610px"><span id="pVal">0</span></div>
+</div>
+
+<!-- S13 DELIVERY -->
+<div class="sc" id="s13">
+  <div class="h abs" style="left:110px;top:290px;font-size:76px;line-height:1">Оператордың<br>материалы</div>
+  <div class="card abs" id="dY" style="left:110px;right:110px;top:580px;height:360px;padding:40px">
+    <div style="display:flex;align-items:center;gap:30px"><svg width="110" height="78" viewBox="0 0 110 78"><rect width="110" height="78" rx="22" fill="#fff"/><path d="M44 22l30 17-30 17z" fill="#1e2130"/></svg><div><div style="font-size:52px;font-weight:800">YouTube</div><div style="font-size:32px;font-weight:500;opacity:.85">сілтеме арқылы</div></div></div>
+    <div class="tag abs" id="dYt" style="right:40px;bottom:40px;color:#1c4430">ТЕГІН</div>
+  </div>
+  <div class="card abs" id="dF" style="left:110px;right:110px;top:990px;height:460px;padding:40px">
+    <div style="display:flex;align-items:center;gap:30px"><svg width="110" height="78" viewBox="0 0 110 78"><rect x="0" y="16" width="78" height="46" rx="12" fill="#fff"/><rect x="78" y="24" width="28" height="30" rx="4" fill="none" stroke="#fff" stroke-width="5"/><rect x="88" y="32" width="8" height="6" fill="#fff"/></svg><div><div style="font-size:52px;font-weight:800">Флешка</div><div style="font-size:32px;font-weight:500;opacity:.85">жазып беру</div></div></div>
+    <div class="abs" id="dFp" style="left:40px;bottom:40px"><div class="price" style="position:relative;left:0;width:400px;height:150px;font-size:96px;color:#1e2130">+10 000</div></div>
+    <div class="abs" id="dFg" style="right:40px;bottom:52px;text-align:right"><div style="font-family:Fredoka;font-weight:700;font-size:96px;line-height:1">3</div><div style="font-size:30px;font-weight:700">жыл кепілдік</div></div>
+  </div>
+</div>
+
+<!-- S14 GUARANTEES -->
+<div class="sc" id="s14">
+  <div class="h abs" style="left:110px;top:290px;font-size:76px;line-height:1">Барлық<br>пакетте</div>
+  <div class="abs" id="gl" style="left:110px;right:110px;top:560px"></div>
+</div>
+
+<!-- S15 TRAVEL -->
+<div class="sc" id="s15">
+  <svg class="abs" id="trv" style="left:240px;top:520px" width="600" height="420" viewBox="0 0 600 420">
+    <path id="road" d="M40 360 C180 360 160 120 300 120 S440 300 560 80" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="14 16" opacity=".7"/>
+    <circle cx="40" cy="360" r="18" fill="#fff"/>
+    <g id="pin" transform="translate(560,80)"><path d="M0 0c-26-34-42-54-42-74a42 42 0 0184 0c0 20-16 40-42 74z" fill="#fff"/><circle cx="0" cy="-76" r="15" fill="#1e2130"/></g>
+    <circle id="car" r="16" fill="#e3b64c"/>
+  </svg>
+  <div class="abs" style="left:110px;right:110px;top:1060px;text-align:center"><div class="h" style="font-size:62px;line-height:1.15" id="trt">Қаладан тыс шығу</div><div style="margin-top:30px" id="trb"><span class="tag" style="color:#1e2130">бөлек төленеді</span></div></div>
+</div>
+
+<!-- S16 SUMMARY + OUTRO -->
+<div class="sc" id="s16">
+  <div class="h abs" style="left:110px;top:290px;font-size:64px" id="smT">Қысқаша</div>
+  <div class="abs" id="sm" style="left:110px;right:110px;top:420px"></div>
+  <div class="abs" id="smQ" style="left:110px;right:110px;top:1500px;text-align:center;font-size:40px;font-weight:700;line-height:1.35">Сұрақтарыңыз болса, жазыңыз.<br><span style="font-weight:500;opacity:.9">Ыңғайлы пакетті бірге таңдаймыз.</span></div>
+</div>
+<div class="sc" id="s17"><img src="assets/logo.png" class="abs" id="logoE" style="left:240px;top:700px;width:600px"></div>
+
+<div id="wipe" class="abs" style="left:0;right:0;top:0;height:1920px;transform:translateY(100%)"></div>
+</div>
+<script>
+const D=0.3; const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+const V=v=>v+D;
+function rise(el,t,a,d=.5,dist=40){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;return p}
+function pop(el,t,a,d=.45){const p=P(t,a,d);el.style.opacity=clamp(p*3,0,1);el.style.transform=`scale(${p?.6+.4*eb(p):.6})`;return p}
+const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+
+// ---------- icons ----------
+const IC={
+op:'<svg width="70" height="52" viewBox="0 0 70 52" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><rect x="2" y="8" width="46" height="36" rx="9"/><path d="M48 20l18-10v32l-18-10"/></svg>',
+vg:'<svg width="70" height="56" viewBox="0 0 70 56" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><rect x="2" y="16" width="44" height="34" rx="7"/><path d="M46 26l20-10v34l-20-10"/><circle cx="13" cy="9" r="7"/><circle cx="33" cy="9" r="7"/></svg>',
+mb:'<svg width="56" height="70" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><rect x="10" y="2" width="36" height="64" rx="8"/><path d="M22 8h12"/><circle cx="28" cy="58" r="2.5" fill="#fff"/></svg>',
+ph:'<svg width="70" height="58" viewBox="0 0 70 58" fill="#fff"><path d="M24 4h22l5 8h11a6 6 0 016 6v32a6 6 0 01-6 6H8a6 6 0 01-6-6V18a6 6 0 016-6h11z"/><circle cx="35" cy="33" r="13" fill="none" stroke="#1e2130" stroke-width="5"/></svg>',
+rl:'<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><rect x="3" y="3" width="58" height="58" rx="16"/><path d="M3 20h58M20 3l9 17M38 3l9 17"/><path d="M26 31l15 9-15 9z" fill="#fff"/></svg>',
+qr:'<svg width="56" height="70" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="4"><rect x="8" y="2" width="40" height="66" rx="8"/><rect x="16" y="16" width="10" height="10" fill="#fff"/><rect x="30" y="16" width="10" height="10" fill="#fff"/><rect x="16" y="30" width="10" height="10" fill="#fff"/><path d="M32 32h6v6h-6zM30 44h10" stroke-width="3"/></svg>',
+sd:'<svg width="50" height="66" viewBox="0 0 50 66" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><path d="M14 2h28a6 6 0 016 6v50a6 6 0 01-6 6H8a6 6 0 01-6-6V16z"/><path d="M18 10v12M26 10v12M34 10v12"/></svg>',
+mt:'<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><circle cx="16" cy="48" r="9"/><circle cx="40" cy="52" r="9"/><path d="M22 41L50 6M34 45L18 10"/></svg>',
+tg:'<svg width="64" height="56" viewBox="0 0 64 56" fill="#fff"><path d="M2 26L60 2 50 54 30 40 22 52 22 36 50 12 16 32z"/></svg>',
+chk:'<svg width="30" height="30" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>'};
+
+// ---------- data ----------
+const PK=[
+ {id:'mini',name:'MINI',bg:'#0e3473',fg:'#fff',num:'#0e3473',price:65000,photo:'mini.jpg',desc:'Шағын іс-шараларға арналған',
+  a:46.42,pv:47.44,b:57.8,items:[['mb','Мобилограф','Тек iPhone-ға түсіреді',50.88],['ph','Фотограф','50–250 фото',51.82],['rl','Insta reels','1,5 – 3 мин тизер',52.74],['tg','Telegram','Дайын материал',55.96]]},
+ {id:'basic',name:'BASIC',bg:'#50328a',fg:'#fff',num:'#50328a',price:80000,photo:'basic.jpg',desc:'Толық видеотүсірілім және монтаж',
+  a:57.94,pv:59.58,b:63.9,items:[['op','Оператор','Толық видеотүсірілім',60.94],['mt','Монтаж','Өңделген дайын видео',62.68],['sd','YouTube / флешка','Дайын материал',63.2]]},
+ {id:'elite',name:'ELITE',bg:'#8a1639',fg:'#fff',num:'#8a1639',price:115000,photo:'elite.jpg',desc:'Видео мен фото бірге',
+  a:64.06,pv:65.14,b:72.8,items:[['op','Оператор','Толық видеотүсірілім',66.86],['ph','Фотограф','50–250 фото',67.74],['qr','QR-галерея','Фотолар LED-экранда',68.46],['sd','YouTube / флешка','Дайын материал',70.02]]},
+ {id:'royal',name:'ROYAL',bg:'#212531',fg:'#e3b64c',num:'#212531',price:140000,photo:'royal.jpg',desc:'Әлеуметтік желіге арналған контент',
+  a:72.96,pv:74.12,b:79.0,items:[['vg','Видеограф','Кәсіби камера',75.6],['ph','Фотограф','50–250 фото',76.38],['rl','Insta reels','1,5 – 3 мин тизер',77.18],['qr','QR-галерея','Фотолар LED-экранда',78.22]]},
+ {id:'luxury',name:'LUXURY',bg:'#1a4331',fg:'#e3b64c',num:'#1a4331',price:195000,photo:'luxury.jpg',desc:'Ең толық жиынтық',
+  a:79.16,pv:80.76,b:88.7,items:[['op','Оператор','Толық видеотүсірілім',84.0],['vg','Видеограф','Кәсіби камера',84.88],['ph','Фотограф','50–250 фото',85.62],['rl','Insta reels','1,5 – 3 мин тизер',86.4],['qr','QR-галерея','Фотолар LED-экранда',87.44],['sd','YouTube / флешка','Дайын материал',87.9]]}];
+
+// scene list (video time)
+const SC=[['s0',0,V(4.7)],['s1',V(4.7),V(6.6)],['s2',V(6.6),V(18.0)],['s3',V(18.0),V(32.5)],['s6',V(32.5),V(44.3)],['s7',V(44.3),V(46.3)],
+ ['sp',V(46.3),V(88.75)],['s13',V(88.75),V(96.8)],['s14',V(96.8),V(104.9)],['s15',V(104.9),V(107.5)],['s16',V(107.5),V(112.6)],['s17',V(112.6),200]];
+
+// roles grid
+const ROLES=[['op','Оператор','толық түсірілім'],['vg','Видеограф','қысқа контент'],['mb','Мобилограф','iPhone контент'],['ph','Фотограф','50–250 фото']];
+$('roles').innerHTML=ROLES.map((r,i)=>`<div class="card rl" style="position:relative;height:300px;padding:36px"><div style="height:80px">${IC[r[0]]}</div><div style="font-size:44px;font-weight:800;margin-top:30px">${r[1]}</div><div style="font-size:30px;font-weight:500;opacity:.8;margin-top:8px">${r[2]}</div></div>`).join('');
+$('dots0').innerHTML=PK.map(p=>`<span class="d0" style="width:36px;height:36px;border-radius:50%;background:${p.bg};border:3px solid #fff"></span>`).join('');
+
+// role detail sub-scenes inside s3
+const RD=[
+ {a:18.0,b:22.9,t:'ВИДЕОГРАФ',d:'Кәсіби камерамен Instagram-ға<br>арналған қысқа контент түсіреді',vis:'vg'},
+ {a:22.9,b:26.9,t:'МОБИЛОГРАФ',d:'Дәл сондай контент,<br>бірақ тек iPhone-ға түсіреді',vis:'mb'},
+ {a:26.9,b:32.5,t:'ФОТОГРАФ',d:'Іс-шараны басынан аяғына<br>дейін түсіреді',vis:'ph'}];
+const VIS={
+ vg:`<div class="card abs" style="inset:0;display:flex;align-items:center;justify-content:center;gap:50px"><div style="transform:scale(2.6)">${IC.vg}</div><div class="abs" style="left:0;right:0;bottom:40px;display:flex;justify-content:center;gap:16px"><span class="tag vt" style="color:#1e2130;font-size:30px">кәсіби камера</span><span class="tag vt" style="color:#1e2130;font-size:30px">Instagram</span><span class="tag vt" style="color:#1e2130;font-size:30px">қысқа формат</span></div></div>`,
+ mb:`<div class="card abs" style="inset:0"><div class="abs" style="left:60px;top:60px;width:300px;text-align:center"><div style="transform:scale(2.2);height:160px;padding-top:40px">${IC.vg}</div><div style="font-size:32px;font-weight:700;margin-top:50px">Видеограф</div><div style="font-size:26px;opacity:.8">кәсіби камера</div></div><div class="abs" style="left:420px;top:180px;font-size:60px;font-weight:800;opacity:.6">vs</div><div class="abs" style="right:60px;top:60px;width:300px;text-align:center"><div style="transform:scale(2.2);height:160px;padding-top:30px">${IC.mb}</div><div style="font-size:32px;font-weight:700;margin-top:50px">Мобилограф</div><div style="font-size:26px;opacity:.8">тек iPhone</div></div><div class="abs" style="left:0;right:0;bottom:46px;text-align:center"><span class="tag" style="color:#1e2130;font-size:30px">контент форматы бірдей</span></div></div>`,
+ ph:`<div class="card abs" style="inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="transform:scale(2.2);height:150px">${IC.ph}</div><div style="font-family:Fredoka;font-weight:700;font-size:170px;line-height:1;margin-top:40px"><span id="phn">50</span>–<span id="phm">250</span></div><div style="font-size:40px;font-weight:700">фото</div></div>`};
+
+// deadlines rows
+$('dl').innerHTML=[['vg','Видеограф'],['mb','Мобилограф'],['ph','Фотограф']].map((r,i)=>`<div class="dlr" style="display:flex;align-items:center;gap:22px;height:120px;border-bottom:2px solid rgba(255,255,255,.15)"><div style="width:70px;display:flex;justify-content:center">${IC[r[0]]}</div><div style="font-size:38px;font-weight:700;width:300px">${r[1]}</div><div style="flex:1;height:22px;border-radius:11px;background:rgba(255,255,255,.12);position:relative;overflow:hidden"><div class="bar1" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:11px;background:#fff"></div></div></div>`).join('')
+ +`<div class="abs" id="b24" style="right:0;top:390px"><span class="tag" style="color:#1e2130">24 сағат</span></div>`
+ +`<div id="dop" style="margin-top:120px;display:flex;align-items:center;gap:22px;height:120px;border-bottom:2px solid rgba(255,255,255,.15)"><div style="width:70px;display:flex;justify-content:center">${IC.op}</div><div style="font-size:38px;font-weight:700;width:300px">Оператор</div><div style="flex:1;height:22px;border-radius:11px;background:rgba(255,255,255,.12);position:relative;overflow:hidden"><div id="bar3" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:11px;background:#fff"></div><div id="bar7" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:11px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 14px,transparent 14px 24px)"></div></div></div>`
+ +`<div class="abs" style="left:0;right:0;top:770px;display:flex;justify-content:flex-end;gap:16px"><span class="tag" id="b3" style="color:#1e2130">3 күн</span><span class="tag" id="b7" style="color:#fff;background:transparent;border:3px solid #fff">көп болса — 7 күн</span></div>`;
+
+$('strips').innerHTML=PK.map((p,i)=>`<div class="strip" style="height:190px;margin-bottom:24px;border-radius:30px;background:${p.bg};border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:space-between;padding:0 44px"><span class="anton" style="font-size:110px;color:${p.fg}">${p.name}</span><span style="font-family:Fredoka;font-weight:700;font-size:64px">${fmt(p.price)}</span></div>`).join('');
+
+const GU=['Кәсіби техника','Тәжірибелі команда','Сапалы монтаж және түс түзеу','Басынан аяғына дейін түсірілім','Қысқа мерзімде тапсыру'];
+const GT=[97.98,99.14,100.46,102.16,103.8];
+$('gl').innerHTML=GU.map(g=>`<div class="gr" style="display:flex;align-items:center;gap:30px;height:150px;border-bottom:2px solid rgba(255,255,255,.18)"><div class="chk">${IC.chk}</div><div style="font-size:42px;font-weight:700">${g}</div></div>`).join('');
+
+const MAT=[['Оператор',[0,1,1,0,1]],['Видеограф',[0,0,0,1,1]],['Мобилограф',[1,0,0,0,0]],['Фотограф',[1,0,1,1,1]],['Insta reels',[1,0,0,1,1]],['QR-галерея',[0,0,1,1,1]]];
+$('sm').innerHTML=`<div style="display:grid;grid-template-columns:300px repeat(5,1fr);gap:8px;align-items:center">`+
+ `<div></div>`+PK.map(p=>`<div class="mh" style="background:${p.bg};border-radius:16px;height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.2)"><span class="anton" style="font-size:30px;color:${p.fg}">${p.name}</span><span style="font-family:Fredoka;font-weight:700;font-size:24px">${fmt(p.price)}</span></div>`).join('')+
+ MAT.map(([n,v])=>`<div class="mr" style="font-size:32px;font-weight:700;height:110px;display:flex;align-items:center;border-bottom:2px solid rgba(255,255,255,.12)">${n}</div>`+v.map((x,j)=>`<div class="mc" style="height:110px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid rgba(255,255,255,.12)">${x?`<div style="width:52px;height:52px;border-radius:50%;background:${PK[j].bg};border:3px solid #fff;display:flex;align-items:center;justify-content:center">${IC.chk}</div>`:'<div style="width:22px;height:3px;background:rgba(255,255,255,.3)"></div>'}</div>`).join('')).join('')+`</div>`;
+
+let curPk=-1,curRd=-1;
+function setPkg(i){const p=PK[i];curPk=i;
+ $('pName').textContent=p.name;{const e=$('pName');e.style.fontSize='230px';e.style.whiteSpace='nowrap';e.style.display='inline-block';const w=e.scrollWidth;if(w>470)e.style.fontSize=(230*470/w)+'px';}$('pName').style.color=p.fg;$('pDesc').textContent=p.desc;$('pPhoto').style.backgroundImage=`url(assets/${p.photo})`;
+ $('pPrice').style.color=p.num;$('pPrice').style.color=p.num;
+ const n=p.items.length;const top=900,h=n>4?108:128;
+ $('pItems').innerHTML=p.items.map((it,k)=>`<div class="item pit" style="top:${top+k*h}px;padding:${n>4?10:16}px 0"><div class="ic">${IC[it[0]]}</div><div><b style="font-size:${n>4?36:40}px">${it[1]}</b><span style="font-size:${n>4?28:31}px">${it[2]}</span></div></div>`).join('')}
+function setRd(i){curRd=i;const r=RD[i];$('r_t').textContent=r.t;$('r_d').innerHTML=r.d;$('r_vis').innerHTML=VIS[r.vis]}
+
+window.seek=function(T){
+ const v=T-D;
+ // which scene
+ let cur=null;for(const s of SC){const el=$(s[0]);const on=T>=s[1]&&T<s[2];el.style.display=on?'block':'none';if(on)cur=s}
+ // scene entrance: slide+fade content
+ const ent=eo(P(T,cur[1],.45));const st=$(cur[0]);st.style.opacity=ent;st.style.transform=`translateY(${(1-ent)*50}px)`;
+ // header
+ const hv=T>=V(4.7)&&T<V(112.6)?1:0;$('hdr').style.opacity=hv*eo(P(T,V(4.7),.4));
+ let bgc='#1e2130';
+ // S0
+ if(cur[0]==='s0'){const l=$('logo0');const p=eo(P(T,.1,.9));l.style.opacity=p;l.style.transform=`scale(${.9+.1*p})`;l.style.filter=`blur(${(1-p)*10}px)`;
+  rise($('q0'),T,V(0.8),.5);document.querySelectorAll('.d0').forEach((d,i)=>pop(d,T,V(2.7)+i*.12))}
+ if(cur[0]==='s1'){$('hdrL').textContent='МАМАНДАР';rise($('s1t'),T,V(4.75),.4);rise($('s1s'),T,V(5.0),.4);document.querySelectorAll('.rl').forEach((r,i)=>rise(r,T,V(5.1)+i*.12,.4))}
+ if(cur[0]==='s2'){$('hdrL').textContent='МАМАНДАР';rise($('s2p'),T,V(6.6),.4);rise($('s2t'),T,V(6.7),.45);rise($('s2d'),T,V(7.3),.45);rise($('s2map'),T,V(9.6),.5);
+  [['cam1',10.4],['cam2',11.6],['cam3',12.0]].forEach(([id,a])=>{const g=$(id);const p=P(T,V(a),.4);g.style.opacity=clamp(p*2,0,1);g.style.transform=`translateY(${(1-eb(p))*20}px)`;g.style.transformBox='fill-box';
+   g.querySelector('.ray').style.strokeDashoffset=-(T*30)%28});
+  rise($('s2plus'),T,V(15.6),.5);const pp=eo(P(T,V(16.7),.9));$('s2pv').textContent='+'+fmt(65000*pp)}
+ if(cur[0]==='s3'){$('hdrL').textContent='МАМАНДАР';let k=RD.findIndex(r=>v>=r.a-.3&&v<r.b);if(k<0)k=0;if(k!==curRd)setRd(k);const r=RD[k];const e=eo(P(v,r.a-.3,.45));
+  ['r_t','r_d','r_vis'].forEach((id,i)=>{const el=$(id);const p=eo(P(v,r.a-.3+i*.12,.45));el.style.opacity=p;el.style.transform=`translateX(${(1-p)*60}px)`});
+  document.querySelectorAll('.vt').forEach((t,i)=>pop(t,T,V(r.a+1.2+i*.5)));
+  if(r.vis==='ph'){const p=eio(P(v,29.9,1.6));$('phn').textContent=Math.round(50*Math.max(p,.02)>1?50:50);$('phm').textContent=fmt(50+200*p)}}
+ if(cur[0]==='s6'){$('hdrL').textContent='МЕРЗІМ';document.querySelectorAll('.dlr').forEach((r,i)=>rise(r,T,V(32.7+i*.6),.4));
+  document.querySelectorAll('.bar1').forEach((b,i)=>b.style.width=(22*eio(P(T,V(35.8+i*.15),.8)))+'%');pop($('b24'),T,V(36.6));
+  rise($('dop'),T,V(38.1),.4);$('bar3').style.width=(55*eio(P(T,V(39.5),.9)))+'%';pop($('b3'),T,V(39.7));$('bar7').style.width=(100*eio(P(T,V(42.0),1.2)))+'%';pop($('b7'),T,V(42.4))}
+ if(cur[0]==='s7'){$('hdrL').textContent='ПАКЕТТЕР';document.querySelectorAll('.strip').forEach((s,i)=>{const p=eo(P(T,V(44.45)+i*.1,.45));s.style.opacity=p;s.style.transform=`translateX(${(1-p)*-120}px)`})}
+ if(cur[0]==='sp'){$('hdrL').textContent='ПРАЙС';let k=PK.findIndex(p=>v>=p.a-.3&&v<p.b);if(k<0)k=0;if(k!==curPk)setPkg(k);const p=PK[k];bgc=p.bg;
+  const a=V(p.a-.3);rise($('pPill'),T,a,.35);const pn=$('pName');const q=eo(P(T,a,.5));pn.style.opacity=q;pn.style.transform=`translateY(${(1-q)*60}px)`;pn.style.clipPath=`inset(0 0 ${(1-q)*100}% 0)`;
+  rise($('pDesc'),T,a+.4,.45);const ph=$('pPhoto');const pq=eo(P(T,a+.15,.6));ph.style.opacity=pq;ph.style.transform=`translateX(${(1-pq)*80}px) scale(${1.04-.04*pq})`;
+  $('pLine').style.transform=`scaleX(${eo(P(T,a+.3,.6))})`;$('pLine').style.transformOrigin='left';rise($('pInc'),T,a+.5,.4);
+  document.querySelectorAll('.pit').forEach((it,i)=>{const p2=eo(P(T,V(p.items[i][3])-.1,.4));it.style.opacity=p2;it.style.transform=`translateX(${(1-p2)*-50}px)`});
+  const pr=$('pPrice');const pp=P(T,V(p.pv)-.2,.5);pr.style.opacity=eo(pp);pr.style.transform=`translateY(${(1-eo(pp))*60}px)`;
+  $('pVal').textContent=fmt(p.price*eio(P(T,V(p.pv),.9)));rise($('pNote'),T,V(p.pv)+.5,.4,15)}
+ if(cur[0]==='s13'){$('hdrL').textContent='МАТЕРИАЛ';rise($('dY'),T,V(88.9),.45);pop($('dYt'),T,V(91.3));rise($('dF'),T,V(92.1),.45);
+  const fp=$('dFp');rise(fp,T,V(93.4),.45,20);fp.querySelector('.price').textContent='+'+fmt(10000*eio(P(T,V(93.5),.7)));pop($('dFg'),T,V(95.1))}
+ if(cur[0]==='s14'){$('hdrL').textContent='КЕПІЛДІК';document.querySelectorAll('.gr').forEach((g,i)=>{rise(g,T,V(GT[i])-.15,.4);const c=g.querySelector('.chk');c.style.background=T>=V(GT[i])+.1?'rgba(255,255,255,.18)':'transparent'})}
+ if(cur[0]==='s15'){$('hdrL').textContent='ШЫҒУ';const rd=$('road');const L=rd.getTotalLength();const p=eio(P(T,V(105.1),1.6));const pt=rd.getPointAtLength(L*p);$('car').setAttribute('cx',pt.x);$('car').setAttribute('cy',pt.y);
+  pop($('pin'),T,V(105.0));rise($('trt'),T,V(105.1),.45);pop($('trb'),T,V(106.3))}
+ if(cur[0]==='s16'){$('hdrL').textContent='САЛЫСТЫРУ';rise($('smT'),T,V(107.5),.4);document.querySelectorAll('.mh').forEach((m,i)=>pop(m,T,V(107.7)+i*.08));
+  document.querySelectorAll('.mr').forEach((m,i)=>rise(m,T,V(108.1)+i*.12,.35,16));document.querySelectorAll('.mc').forEach((m,i)=>{const row=Math.floor(i/5);pop(m,T,V(108.2)+row*.12+(i%5)*.04,.3)});
+  rise($('smQ'),T,V(109.4),.5)}
+ if(cur[0]==='s17'){const l=$('logoE');const p=eo(P(T,V(112.6),.8));l.style.opacity=p;l.style.transform=`scale(${.92+.08*p})`}
+ // background colour (packages) with smooth cross-fade
+ $('bg').style.background=bgc;$('stage').style.background=bgc;
+ // colour wipe between packages
+ let w=null;for(let i=0;i<PK.length;i++){const a=V(PK[i].a-.3);if(T>=a-.35&&T<a+.25){w=[PK[i].bg,(T-(a-.35))/.6]}}
+ if(T>=V(46.3)-.35&&T<V(46.3)+.25)w=[PK[0].bg,(T-(V(46.3)-.35))/.6];
+ const wp=$('wipe');if(w){wp.style.background=w[0];const k=w[1];wp.style.transform=k<.58?`translateY(${(1-eio(k/.58))*100}%)`:`translateY(${-eio((k-.58)/.42)*100}%)`}else wp.style.transform='translateY(100%)';
+};
+window.DUR=115.2;
+</script>
+</body></html>
