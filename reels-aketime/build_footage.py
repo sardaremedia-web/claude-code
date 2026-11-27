@@ -8,7 +8,7 @@ import os
 os.makedirs('shots',exist_ok=True);lst=[]
 for i,(s,d,sp) in enumerate(SHOTS):
     srcd=min(d*sp,3.38) if s==69.76 else d*sp; z=0.06 if i%2==0 else 0.045
-    vf=(f"setpts=(PTS-STARTPTS)/{sp},fps=50,scale=1080:1920,setsar=1,"+(f"tpad=stop_mode=clone:stop_duration={d-3.38:.2f}," if s==69.76 else "")+"
+    vf=(f"setpts=(PTS-STARTPTS)/{sp},fps=50,scale=1080:1920,setsar=1,"+(f"tpad=stop_mode=clone:stop_duration={d-3.38:.2f}," if s==69.76 else "")+
         "eq=contrast=1.05:saturation=1.08:gamma=0.98,colorbalance=rm=0.04:bm=-0.04:rh=0.03:bh=-0.03")
     out=f"shots/{i:02d}.mp4"
     subprocess.run(["ffmpeg","-v","error","-y","-ss",str(s),"-t",f"{srcd:.3f}","-i","src/src.mp4","-an","-vf",vf,"-frames:v",str(round(d*50)),"-c:v","libx264","-preset","medium","-crf","15","-pix_fmt","yuv420p","-r","50",out],check=True)
