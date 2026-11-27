@@ -178,14 +178,18 @@ $('cards').innerHTML=PK.map((p,i)=>{const n=p.items.length;const th=n>4?180:270;
  <div class="abs big pv" style="left:60px;right:60px;top:130px;font-size:170px;white-space:nowrap;text-shadow:0 0 50px ${hexA(p.ac,.6)}">0</div>
  <div class="abs" style="left:60px;right:60px;top:370px;height:2px;background:rgba(255,255,255,.12)"></div>
  <div class="abs lbl" style="left:60px;top:410px">НЕ КІРЕДІ</div>
- ${p.items.map((it,k)=>`<div class="abs bd" style="left:${60+(k%2)*410}px;top:${470+Math.floor(k/2)*(th+40)}px;width:370px;height:${th}px;border-radius:28px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:18px;padding:0 20px"><div class="ic" style="width:${n>4?84:110}px;height:${n>4?84:110}px">${ICS(it[0],n>4?.95:1.15)}</div><div style="min-width:0"><div style="font-size:${n>4?30:34}px;font-weight:800;line-height:1.12">${it[1]}</div><div class="mut" style="font-size:${n>4?23:27}px;margin-top:8px">${it[2]}</div></div></div>`).join('')}
+ ${p.items.map((it,k)=>`<div class="abs bd" style="left:${60+(k%2)*410}px;top:${470+Math.floor(k/2)*(th+40)}px;width:370px;height:${th}px;border-radius:28px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:${n>4?12:20}px;padding:0 24px;overflow:hidden"><div class="ic" style="width:${n>4?78:110}px;height:${n>4?78:110}px">${ICS(it[0],n>4?.9:1.15)}</div><div style="width:100%"><div><span class="bn" style="display:inline-block;max-width:322px;font-size:${n>4?30:38}px;font-weight:800;line-height:1.1;white-space:normal;text-wrap:balance">${it[1]}</span></div><div style="margin-top:${n>4?4:8}px"><span class="mut fs" style="display:inline-block;font-size:${n>4?22:27}px;white-space:nowrap">${it[2]}</span></div></div></div>`).join('')}
 </div>`}).join('');
 const GU=['Кәсіби техника','Тәжірибелі команда','Монтаж және түс түзеу','Басынан аяғына дейін','Қысқа мерзімде тапсыру'];const GT=[98.9,100.18,101.16,103.1,105.0];
 const GH=1140/5;$('gl').innerHTML=GU.map((g,i)=>`<div class="gr abs" style="left:60px;right:60px;top:${i*GH}px;height:${GH}px;display:flex;align-items:center;justify-content:space-between;${i?'border-top:1px solid rgba(255,255,255,.08)':''}"><span class="gt" style="font-size:44px;font-weight:700">${g}</span><div class="ok gk">${CHK}</div></div>`).join('');
 
 function setAccent(h){const s=$('stage').style;s.setProperty('--ac',h);s.setProperty('--acg',hexA(h,.5));s.setProperty('--acs',hexA(h,.16))}
-let lastTitle='';
+let lastTitle='',fitted=false;
+function fitNames(){const cv=document.createElement('canvas').getContext('2d');const max=300;
+ document.querySelectorAll('.bn,.fs').forEach(e=>{let fs=parseFloat(e.style.fontSize);const w=e.classList.contains('bn')?800:600;let g=0;
+  while(g++<40&&fs>16){cv.font=`${w} ${fs}px Montserrat`;if(cv.measureText(e.textContent).width<=max)break;fs-=1}e.style.fontSize=fs+'px'});fitted=true}
 window.seek=function(T){
+ if(!fitted)fitNames();
  const v=T-D;let cur=null;for(const s of SC){const on=T>=s[1]&&T<s[2];$(s[0]).style.display=on?'block':'none';if(on)cur=s}
  const id=cur[0];
  if(id!=='pk'){const ent=eo(P(T,cur[1],.5));const st=$(id);const ex=id==='out'?0:P(T,cur[2]-.3,.3);st.style.opacity=Math.min(ent,1-ex);st.style.transform=`translateY(${(1-ent)*30}px)`;st.style.filter=(ent<1||ex>0)?`blur(${Math.max(1-ent,ex)*14}px)`:'none'}
