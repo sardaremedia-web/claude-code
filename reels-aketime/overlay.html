@@ -20,7 +20,7 @@ html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
 #capbox b{font-weight:700;color:var(--gold2)}
 </style></head>
 <body><div id="stage">
-<div class="abs" id="scrB" style="left:0;right:0;bottom:0;height:900px;background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,0))"></div>
+<div class="abs" id="scrB" style="opacity:0;left:0;right:0;bottom:0;height:900px;background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,0))"></div>
 
 <div id="cap"><div id="capbox"></div></div>
 
@@ -145,6 +145,7 @@ window.seek=function(T){
  rowIn($('r1'),T,33.9);[['r2',36.1],['r3',38.3]].forEach(([id,s])=>{const e=$(id);rowIn(e,T,s);const ic=e.querySelector('.ic');const on=T>=s;ic.style.background=on?'linear-gradient(180deg,#f3d699,#c99a52)':'';ic.style.color=on?'#1a140d':'#f6dca4';ic.style.borderColor=on?'transparent':''});
  const en=$('end');win(en,T,43.85,99);en.style.transform+=` scale(${1.2-.2*eo(P(T,43.85,.5))})`;
  win($('tag'),T,45.3,99,12);
+ {let m=0;document.querySelectorAll('.el').forEach(e=>m=Math.max(m,parseFloat(e.style.opacity)||0));$('scrB').style.opacity=m;}
  caps(tv); if(T>45.3)$('cap').style.opacity=1-P(T,45.3,.3);
  const fl=[[31.55,.3],[44.0,.25]];let fo=0;fl.forEach(([a,d])=>{if(T>=a&&T<a+d)fo=Math.max(fo,(1-P(T,a,d))*.4)});$('flash').style.opacity=fo;
 };

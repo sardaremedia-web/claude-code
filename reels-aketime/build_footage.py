@@ -9,7 +9,7 @@ os.makedirs('shots',exist_ok=True);lst=[]
 for i,(s,d,sp) in enumerate(SHOTS):
     srcd=d*sp; z=0.06 if i%2==0 else 0.045
     vf=(f"setpts=(PTS-STARTPTS)/{sp},fps=30,scale=w='trunc(1080*(1+{z}*t/{d})/2)*2':h=-2:eval=frame,crop=1080:1920,setsar=1,"
-        "eq=contrast=1.05:saturation=1.08:gamma=0.98,colorbalance=rm=0.04:bm=-0.04:rh=0.03:bh=-0.03,vignette=PI/5")
+        "eq=contrast=1.05:saturation=1.08:gamma=0.98,colorbalance=rm=0.04:bm=-0.04:rh=0.03:bh=-0.03")
     out=f"shots/{i:02d}.mp4"
     subprocess.run(["ffmpeg","-v","error","-y","-ss",str(s),"-t",f"{srcd:.3f}","-i","src/src.mp4","-an","-vf",vf,"-frames:v",str(round(d*30)),"-c:v","libx264","-preset","medium","-crf","15","-pix_fmt","yuv420p","-r","30",out],check=True)
     lst.append(f"file '{os.path.abspath(out)}'")
