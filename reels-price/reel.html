@@ -239,7 +239,7 @@ window.seek=function(T){
  if(cur[0]==='s2'){$('hdrL').textContent='МАМАНДАР';rise($('s2p'),T,V(6.6),.4);rise($('s2t'),T,V(6.7),.45);rise($('s2d'),T,V(7.3),.45);rise($('s2map'),T,V(9.6),.5);
   [['cam1',10.4],['cam2',11.6],['cam3',12.0]].forEach(([id,a])=>{const g=$(id);const p=P(T,V(a),.4);g.style.opacity=clamp(p*2,0,1);g.style.transform=`translateY(${(1-eb(p))*20}px)`;g.style.transformBox='fill-box';
    g.querySelector('.ray').style.strokeDashoffset=-(T*30)%28});
-  rise($('s2plus'),T,V(15.6),.5);const pp=eo(P(T,V(16.7),.9));$('s2pv').textContent='+'+fmt(65000*pp)}
+  rise($('s2plus'),T,V(15.6),.5);const pp=eo(P(T,V(15.65),1.0));$('s2pv').textContent='+'+fmt(65000*pp)}
  if(cur[0]==='s3'){$('hdrL').textContent='МАМАНДАР';let k=RD.findIndex(r=>v>=r.a-.3&&v<r.b);if(k<0)k=0;if(k!==curRd)setRd(k);const r=RD[k];const e=eo(P(v,r.a-.3,.45));
   ['r_t','r_d','r_vis'].forEach((id,i)=>{const el=$(id);const p=eo(P(v,r.a-.3+i*.12,.45));el.style.opacity=p;el.style.transform=`translateX(${(1-p)*60}px)`});
   document.querySelectorAll('.vt').forEach((t,i)=>pop(t,T,V(r.a+1.2+i*.5)));
