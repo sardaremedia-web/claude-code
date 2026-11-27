@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500;1,600;1,700&family=Inter:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+:root{--gold:#e3bf78;--gold2:#f6dca4;--txt:#fbf7f1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:var(--txt)}
+.abs{position:absolute}
+.el{position:absolute;opacity:0;will-change:transform,opacity,filter}
+.serif{font-family:'Lora',serif;font-style:italic;font-weight:600;background:linear-gradient(180deg,#fbe6b6 0%,#e3bf78 55%,#bf9450 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 24px rgba(0,0,0,.55))}
+.sh{text-shadow:0 3px 22px rgba(0,0,0,.75),0 1px 3px rgba(0,0,0,.6)}
+.card{background:linear-gradient(180deg,rgba(22,18,14,.78),rgba(14,11,9,.72));border:1.5px solid rgba(255,235,200,.16);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.row{display:flex;align-items:center;gap:22px;font-size:38px;font-weight:600;padding:20px 32px;border-top:1px solid rgba(255,255,255,.07)}
+.ic{width:56px;height:56px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:rgba(227,191,120,.14);border:1.5px solid rgba(227,191,120,.45)}
+.ok{background:linear-gradient(180deg,#f3d699,#c99a52);border:none;box-shadow:0 0 22px rgba(227,191,120,.5)}
+.chip{display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;font-size:34px;font-weight:700;background:rgba(18,14,11,.78);border:1.5px solid rgba(227,191,120,.5);color:var(--gold2);box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
+.lbl{font-size:28px;font-weight:700;letter-spacing:3px;color:rgba(246,220,164,.85)}
+#cap{position:absolute;left:60px;right:60px;top:1420px;text-align:center;font-size:52px;font-weight:700;line-height:1.25;letter-spacing:-.4px}
+#cap span{display:inline-block;text-shadow:0 3px 20px rgba(0,0,0,.85),0 1px 3px rgba(0,0,0,.8)}
+</style></head>
+<body><div id="stage">
+<div class="abs" id="scrT" style="left:0;right:0;top:0;height:760px;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0))"></div>
+<div class="abs" id="scrB" style="left:0;right:0;bottom:0;height:760px;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0))"></div>
+
+<!-- HOOK -->
+<div class="el" id="h1" style="top:300px;width:100%;text-align:center"><div class="sh" style="font-size:54px;font-weight:700">Ата-аналар жиналысына</div></div>
+<div class="el" id="h2" style="top:372px;width:100%;text-align:center"><div class="serif" style="font-size:150px;line-height:1.1">тек әкелер</div></div>
+<div class="el" id="h3" style="top:545px;width:100%;text-align:center"><div class="sh" style="font-size:54px;font-weight:700">келсе…</div></div>
+
+<!-- LOCATION -->
+<div class="el card" id="loc" style="left:90px;top:250px;width:900px">
+  <div style="padding:26px 32px 18px" class="lbl">КЕШЕ · ЖАРКЕНТ</div>
+  <div class="row" id="l1"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f6dca4" stroke-width="2.2"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></div>Жаркент қаласы</div>
+  <div class="row" id="l2"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f6dca4" stroke-width="2.2" stroke-linecap="round"><path d="M7 3v8a3 3 0 006 0V3M10 3v18M17 3c-2 2-2 7 0 9v9"/></svg></div>«Балқаймақ» мейрамханасы</div>
+  <div class="row" id="l3"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f6dca4" stroke-width="2.2" stroke-linejoin="round"><path d="M3 10l9-6 9 6-9 6z"/><path d="M7 12.5V17c3 2.5 7 2.5 10 0v-4.5"/></svg></div>«Мұра» мектебі · жиналыс</div>
+</div>
+
+<!-- FATHERS -->
+<div class="el" id="fa" style="top:270px;width:100%;text-align:center">
+  <div class="serif" id="fat" style="font-size:120px">тек әкелер</div>
+  <div id="icons" style="display:flex;justify-content:center;gap:18px;margin-top:26px"></div>
+</div>
+<div class="el" id="fb" style="top:610px;width:100%;text-align:center"><span class="chip"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#f6dca4" stroke-width="2.2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg>Үлкен тақырыптар талқыда</span></div>
+
+<!-- ORGANIZER -->
+<div class="el card" id="org" style="left:140px;top:300px;width:800px;padding:30px 36px;display:flex;align-items:center;gap:28px">
+  <div class="ic" style="width:96px;height:96px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#f6dca4" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+  <div><div class="lbl">ҰЙЫМДАСТЫРУШЫ</div><div style="font-size:52px;font-weight:700;margin-top:8px">Алмас Тоқсанбай</div></div>
+</div>
+
+<!-- ROUTE -->
+<div class="el card" id="route" style="left:110px;top:300px;width:860px;height:230px">
+  <div class="abs lbl" style="left:36px;top:28px">СПИКЕР КЕЛДІ</div>
+  <div class="abs" style="left:36px;top:120px;font-size:44px;font-weight:700">Алматы</div>
+  <div class="abs" style="right:36px;top:120px;font-size:44px;font-weight:700;color:var(--gold2)">Жаркент</div>
+  <svg class="abs" style="left:230px;top:100px" width="400" height="90" viewBox="0 0 400 90"><path id="rp" d="M10 60 Q200 -10 390 60" fill="none" stroke="rgba(246,220,164,.55)" stroke-width="4" stroke-dasharray="8 12"/><circle id="rdot" r="12" fill="#f6dca4" style="filter:drop-shadow(0 0 12px rgba(246,220,164,.9))"/></svg>
+</div>
+
+<!-- SPEAKER PLATE -->
+<div class="el" id="plate" style="left:70px;top:1200px;display:flex;align-items:stretch;gap:0">
+  <div id="pbar" style="width:10px;border-radius:6px;background:linear-gradient(180deg,#f6dca4,#c99a52);box-shadow:0 0 20px rgba(227,191,120,.7)"></div>
+  <div class="card" style="border-radius:0 26px 26px 0;padding:22px 34px;margin-left:-2px">
+    <div style="font-size:50px;font-weight:800;letter-spacing:-.5px">Жандарбек Бұлғақов</div>
+    <div style="font-size:32px;font-weight:600;color:var(--gold2);margin-top:6px">спикер · Алматы</div>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<div class="el card" id="top" style="left:90px;top:250px;width:900px">
+  <div style="padding:26px 32px 18px" class="lbl">ТАЛҚЫЛАНҒАН ТАҚЫРЫПТАР</div>
+  <div class="row" id="t1"><div class="ic ok"><svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>Әкенің отбасындағы рөлі</div>
+  <div class="row" id="t2"><div class="ic ok"><svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>Балаға берер өмірлік құндылықтар</div>
+  <div class="row" id="t3"><div class="ic ok"><svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>Рухани құндылықтар</div>
+</div>
+
+<!-- FIRST TIME -->
+<div class="el" id="first" style="top:330px;width:100%;text-align:center"><span class="chip" style="font-size:40px"><svg width="34" height="34" viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 14.5 4.6 17.5l1.2-6L1.3 7.3l6.1-.7z" fill="#f6dca4"/></svg>Жаркентте алғаш рет</span></div>
+
+<!-- TITLE -->
+<div class="el" id="tt1" style="top:300px;width:100%;text-align:center"><div class="sh lbl" style="font-size:34px">ЖОБАНЫҢ АТАУЫ</div></div>
+<div class="el" id="tt2" style="top:360px;width:100%;text-align:center"><div class="serif" style="font-size:210px;line-height:1.05">Әке TIME</div></div>
+
+<!-- ROADMAP -->
+<div class="el card" id="road" style="left:90px;top:250px;width:900px;padding:28px 34px 30px">
+  <div class="lbl">ЖОБАНЫҢ ЖАЛҒАСЫ</div>
+  <div style="position:relative;margin-top:24px;height:330px">
+    <div class="abs" style="left:27px;top:28px;width:4px;height:270px;background:rgba(255,255,255,.12);border-radius:4px"></div>
+    <div class="abs" id="rfill" style="left:27px;top:28px;width:4px;height:0;background:linear-gradient(180deg,#f6dca4,#c99a52);border-radius:4px;box-shadow:0 0 14px rgba(227,191,120,.8)"></div>
+    <div class="abs rr" id="r1" style="left:0;top:0;display:flex;align-items:center;gap:26px;font-size:40px;font-weight:700"><div class="ic ok" style="width:58px;height:58px"><svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#1a140d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></div>Алғашқы кездесу</div>
+    <div class="abs rr" id="r2" style="left:0;top:135px;display:flex;align-items:center;gap:26px;font-size:40px;font-weight:700"><div class="ic" style="width:58px;height:58px;font-size:28px;color:#f6dca4">+</div>Жаңа спикерлер</div>
+    <div class="abs rr" id="r3" style="left:0;top:270px;display:flex;align-items:center;gap:26px;font-size:40px;font-weight:700"><div class="ic" style="width:58px;height:58px;font-size:28px;color:#f6dca4">+</div>Жаңа тақырыптар</div>
+  </div>
+</div>
+
+<!-- END -->
+<div class="el" id="e1" style="top:330px;width:100%;text-align:center"><div class="sh" style="font-size:50px;font-weight:700">«Мұра» мектебінің ұжымына</div></div>
+<div class="el" id="e2" style="top:400px;width:100%;text-align:center"><div class="sh" style="font-size:50px;font-weight:700">және Алмас мырзаға</div></div>
+<div class="el" id="e3" style="top:470px;width:100%;text-align:center"><div class="serif" style="font-size:170px;line-height:1.1">сәттілік!</div></div>
+<div class="el" id="e4" style="top:1500px;width:100%;text-align:center"><span class="chip">Әке TIME · Жаркент</span></div>
+
+<div id="cap"></div>
+<div id="flash" class="abs" style="inset:0;background:#fff6e6;opacity:0"></div>
+</div>
+<script>
+const D=0.3; // voice offset in video
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+// show element between a..b (video time) with rise in / fade out
+function win(el,t,a,b,dist=40){const i=eo(P(t,a,.5)),o=1-eio(P(t,b-.3,.3));const v=Math.min(i,o);el.style.opacity=v;
+ el.style.transform=`translateY(${(1-i)*dist-(1-o)*20}px) scale(${.97+.03*i})`;el.style.filter=v<1?`blur(${(1-v)*12}px)`:'none';return i}
+function rowIn(el,t,a){const p=eo(P(t,a,.45));el.style.opacity=.25+.75*p;el.style.transform=`translateX(${(1-p)*-30}px)`;const ic=el.querySelector('.ok');if(ic)ic.style.transform=`scale(${P(t,a,.01)?.4+.6*eb(P(t,a+.05,.4)):.0001})`}
+// father icons
+$('icons').innerHTML=Array.from({length:8},()=>`<svg class="fi" width="78" height="96" viewBox="0 0 26 32"><g fill="none" stroke="#f6dca4" stroke-width="2.2" stroke-linecap="round"><circle cx="13" cy="7" r="5"/><path d="M3 31c0-7 4.5-12 10-12s10 5 10 12"/></g></svg>`).join('');
+
+// captions: [start,end,text] voice time; *word* = gold
+const CAPS=[
+[3.23,6.48,'Кеше *Жаркент* қаласындағы *Балқаймақ* мейрамханасында'],
+[6.48,9.08,'*«Мұра»* мектебінің ата-аналар жиналысы өтті.'],
+[9.48,11.56,'Бірақ бұл жолы тек *әкелер* ғана'],
+[11.56,14.16,'шақырылып, үлкен тақырыптар талқыға түсті.'],
+[14.7,17.18,'Ұйымдастырушы *Алмас Тоқсанбайдың* шақыруымен,'],
+[17.18,19.46,'спикер ретінде сонау *Алматыдан*'],
+[19.46,21.16,'*Жандарбек Бұлғақов* келді.'],
+[21.16,23.72,'Ол әкенің отбасындағы рөлі мен'],
+[23.72,25.88,'балаға берер өмірлік және рухани'],
+[25.88,27.9,'құндылықтары жайлы пікір алмасты.'],
+[28.44,30.82,'Жаркентте алғаш өтіп жатқан бұл жобаның'],
+[30.82,32.56,'атауы… *Әке TIME!*'],
+[33.02,35.78,'Жоба мұнымен ғана шектелмей, алдағы уақытта'],
+[35.78,38.0,'жаңа спикерлермен толығып,'],
+[38.0,40.48,'жаңа тақырыптарды талқылайтын орта болары анық.'],
+[40.48,42.7,'*«Мұра»* мектебінің ұжымына және'],
+[42.7,44.86,'Алмас мырзаға *сәттілік* тілейміз!']];
+let lastCap=-1;
+function caps(tv){const cap=$('cap');let idx=-1;
+ for(let i=0;i<CAPS.length;i++){const nx=CAPS[i+1]?CAPS[i+1][0]:CAPS[i][1]+.5;if(tv>=CAPS[i][0]-.05&&tv<Math.min(nx,CAPS[i][1]+.5))idx=i}
+ if(idx<0){cap.style.opacity=0;return}
+ const [a,b,txt]=CAPS[idx];const words=txt.split(' ');
+ if(idx!==lastCap){cap.innerHTML=words.map(w=>{const g=w.includes('*');return `<span data-g="${g?1:0}">${w.replace(/\*/g,'')}</span>`}).join(' ');lastCap=idx}
+ const tot=words.reduce((s,w)=>s+w.length,0);let acc=0;
+ cap.querySelectorAll('span').forEach((s,i)=>{const ws=a+(b-a)*acc/tot;acc+=words[i].length;const k=P(tv,ws-.04,.12);const g=s.dataset.g==='1';
+  s.style.color=g?(k>0?'#f6dca4':'rgba(246,220,164,.45)'):(k>0?'#fbf7f1':'rgba(251,247,241,.45)');
+  s.style.transform=`translateY(${(1-eo(k))*6}px) scale(${1+.06*Math.sin(Math.PI*clamp(k*1.5,0,1))*(g?1:0)})`});
+ const pin=eo(P(tv,a-.05,.22));cap.style.opacity=pin;cap.style.transform=`translateY(${(1-pin)*14}px)`}
+
+window.seek=function(T){
+ const tv=T-D;
+ // HOOK 0.1-3.2
+ const ho=1-eio(P(T,3.0,.35));
+ [['h1',.15],['h2',.55],['h3',1.75]].forEach(([id,a])=>{const e=$(id);const p=eo(P(T,a,.55));e.style.opacity=p*ho;e.style.transform=`translateY(${(1-p)*40}px) scale(${id==='h2'?1.2-.2*eo(P(T,a,.7)):1})`;e.style.filter=p<1||ho<1?`blur(${(1-Math.min(p,ho))*14}px)`:'none'});
+ // LOCATION 3.5-9.6
+ win($('loc'),T,3.45,9.55);rowIn($('l1'),T,4.0);rowIn($('l2'),T,5.25);rowIn($('l3'),T,6.75);
+ // FATHERS 9.75-14.5
+ win($('fa'),T,9.75,14.5);document.querySelectorAll('.fi').forEach((f,i)=>{const p=P(T,10.9+i*.09,.35);f.style.opacity=clamp(p*2,0,1);f.style.transform=`translateY(${(1-eb(p))*30}px) scale(${.5+.5*eb(p)})`});
+ win($('fb'),T,12.6,14.5,20);
+ // ORGANIZER 14.85-17.45
+ win($('org'),T,14.85,17.45);
+ // ROUTE 17.45-19.75
+ win($('route'),T,17.45,19.7);const rp=$('rp');const L=rp.getTotalLength();const pt=rp.getPointAtLength(L*eio(P(T,17.8,1.6)));$('rdot').setAttribute('cx',pt.x);$('rdot').setAttribute('cy',pt.y);
+ // SPEAKER PLATE 19.7-23.3
+ const pl=$('plate');const pp=eo(P(T,19.7,.5)),po=1-eio(P(T,23.0,.3));pl.style.opacity=Math.min(pp,po);pl.style.transform=`translateX(${(1-pp)*-80}px)`;$('pbar').style.transform=`scaleY(${pp})`;
+ // TOPICS 21.6-28.5
+ win($('top'),T,21.6,28.5);rowIn($('t1'),T,22.3);rowIn($('t2'),T,24.5);rowIn($('t3'),T,26.0);
+ // FIRST 28.7-31.1
+ win($('first'),T,28.75,31.0,24);
+ // TITLE 31.5-33.6
+ const ttO=1-eio(P(T,33.3,.3));const a1=eo(P(T,31.4,.4));$('tt1').style.opacity=a1*ttO;
+ const a2=P(T,31.6,.6);const t2=$('tt2');t2.style.opacity=eo(a2)*ttO;t2.style.transform=`scale(${1.35-.35*eo(a2)})`;t2.style.filter=`blur(${(1-eo(a2))*18+(1-ttO)*14}px)`;
+ // ROADMAP 33.6-40.9
+ win($('road'),T,33.6,40.85);const rf=eio(P(T,36.0,2.6));$('rfill').style.height=(270*rf)+'px';
+ rowIn($('r1'),T,33.9);rowIn($('r2'),T,36.1);rowIn($('r3'),T,38.3);
+ [['r2',36.1],['r3',38.3]].forEach(([id,s])=>{const ic=$(id).querySelector('.ic');const on=T>=s;ic.style.background=on?'linear-gradient(180deg,#f3d699,#c99a52)':'';ic.style.color=on?'#1a140d':'#f6dca4'});
+ // END 40.9-
+ win($('e1'),T,40.9,99);win($('e2'),T,41.3,99);
+ const pe=P(T,43.85,.6);const e3=$('e3');e3.style.opacity=eo(pe);e3.style.transform=`scale(${1.3-.3*eo(pe)})`;e3.style.filter=pe<1?`blur(${(1-pe)*16}px)`:'none';
+ win($('e4'),T,45.4,99,20);
+ // scrims
+ $('scrT').style.opacity=1;$('scrB').style.opacity=T>45.3?1-P(T,45.3,.6)*.4:1;
+ // captions (hide during hook)
+ caps(tv); if(T<3.4)$('cap').style.opacity=0;
+ // flashes on key beats
+ const fl=[[31.6,.35],[44.05,.3]];let fo=0;fl.forEach(([a,d])=>{if(T>=a&&T<a+d)fo=Math.max(fo,(1-P(T,a,d))*.55)});$('flash').style.opacity=fo;
+};
+window.DUR=47.6;
+</script>
+</body></html>
