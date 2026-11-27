@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=block" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#09090b}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;background:#09090b}
+.abs{position:absolute}
+.sc{position:absolute;inset:0;display:none}
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.12);border-radius:32px;box-shadow:0 30px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)}
+.wh{font-weight:800;font-size:56px;text-align:center;line-height:1.15}
+.gl{font-weight:900;text-transform:uppercase;text-align:center;line-height:1;color:var(--ac);text-shadow:0 0 30px var(--acg),0 0 80px var(--acg)}
+.ring{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.1),rgba(255,255,255,.02));border:2px solid rgba(255,255,255,.16);box-shadow:0 0 60px rgba(0,0,0,.5),inset 0 0 40px rgba(255,255,255,.04)}
+.ring.on{border-color:var(--ac);box-shadow:0 0 60px var(--acg),inset 0 0 40px var(--acg)}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:999px;font-size:30px;font-weight:700;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1.5px solid rgba(255,255,255,.14)}
+.chip.ac{color:#0b0b0d;background:var(--ac);border-color:transparent;box-shadow:0 0 30px var(--acg)}
+.lbl{font-size:22px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,.5)}
+.ghost{position:absolute;white-space:nowrap;font-family:Oswald,sans-serif;font-weight:700;font-size:300px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.065)}
+#cap{position:absolute;left:60px;right:60px;top:1330px;text-align:center;font-size:48px;font-weight:800;line-height:1.25}
+#cap em{font-style:normal;color:var(--ac);text-shadow:0 0 24px var(--acg)}
+.row{display:flex;align-items:center;justify-content:space-between;height:100px;border-top:1px solid rgba(255,255,255,.08);font-size:34px;font-weight:600}
+.ok{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:var(--ac);box-shadow:0 0 20px var(--acg)}
+.badge{position:absolute;width:200px;text-align:center}
+.badge .bc{width:100px;height:100px;margin:0 auto;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--acs);border:2px solid var(--ac);box-shadow:0 0 30px var(--acg)}
+.badge .bt{font-size:26px;font-weight:800;margin-top:14px}
+.badge .bs{font-size:21px;font-weight:500;color:rgba(255,255,255,.6);margin-top:2px}
+</style></head>
+<body><div id="stage" style="--ac:#f0b46a;--acg:rgba(240,180,106,.5);--acs:rgba(240,180,106,.18)">
+<div id="glow" class="abs" style="width:1400px;height:1400px;left:-160px;top:80px;border-radius:50%;background:radial-gradient(circle,var(--acg),rgba(0,0,0,0) 60%);opacity:.7"></div>
+<div class="ghost" id="g1" style="top:30px">SARDARE</div>
+<div class="ghost" id="g2" style="top:1600px">MEDIA</div>
+
+<!-- HOOK -->
+<div class="sc" id="hook">
+  <div class="wh abs" id="h1" style="left:0;right:0;top:470px">Сізге қандай</div>
+  <div class="gl abs" id="h2" style="left:0;right:0;top:560px;font-size:210px">пакет</div>
+  <div class="wh abs" id="h3" style="left:0;right:0;top:800px">таңдаған дұрыс?</div>
+  <div class="abs" id="hcards" style="left:0;right:0;top:960px;height:260px"></div>
+</div>
+<div class="sc" id="brand">
+  <img id="logo" src="assets/logo.png" class="abs" style="left:300px;top:470px;width:480px">
+  <div class="wh abs" id="b1" style="left:0;right:0;top:860px;font-size:46px;color:rgba(255,255,255,.85)">пакеттерінің айырмашылығы</div>
+</div>
+
+<!-- ROLES RING -->
+<div class="sc" id="mam">
+  <div class="gl abs" id="mT" style="left:0;right:0;top:250px;font-size:110px">мамандар</div><div class="ring on abs" id="mC" style="left:440px;top:720px;width:200px;height:200px;flex-direction:column"><div style="font-size:84px;font-weight:900;line-height:1">4</div><div style="font-size:24px;font-weight:700">маман</div></div>
+  <div id="mRing"></div>
+</div>
+
+<!-- OPERATOR -->
+<div class="sc" id="op">
+  <div class="gl abs" id="oT" style="left:0;right:0;top:250px;font-size:110px">оператор</div>
+  <div class="ring on" id="oC" style="left:390px;top:590px;width:300px;height:300px;flex-direction:column"><div id="oCi"></div><div style="font-size:26px;font-weight:700;margin-top:10px">іс-шара</div></div>
+  <svg class="abs" style="left:0;top:0" width="1080" height="1300" viewBox="0 0 1080 1300" id="oSvg"></svg>
+  <div class="abs" id="oChip" style="left:0;right:0;top:1150px;text-align:center"><span class="chip">басынан аяғына дейін</span></div>
+  <div class="abs" id="oPlus" style="left:0;right:0;top:1060px;text-align:center"><div class="gl" id="oPv" style="font-size:120px">+65 000</div><div style="font-size:30px;font-weight:700;margin-top:12px;color:rgba(255,255,255,.8)">әр қосымша операторға</div></div>
+</div>
+
+<!-- VIDEOGRAPHER -->
+<div class="sc" id="vg">
+  <div class="gl abs" id="vT" style="left:0;right:0;top:250px;font-size:110px">видеограф</div>
+  <div class="ring on" id="vC" style="left:360px;top:500px;width:360px;height:360px"><div id="vCi" style="transform:scale(2.1)"></div></div>
+  <div class="abs" id="vChips" style="left:0;right:0;top:960px;display:flex;justify-content:center;gap:16px"><span class="chip vch">кәсіби камера</span><span class="chip vch">Instagram</span><span class="chip vch">қысқа контент</span></div>
+</div>
+
+<!-- MOBILOGRAPHER -->
+<div class="sc" id="mb">
+  <div class="gl abs" id="mbT" style="left:0;right:0;top:250px;font-size:110px">мобилограф</div>
+  <div class="ring" id="mbL" style="left:120px;top:520px;width:330px;height:330px;flex-direction:column;opacity:.6"><div id="mbLi" style="transform:scale(1.7)"></div><div style="font-size:26px;font-weight:700;margin-top:40px">кәсіби камера</div></div>
+  <div class="abs" id="mbEq" style="left:0;right:0;top:640px;text-align:center;font-size:64px;font-weight:900;color:rgba(255,255,255,.5)">→</div>
+  <div class="ring on" id="mbR" style="left:630px;top:520px;width:330px;height:330px;flex-direction:column"><div id="mbRi" style="transform:scale(1.7)"></div><div style="font-size:26px;font-weight:800;margin-top:40px;color:var(--ac)">тек iPhone</div></div>
+  <div class="abs" id="mbChip" style="left:0;right:0;top:960px;text-align:center"><span class="chip">контент форматы бірдей</span></div>
+</div>
+
+<!-- PHOTOGRAPHER -->
+<div class="sc" id="ph">
+  <div class="gl abs" id="pT" style="left:0;right:0;top:250px;font-size:110px">фотограф</div>
+  <div class="ring on" id="pC" style="left:390px;top:470px;width:300px;height:300px"><div id="pCi" style="transform:scale(1.9)"></div></div>
+  <div class="abs" id="pN" style="left:0;right:0;top:830px;text-align:center"><div class="gl" style="font-size:150px"><span id="pNv">50</span></div><div style="font-size:34px;font-weight:700;margin-top:10px">фотоға дейін</div></div>
+</div>
+
+<!-- DEADLINES -->
+<div class="sc" id="dl">
+  <div class="wh abs" id="dT" style="left:0;right:0;top:260px">Дайын болу мерзімі</div>
+  <svg class="abs" id="g24" style="left:90px;top:420px" width="420" height="420" viewBox="0 0 420 420"><circle cx="210" cy="210" r="180" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="22"/><circle id="g24a" cx="210" cy="210" r="180" fill="none" stroke="var(--ac)" stroke-width="22" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 210 210)" style="filter:drop-shadow(0 0 14px var(--ac))"/></svg>
+  <div class="abs" id="g24t" style="left:90px;top:540px;width:420px;text-align:center"><div style="font-size:110px;font-weight:900;line-height:1">24</div><div style="font-size:32px;font-weight:700">сағат</div></div>
+  <svg class="abs" id="g7" style="left:570px;top:420px" width="420" height="420" viewBox="0 0 420 420"><circle cx="210" cy="210" r="180" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="22"/><circle id="g7b" cx="210" cy="210" r="180" fill="none" stroke="var(--ac)" stroke-opacity=".45" stroke-width="22" pathLength="1" stroke-dasharray=".02 .02" stroke-dashoffset="0" transform="rotate(-90 210 210)"/><circle id="g7a" cx="210" cy="210" r="180" fill="none" stroke="var(--ac)" stroke-width="22" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 210 210)" style="filter:drop-shadow(0 0 14px var(--ac))"/></svg>
+  <div class="abs" id="g7t" style="left:570px;top:540px;width:420px;text-align:center"><div style="font-size:110px;font-weight:900;line-height:1" id="g7n">3</div><div style="font-size:32px;font-weight:700" id="g7u">күн</div></div>
+  <div class="abs" id="d24l" style="left:90px;top:880px;width:420px;text-align:center;font-size:27px;font-weight:600;line-height:1.4;color:rgba(255,255,255,.8)">видеограф<br>мобилограф<br>фотограф</div>
+  <div class="abs" id="d7l" style="left:570px;top:880px;width:420px;text-align:center;font-size:27px;font-weight:600;line-height:1.4;color:rgba(255,255,255,.8)">оператор<br><span style="color:var(--ac)" id="d7x">көп болса — 7 күн</span></div>
+</div>
+
+<!-- DECK -->
+<div class="sc" id="deck">
+  <div class="gl abs" id="dkT" style="left:0;right:0;top:260px;font-size:110px">пакеттер</div>
+  <div id="dk"></div>
+</div>
+
+<!-- PACKAGE CAROUSEL -->
+<div class="sc" id="pk"><div id="cards"></div><div class="abs" id="dots" style="left:0;right:0;top:1235px;display:flex;justify-content:center;gap:14px"></div></div>
+
+<!-- DELIVERY -->
+<div class="sc" id="dv">
+  <div class="wh abs" id="vT1" style="left:0;right:0;top:250px">Оператордың материалы</div>
+  <div class="ring" id="yR" style="left:110px;top:420px;width:380px;height:380px;flex-direction:column"><svg width="120" height="86" viewBox="0 0 50 36"><rect width="50" height="36" rx="10" fill="#fff"/><path d="M20 10l14 8-14 8z" fill="#09090b"/></svg><div style="font-size:36px;font-weight:800;margin-top:18px">YouTube</div></div>
+  <div class="ring" id="fR" style="left:590px;top:420px;width:380px;height:380px;flex-direction:column"><svg width="130" height="80" viewBox="0 0 54 34"><rect x="0" y="4" width="38" height="26" rx="6" fill="#fff"/><rect x="38" y="9" width="14" height="16" rx="2" fill="none" stroke="#fff" stroke-width="3"/></svg><div style="font-size:36px;font-weight:800;margin-top:18px">Флешка</div></div>
+  <div class="abs" id="yC" style="left:110px;top:850px;width:380px;text-align:center"><span class="chip ac" style="font-size:38px;font-weight:900;padding:18px 40px">ТЕГІН</span></div>
+  <div class="abs" id="fC" style="left:590px;top:840px;width:380px;text-align:center"><div class="gl" style="font-size:76px" id="fCv">+10 000</div></div>
+  <div class="abs" id="fG" style="left:590px;top:950px;width:380px;text-align:center"><span class="chip"><svg width="30" height="34" viewBox="0 0 44 52" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><path d="M22 2l18 7v15c0 13-8 22-18 26C12 46 4 37 4 24V9z"/><path d="M14 26l6 6 11-12"/></svg>3 жыл кепілдік</span></div>
+</div>
+
+<!-- GUARANTEES -->
+<div class="sc" id="gu">
+  <div class="wh abs" id="gT" style="left:0;right:0;top:250px">Барлық пакетте</div>
+  <div class="glass abs" id="gCard" style="left:110px;right:110px;top:380px;padding:30px 36px 12px"><div class="lbl" style="margin-bottom:12px">КЕПІЛДІК</div><div id="glist"></div></div>
+</div>
+
+<!-- TRAVEL -->
+<div class="sc" id="tr">
+  <div class="gl abs" id="trT" style="left:0;right:0;top:260px;font-size:100px">қаладан тыс</div>
+  <svg class="abs" style="left:90px;top:440px" width="900" height="560" viewBox="0 0 900 560"><path id="road" d="M110 470 C320 470 270 190 450 190 S640 420 790 150" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="6" stroke-dasharray="14 16"/>
+   <circle cx="110" cy="470" r="18" fill="#fff"/><text x="110" y="530" text-anchor="middle" fill="rgba(255,255,255,.75)" font-size="28" font-weight="700">қала</text>
+   <g id="pin" transform="translate(790,150)"><path d="M0 0c-26-32-40-50-40-70a40 40 0 0180 0c0 20-14 38-40 70z" fill="var(--ac)"/><circle cx="0" cy="-70" r="14" fill="#09090b"/></g>
+   <circle id="car" r="16" fill="var(--ac)" style="filter:drop-shadow(0 0 14px var(--ac))"/></svg>
+  <div class="abs" id="trC" style="left:0;right:0;top:1060px;text-align:center"><span class="chip ac" style="font-size:36px">бөлек төленеді</span></div>
+</div>
+
+<!-- OUTRO -->
+<div class="sc" id="out">
+  <div class="wh abs" id="oq" style="left:0;right:0;top:300px">Сұрақтарыңыз болса,<br>жазыңыз</div>
+  <div class="abs" id="orow" style="left:70px;right:70px;top:560px;display:flex;justify-content:space-between"></div>
+  <img src="assets/logo.png" class="abs" id="logoE" style="left:330px;top:860px;width:420px">
+</div>
+
+<div id="cap"></div>
+</div>
+<script>
+const D=0.3; const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+const V=v=>v+D; const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+function rise(el,t,a,d=.5,dist=40){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;el.style.filter=p<1?`blur(${(1-p)*14}px)`:'none';return p}
+function pop(el,t,a,d=.45){const p=P(t,a,d);el.style.opacity=clamp(p*3,0,1);el.style.transform=`scale(${p?.5+.5*eb(p):.5})`;return p}
+function glowIn(el,t,a,d=.6){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`scale(${1.25-.25*p})`;el.style.filter=p<1?`blur(${(1-p)*18}px)`:'none';return p}
+function hexA(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`}
+const CHK='<svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="#0b0b0d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>';
+const IC={
+op:'<svg width="60" height="44" viewBox="0 0 70 52" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="2" y="8" width="46" height="36" rx="9"/><path d="M48 20l18-10v32l-18-10"/></svg>',
+vg:'<svg width="60" height="48" viewBox="0 0 70 56" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="2" y="16" width="44" height="34" rx="7"/><path d="M46 26l20-10v34l-20-10"/><circle cx="13" cy="9" r="7"/><circle cx="33" cy="9" r="7"/></svg>',
+mb:'<svg width="42" height="56" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="10" y="2" width="36" height="64" rx="8"/><path d="M22 8h12"/></svg>',
+ph:'<svg width="58" height="48" viewBox="0 0 70 58" fill="#fff"><path d="M24 4h22l5 8h11a6 6 0 016 6v32a6 6 0 01-6 6H8a6 6 0 01-6-6V18a6 6 0 016-6h11z"/><circle cx="35" cy="33" r="13" fill="none" stroke="#111" stroke-width="5"/></svg>',
+rl:'<svg width="52" height="52" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="3" y="3" width="58" height="58" rx="16"/><path d="M3 20h58M20 3l9 17M38 3l9 17"/><path d="M26 31l15 9-15 9z" fill="#fff"/></svg>',
+qr:'<svg width="42" height="56" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="5"><rect x="8" y="2" width="40" height="66" rx="8"/><rect x="16" y="16" width="10" height="10" fill="#fff"/><rect x="30" y="16" width="10" height="10" fill="#fff"/><rect x="16" y="30" width="10" height="10" fill="#fff"/></svg>',
+sd:'<svg width="42" height="56" viewBox="0 0 50 66" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><path d="M14 2h28a6 6 0 016 6v50a6 6 0 01-6 6H8a6 6 0 01-6-6V16z"/><path d="M18 10v12M26 10v12M34 10v12"/></svg>',
+mt:'<svg width="52" height="52" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="16" cy="48" r="9"/><circle cx="40" cy="52" r="9"/><path d="M22 41L50 6M34 45L18 10"/></svg>',
+tg:'<svg width="52" height="46" viewBox="0 0 64 56" fill="#fff"><path d="M2 26L60 2 50 54 30 40 22 52 22 36 50 12 16 32z"/></svg>',
+stage:'<svg width="70" height="56" viewBox="0 0 70 56" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M4 50h62M12 50V30h46v20"/><circle cx="35" cy="14" r="8"/><path d="M35 22v8"/></svg>'};
+
+// ---- voice anchors ----
+const PK=[
+ {name:'MINI',ac:'#5b8cff',col:'#fff',price:65000,desc:'Шағын іс-шараларға',a:47.1,pv:47.82,b:58.85,items:[['mb','Мобилограф','тек iPhone',51.5],['ph','Фотограф','50–250 фото',52.56],['rl','Insta reels','1,5–3 мин',53.5],['tg','Telegram','дайын материал',57.68]]},
+ {name:'BASIC',ac:'#a77bff',col:'#fff',price:80000,desc:'Толық видео және монтаж',a:58.94,pv:60.52,b:65.05,items:[['op','Оператор','толық түсірілім',61.96],['mt','Монтаж','дайын видео',63.82],['sd','YouTube / флешка','дайын материал',64.4]]},
+ {name:'ELITE',ac:'#ff4f86',col:'#fff',price:115000,desc:'Видео мен фото бірге',a:65.16,pv:66.3,b:74.1,items:[['op','Оператор','толық түсірілім',67.94],['ph','Фотограф','50–250 фото',68.88],['qr','QR-галерея','LED-экранда',69.76],['sd','YouTube / флешка','дайын материал',72.6]]},
+ {name:'ROYAL',ac:'#e9b949',col:'#e9b949',price:140000,desc:'Әлеуметтік желіге контент',a:74.24,pv:75.4,b:80.85,items:[['vg','Видеограф','кәсіби камера',76.86],['ph','Фотограф','50–250 фото',77.68],['rl','Insta reels','1,5–3 мин',78.44],['qr','QR-галерея','LED-экранда',79.52]]},
+ {name:'LUXURY',ac:'#3fcf8e',col:'#e9b949',price:195000,desc:'Ең толық жиынтық',a:80.96,pv:81.9,b:90.0,items:[['op','Оператор','толық түсірілім',85.36],['vg','Видеограф','кәсіби камера',86.16],['ph','Фотограф','50–250 фото',86.92],['rl','Insta reels','1,5–3 мин',87.68],['qr','QR-галерея','LED-экранда',88.78],['sd','YouTube / флешка','дайын материал',89.3]]}];
+
+const SC=[['hook',0,V(2.15)],['brand',V(2.15),V(5.65)],['mam',V(5.65),V(7.6)],['op',V(7.6),V(19.0)],['vg',V(19.0),V(23.85)],['mb',V(23.85),V(27.7)],['ph',V(27.7),V(33.15)],
+ ['dl',V(33.15),V(44.95)],['deck',V(44.95),V(46.95)],['pk',V(46.95),V(90.05)],['dv',V(90.05),V(97.9)],['gu',V(97.9),V(105.9)],['tr',V(105.9),V(108.25)],['out',V(108.25),200]];
+
+const CAPS=[[0,2.1,'Сізге қандай *пакет* таңдаған дұрыс?'],[2.22,5.6,'Пакеттердің айырмашылығын *ретімен* түсіндіреміз.'],[5.78,7.5,'Алдымен *мамандар* туралы.'],
+[7.7,10.9,'Оператор іс-шараны басынан аяғына дейін *толық* түсіреді.'],[10.98,14.1,'Бір банкетке *екі немесе үш* оператор алуға болады,'],[14.18,16.6,'сонда іс-шара *бірнеше жақтан* түсіріледі.'],[16.7,19.0,'Әр қосымша оператор *65 000* тұрады.'],
+[19.12,21.2,'Видеограф *кәсіби камерамен*'],[21.3,23.8,'Instagram-ға қысқа контент түсіреді.'],[23.98,25.8,'Мобилограф та сондай контент жасайды,'],[25.82,27.6,'бірақ *тек iPhone-ға* түсіреді.'],[27.84,30.5,'Фотограф іс-шараны басынан аяғына дейін түсіріп,'],[30.52,33.1,'*50-ден 250-ге* дейін фото береді.'],
+[33.3,37.1,'Видеограф, мобилограф және фотографтың жұмысы'],[37.16,38.9,'*24 сағат* ішінде дайын болады.'],[38.94,41.6,'Оператордың жұмысы *3 күнде* дайын болады,'],[41.66,44.9,'түсірілім көп болса, *7 күнге* дейін созылуы мүмкін.'],[45.08,46.9,'Енді *пакеттерге* көшейік.'],
+[47.1,49.3,'*MINI* пакеті, 65 000.'],[49.4,51.2,'Шағын іс-шараларға арналған.'],[51.24,53.4,'Мұнда мобилограф, фотограф'],[53.5,56.9,'және 1,5–3 минуттық *рилс-тизер* бар.'],[56.96,58.9,'Дайын материал *Telegram* арқылы беріледі.'],
+[58.94,61.9,'*BASIC* пакеті, 80 000.'],[61.96,65.1,'Оператор іс-шараны толық түсіріп, *монтаждап* береді.'],[65.16,67.6,'*ELITE* пакеті, 115 000.'],[67.68,71.2,'Мұнда оператор, фотограф және *QR-галерея* бар.'],[71.28,74.2,'Түскен фотолар *LED-экранда* қолжетімді болады.'],
+[74.24,76.8,'*ROYAL* пакеті, 140 000.'],[76.86,80.9,'Видеограф, фотограф, рилс-тизер және QR-галерея.'],[80.96,83.7,'*LUXURY* пакеті, 195 000.'],[83.82,85.3,'Ең *толық* жиынтық:'],[85.36,90.0,'оператор, видеограф, фотограф, рилс-тизер және QR-галерея.'],
+[90.14,92.4,'Оператор түсірген видеоны *YouTube-қа*'],[92.44,93.2,'салып беру *тегін*.'],[93.22,95.8,'Флешкаға жазып алу *10 000* тұрады,'],[95.84,97.9,'оған *3 жылдық* кепілдік беріледі.'],
+[98.02,100.1,'Барлық пакетте кәсіби техника,'],[100.18,103.0,'тәжірибелі команда, сапалы монтаж бен түс түзеу бар,'],[103.1,105.9,'түсірілім басынан аяғына дейін жүреді.'],[106.0,108.3,'Қаладан тыс жерге шығу *бөлек* төленеді.'],[108.38,110.2,'Сұрақтарыңыз болса, жазыңыз.'],[110.26,113.1,'Өзіңізге ыңғайлы пакетті *бірге* таңдаймыз.']];
+let lastCap=-1;
+function caps(v){let idx=-1;for(let i=0;i<CAPS.length;i++){const nx=CAPS[i+1]?CAPS[i+1][0]:CAPS[i][1]+.5;if(v>=CAPS[i][0]-.05&&v<Math.min(nx,CAPS[i][1]+.5))idx=i}
+ const c=$('cap');if(idx<0){c.style.opacity=0;return}if(idx!==lastCap){c.innerHTML=CAPS[idx][2].replace(/\*([^*]+)\*/g,'<em>$1</em>');lastCap=idx}
+ const p=eo(P(v,CAPS[idx][0]-.05,.25));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*14}px)`;c.style.filter=p<1?`blur(${(1-p)*8}px)`:'none'}
+
+// ---- builds ----
+$('hcards').innerHTML=PK.map((p,i)=>`<div class="glass hc" style="position:absolute;left:445px;top:30px;width:190px;height:150px;border-color:${hexA(p.ac,.6)};box-shadow:0 0 40px ${hexA(p.ac,.35)};display:flex;align-items:center;justify-content:center"><span style="font-family:Oswald;font-weight:700;font-size:44px;color:${p.col==='#fff'?p.ac:p.col}">${p.name}</span></div>`).join('');
+const RL=[['op','Оператор'],['vg','Видеограф'],['mb','Мобилограф'],['ph','Фотограф']];
+$('mRing').innerHTML=RL.map((r,i)=>{const ang=-90+i*90;const x=540+Math.cos(ang*Math.PI/180)*330,y=820+Math.sin(ang*Math.PI/180)*330;return `<div class="mr abs" style="left:${x-110}px;top:${y-110}px;width:220px;text-align:center"><div class="ring" style="position:relative;width:150px;height:150px;margin:0 auto">${IC[r[0]]}</div><div style="font-size:28px;font-weight:800;margin-top:10px">${r[1]}</div></div>`}).join('');
+$('oCi').innerHTML=IC.stage;$('vCi').innerHTML=IC.vg;$('mbLi').innerHTML=IC.vg;$('mbRi').innerHTML=IC.mb;$('pCi').innerHTML=IC.ph;
+// operator orbit cameras
+const CAMS=[[210,1000-60],[870,1000-60],[540,430]];
+$('oSvg').innerHTML=CAMS.map((c,i)=>`<g class="cm" id="cm${i}"><line x1="${c[0]}" y1="${c[1]}" x2="540" y2="740" stroke="var(--ac)" stroke-width="3" stroke-dasharray="7 10" class="ray"/><circle cx="${c[0]}" cy="${c[1]}" r="62" fill="#141418" stroke="var(--ac)" stroke-width="3"/><g transform="translate(${c[0]-30},${c[1]-22})">${IC.op}</g><circle cx="${c[0]+46}" cy="${c[1]-46}" r="20" fill="var(--ac)"/><text x="${c[0]+46}" y="${c[1]-38}" text-anchor="middle" font-size="22" font-weight="900" fill="#0b0b0d">${i+1}</text></g>`).join('');
+$('dk').innerHTML=PK.map((p,i)=>`<div class="glass dkc abs" style="left:240px;top:520px;width:600px;height:640px;border-color:${hexA(p.ac,.65)};box-shadow:0 0 50px ${hexA(p.ac,.35)},0 30px 70px rgba(0,0,0,.5);background:linear-gradient(160deg,${hexA(p.ac,.22)},rgba(12,12,14,.92) 55%);display:flex;flex-direction:column;align-items:center;justify-content:center"><div class="lbl">ПАКЕТ</div><div style="font-family:Oswald;font-weight:700;font-size:130px;color:${p.col==='#fff'?'#fff':p.col}">${p.name}</div></div>`).join('');
+// package cards
+const BPOS=n=>{const cols=3,rows=Math.ceil(n/cols);const out=[];for(let k=0;k<n;k++){const r=Math.floor(k/cols),c=k%cols;const inRow=Math.min(cols,n-r*cols);const w=230;const x0=380-(inRow*w)/2;out.push([x0+c*w+15,r*196])}return out};
+$('cards').innerHTML=PK.map((p,i)=>{const pos=BPOS(p.items.length);return `<div class="pc abs" id="pc${i}" style="--ac:${p.ac};--acg:${hexA(p.ac,.5)};--acs:${hexA(p.ac,.2)};left:160px;top:250px;width:760px;height:960px;border-radius:44px;border:2px solid ${hexA(p.ac,.7)};background:linear-gradient(165deg,${hexA(p.ac,.25)},rgba(12,12,14,.94) 48%);box-shadow:0 0 70px ${hexA(p.ac,.35)},0 40px 90px rgba(0,0,0,.6)">
+ <div class="abs" style="left:50px;top:44px;right:50px;display:flex;justify-content:space-between"><span class="lbl">ПАКЕТ</span><span class="lbl">${i+1} / 5</span></div>
+ <div class="abs pn" style="left:0;right:0;top:86px;text-align:center;font-family:Oswald;font-weight:700;font-size:170px;line-height:1;color:${p.col==='#fff'?'#fff':p.col}">${p.name}</div>
+ <div class="abs" style="left:0;right:0;top:280px;text-align:center;font-size:30px;font-weight:600;color:rgba(255,255,255,.7)">${p.desc}</div>
+ <div class="abs" style="left:60px;right:60px;top:345px;height:1.5px;background:rgba(255,255,255,.14)"></div>
+ <div class="abs pv" style="left:0;right:0;top:380px;text-align:center;font-size:120px;font-weight:900;line-height:1;color:#fff;text-shadow:0 0 40px ${hexA(p.ac,.6)}">0</div>
+ <div class="abs" style="left:0;right:0;top:505px;text-align:center" class="lbl"><span class="lbl">НЕ КІРЕДІ</span></div>
+ <div class="abs" style="left:0;right:0;top:545px;height:400px">${p.items.map((it,k)=>`<div class="badge bd" style="left:${pos[k][0]}px;top:${pos[k][1]}px"><div class="bc">${IC[it[0]]}</div><div class="bt">${it[1]}</div><div class="bs">${it[2]}</div></div>`).join('')}</div></div>`}).join('');
+$('dots').innerHTML=PK.map((p,i)=>`<div class="dt" style="width:16px;height:16px;border-radius:8px;background:rgba(255,255,255,.25)"></div>`).join('');
+const GU=['Кәсіби техника','Тәжірибелі команда','Сапалы монтаж және түс түзеу','Басынан аяғына дейін түсірілім','Қысқа мерзімде тапсыру'];const GT=[98.9,100.18,101.16,103.1,105.0];
+$('glist').innerHTML=GU.map(g=>`<div class="row gr" style="height:112px"><span class="gt" style="font-size:34px">${g}</span><div class="ok gk">${CHK}</div></div>`).join('');
+$('orow').innerHTML=PK.map(p=>`<div class="glass orc" style="width:172px;height:200px;border-radius:26px;border-color:${hexA(p.ac,.6)};box-shadow:0 0 30px ${hexA(p.ac,.3)};display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:Oswald;font-weight:700;font-size:44px;color:${p.col==='#fff'?p.ac:p.col}">${p.name}</span><span style="font-size:26px;font-weight:800;margin-top:8px">${fmt(p.price)}</span></div>`).join('');
+
+function setAccent(h){const s=$('stage').style;s.setProperty('--ac',h);s.setProperty('--acg',hexA(h,.5));s.setProperty('--acs',hexA(h,.18))}
+
+window.seek=function(T){
+ const v=T-D;let cur=null;for(const s of SC){const on=T>=s[1]&&T<s[2];$(s[0]).style.display=on?'block':'none';if(on)cur=s}
+ const id=cur[0];
+ if(id!=='pk'){const ent=eo(P(T,cur[1],.5));const st=$(id);const ex=id==='out'?0:P(T,cur[2]-.3,.3);st.style.opacity=Math.min(ent,1-ex);st.style.transform=`scale(${1.05-.05*ent+ex*.04})`;st.style.filter=(ent<1||ex>0)?`blur(${Math.max(1-ent,ex)*16}px)`:'none'}
+ else{$('pk').style.opacity=1;$('pk').style.transform='none';$('pk').style.filter='none'}
+ $('glow').style.transform=`translate(${Math.sin(T*.3)*90}px,${Math.cos(T*.23)*70}px)`;
+ $('g1').style.transform=`translateX(${-((T*40)%900)}px)`;$('g2').style.transform=`translateX(${-300+((T*30)%900)}px)`;
+ let ac='#f0b46a',gh=['SARDARE','MEDIA'];
+ if(id==='hook'){rise($('h1'),T,.05,.4);glowIn($('h2'),T,.35);rise($('h3'),T,.8,.4);
+  document.querySelectorAll('.hc').forEach((c,i)=>{const p=eo(P(T,1.0+i*.1,.5));const ang=(i-2)*8;const dx=(i-2)*175;c.style.opacity=p;c.style.transform=`translate(${dx*p}px,${(1-p)*80+Math.abs(i-2)*18}px) rotate(${ang*p}deg)`})}
+ if(id==='brand'){const p=eo(P(T,V(2.15),.7));$('logo').style.opacity=p;$('logo').style.transform=`scale(${.9+.1*p})`;$('logo').style.filter=`blur(${(1-p)*12}px)`;rise($('b1'),T,V(2.9),.45)}
+ if(id==='mam'){gh=['TEAM','SARDARE'];glowIn($('mT'),T,V(5.8));pop($('mC'),T,V(5.9));document.querySelectorAll('.mr').forEach((m,i)=>pop(m,T,V(6.0)+i*.12));}
+ if(id==='op'){gh=['OPERATOR','MULTI CAM'];glowIn($('oT'),T,V(7.7));pop($('oC'),T,V(7.9));
+  [11.7,12.58,12.9].forEach((a,i)=>{const g=$('cm'+i);const p=P(T,V(a),.45);g.style.opacity=clamp(p*2,0,1);g.querySelector('.ray').style.strokeDashoffset=-(T*40)%34});
+  const ch=$('oChip');const pc=rise(ch,T,V(8.8),.45);const xo=P(T,V(16.4),.3);ch.style.opacity=pc*(1-xo);
+  glowIn($('oPlus'),T,V(16.6));$('oPv').textContent='+'+fmt(65000*eio(P(T,V(16.7),1.0)));if(T<V(16.6))$('oPlus').style.opacity=0}
+ if(id==='vg'){gh=['CONTENT','REELS'];glowIn($('vT'),T,V(19.12));pop($('vC'),T,V(19.3));document.querySelectorAll('.vch').forEach((c,i)=>pop(c,T,V([20.08,21.3,22.38][i])))}
+ if(id==='mb'){gh=['IPHONE','ONLY'];glowIn($('mbT'),T,V(23.98));rise($('mbL'),T,V(24.2),.45);$('mbL').style.opacity=Math.min(parseFloat($('mbL').style.opacity),.55);rise($('mbEq'),T,V(25.6),.4);pop($('mbR'),T,V(25.82));pop($('mbChip'),T,V(26.4))}
+ if(id==='ph'){gh=['PHOTO','50–250'];glowIn($('pT'),T,V(27.84));pop($('pC'),T,V(28.0));rise($('pN'),T,V(30.4),.45);$('pNv').textContent=fmt(50+200*eio(P(T,V(30.6),1.8)))}
+ if(id==='dl'){gh=['24 HOURS','3–7 DAYS'];rise($('dT'),T,V(33.3),.4);rise($('g24'),T,V(33.6),.5);rise($('g24t'),T,V(33.7),.5);rise($('d24l'),T,V(34.0),.5);
+  $('g24a').style.strokeDashoffset=1-eio(P(T,V(37.16),1.2));rise($('g7'),T,V(38.94),.5);rise($('g7t'),T,V(39.0),.5);rise($('d7l'),T,V(39.3),.5);
+  const s3=eio(P(T,V(40.38),1.0))*3/7,s7=eio(P(T,V(42.88),1.2));$('g7a').style.strokeDashoffset=1-s3;$('g7b').style.opacity=s7;
+  $('g7n').textContent=T>=V(42.88)?'3–7':'3';$('d7x').style.opacity=eo(P(T,V(42.88),.5))}
+ if(id==='deck'){gh=['PRICE','LIST'];glowIn($('dkT'),T,V(45.1));document.querySelectorAll('.dkc').forEach((c,i)=>{const p=eo(P(T,V(45.3)+i*.1,.5));const ang=(i-2)*7*p;c.style.opacity=p;c.style.transform=`translate(${(i-2)*34*p}px,${(1-p)*120+(i-2)*(i-2)*6}px) rotate(${ang}deg)`;c.style.zIndex=i})}
+ if(id==='pk'){let k=PK.findIndex(p=>v>=p.a-.25&&v<p.b);if(k<0)k=v<PK[0].a?0:4;const p=PK[k];ac=p.ac;gh=[p.name,p.name];
+  PK.forEach((q,i)=>{const c=$('pc'+i);const tin=V(q.a-.25),tout=i<4?V(PK[i+1].a-.25):1e9;
+   const pin=eio(P(T,tin,.6)),pout=eio(P(T,tout,.6));let x;let o;
+   if(T<tin){x=1100;o=0}else if(T<tout){x=1100*(1-pin);o=pin}else{x=-1100*pout;o=1-pout}
+   const rot=(T<tout?(1-pin)*-8:pout*8);c.style.display=(o>0.001)?'block':'none';c.style.opacity=o;c.style.transform=`translateX(${x}px) rotate(${rot}deg) scale(${.92+.08*Math.min(pin,1-pout)})`;
+   if(i===0&&T<tin+0.6){c.style.transform=`translateY(${(1-pin)*60}px) scale(${.9+.1*pin})`;c.style.opacity=pin}
+   c.querySelector('.pv').textContent=fmt(q.price*eio(P(T,V(q.pv)-.1,.9)));
+   c.querySelectorAll('.bd').forEach((b,j)=>{const bp=P(T,V(q.items[j][3])-.1,.45);b.style.opacity=clamp(bp*3,0,1);b.style.transform=`scale(${bp?.5+.5*eb(bp):.5})`})});
+  document.querySelectorAll('.dt').forEach((d,i)=>{const on=i===k;d.style.width=on?'54px':'16px';d.style.background=on?PK[i].ac:'rgba(255,255,255,.25)';d.style.boxShadow=on?`0 0 16px ${PK[i].ac}`:'none'})}
+ if(id==='dv'){gh=['YOUTUBE','FREE'];rise($('vT1'),T,V(90.2),.4);pop($('yR'),T,V(90.6));$('yR').className='ring'+(T>=V(92.44)?' on':'');pop($('yC'),T,V(92.44));
+  pop($('fR'),T,V(93.22));$('fR').className='ring'+(T>=V(94.5)?' on':'');glowIn($('fC'),T,V(94.5));$('fCv').textContent='+'+fmt(10000*eio(P(T,V(94.5),.8)));pop($('fG'),T,V(95.9))}
+ if(id==='gu'){rise($('gT'),T,V(98.0),.4);rise($('gCard'),T,V(98.2),.5);document.querySelectorAll('.gr').forEach((r,i)=>{const on=T>=V(GT[i]);r.querySelector('.gt').style.color=on?'#fff':'rgba(255,255,255,.28)';const p=P(T,V(GT[i]),.35);r.querySelector('.gk').style.transform=`scale(${p?.4+.6*eb(p):0})`})}
+ if(id==='tr'){gh=['TRAVEL','SARDARE'];glowIn($('trT'),T,V(106.0));const rd=$('road');const L=rd.getTotalLength();const pt=rd.getPointAtLength(L*eio(P(T,V(106.2),1.6)));$('car').setAttribute('cx',pt.x);$('car').setAttribute('cy',pt.y);pop($('pin'),T,V(106.3));pop($('trC'),T,V(107.2))}
+ if(id==='out'){rise($('oq'),T,V(108.4),.45);document.querySelectorAll('.orc').forEach((c,i)=>rise(c,T,V(110.26)+i*.1,.45,40));const l=$('logoE');const p=eo(P(T,V(111.6),.8));l.style.opacity=p;l.style.filter=`blur(${(1-p)*12}px)`}
+ $('g1').textContent=gh[0];$('g2').textContent=gh[1];setAccent(ac);
+ if(id!=='brand'&&T<V(113.2))caps(v);else $('cap').style.opacity=0;
+ if(id==='hook')$('cap').style.opacity=0;
+};
+window.DUR=115.8;
+</script>
+</body></html>
