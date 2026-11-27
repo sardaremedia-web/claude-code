@@ -1,6 +1,6 @@
 // parallel render: node render_par.js out.mp4 workers
 const {chromium}=require('playwright');const {spawn,execFileSync}=require('child_process');const path=require('path');const fs=require('fs');
-(async()=>{const out=process.argv[2],W=+(process.argv[3]||4),fps=30;
+(async()=>{const out=process.argv[2],W=+(process.argv[3]||4),fps=50;
  const b=await chromium.launch();
  const probe=await b.newPage();await probe.goto('file://'+path.resolve(__dirname,'overlay.html'));const dur=await probe.evaluate(()=>DUR);await probe.close();
  const N=Math.round(dur*fps),per=Math.ceil(N/W);const parts=[];
