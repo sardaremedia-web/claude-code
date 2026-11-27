@@ -201,7 +201,7 @@ window.seek=function(T){
  if(id==='mam'){document.querySelectorAll('.mg').forEach((m,i)=>rise(m,T,V(5.85)+i*.1,.45))}
  if(id==='op'){rise($('oA'),T,V(7.75),.45);rise($('oB'),T,V(8.0),.45);
   [11.7,12.58,12.9].forEach((a,i)=>{const p=P(T,V(a),.45);$('cm'+i).style.opacity=p;$('cn'+i).style.opacity=clamp(p*2,0,1);$('cm'+i).querySelector('.ray').style.strokeDashoffset=-(T*40)%34});
-  const sw=P(T,V(16.5),.4);$('oB1').style.opacity=1-sw;$('oB2').style.opacity=sw;$('oB2').style.transform=`scale(${1.1-.1*eo(sw)})`;$('oB').className='card'+(sw>0?' on':'');$('oPv').textContent='+'+fmt(65000*eio(P(T,V(16.7),1.0)))}
+  const sw=P(T,V(16.5),.4);const so=P(T,V(16.2),.3);$('oB1').style.opacity=1-so;$('oB2').style.opacity=eo(sw);$('oB2').style.transform=`scale(${1.1-.1*eo(sw)})`;$('oB').className='card'+(sw>0?' on':'');$('oPv').textContent='+'+fmt(65000*eio(P(T,V(16.5),1.1)))}
  if(id==='vg'){rise($('vA'),T,V(19.2),.45);document.querySelectorAll('.vf').forEach((c,i)=>rise(c,T,V([20.3,21.3,22.38][i]),.45))}
  if(id==='mb'){rise($('mA'),T,V(24.1),.45);$('mA').style.opacity=Math.min(parseFloat($('mA').style.opacity),.55);rise($('mB'),T,V(25.8),.45)}
  if(id==='ph'){rise($('pA'),T,V(27.95),.45);rise($('pB'),T,V(30.3),.45);$('pNv').textContent=fmt(50+200*eio(P(T,V(30.6),1.8)))}
