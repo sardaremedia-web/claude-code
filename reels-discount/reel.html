@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Montserrat:wght@400;500;600;700;800;900&display=block" rel="stylesheet">
+<style>
+/* GRID: side margin 90 · gap 40 · title zone 150–330 · content 420–1560 · captions 1650 */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#09090b}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;background:#09090b}
+.abs{position:absolute}
+.sc{position:absolute;inset:0;display:none}
+.card{position:absolute;border-radius:36px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.12);box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.07)}
+.card.on{border-color:var(--ac);box-shadow:0 0 60px var(--acg),inset 0 0 50px var(--acs)}
+.gl{font-weight:900;text-transform:uppercase;line-height:1;color:var(--ac);text-shadow:0 0 30px var(--acg),0 0 80px var(--acg)}
+.lbl{font-size:24px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,.5);text-transform:uppercase}
+.ic{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;background:var(--acs);border:2px solid var(--ac);box-shadow:0 0 30px var(--acg)}
+.big{font-weight:900;line-height:1}
+.mut{color:rgba(255,255,255,.62);font-weight:600}
+.cc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.disc{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:56px;color:#0b0b0d;background:#4ee08f;box-shadow:0 0 40px rgba(78,224,143,.7)}
+#tl{position:absolute;left:90px;right:90px;top:150px;text-align:center;font-size:44px;font-weight:800}
+#tg{position:absolute;left:90px;right:90px;top:212px;text-align:center;font-size:110px;white-space:nowrap}
+#cap{position:absolute;left:90px;right:90px;top:1650px;text-align:center;font-size:56px;font-weight:800;line-height:1.2}
+#cap em{font-style:normal;color:var(--ac);text-shadow:0 0 24px var(--acg)}
+</style></head>
+<body><div id="stage" style="--ac:#f0b46a;--acg:rgba(240,180,106,.5);--acs:rgba(240,180,106,.16)">
+<div id="glow" class="abs" style="width:1500px;height:1500px;left:-210px;top:240px;border-radius:50%;background:radial-gradient(circle,var(--acg),rgba(0,0,0,0) 60%);opacity:.55"></div>
+<div id="tl"></div><div id="tg" class="gl"></div>
+
+<!-- S1 HOOK: price tag + lock -->
+<div class="sc" id="hook">
+  <div class="abs" id="tag" style="left:240px;top:430px;width:600px;height:720px;transform-origin:300px 0">
+    <svg class="abs" width="600" height="720" viewBox="0 0 600 720"><path d="M300 0 L300 90" stroke="rgba(255,255,255,.5)" stroke-width="4"/><path d="M120 150 L300 90 L480 150 L480 690 Q480 710 460 710 L140 710 Q120 710 120 690 Z" fill="rgba(255,255,255,.07)" stroke="var(--ac)" stroke-width="4" style="filter:drop-shadow(0 0 30px var(--acg))"/><circle cx="300" cy="170" r="22" fill="#09090b" stroke="var(--ac)" stroke-width="4"/></svg>
+    <div class="abs lbl" style="left:0;right:0;top:250px;text-align:center">ПАКЕТ</div>
+    <div class="abs big" id="hPrice" style="left:0;right:0;top:310px;text-align:center;font-size:96px">115 000</div>
+    <div class="abs" id="lock" style="left:240px;top:470px;width:120px;height:150px">
+      <svg width="120" height="150" viewBox="0 0 120 150"><path id="shackle" d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="var(--ac)" style="filter:drop-shadow(0 0 20px var(--ac))"/><circle cx="60" cy="102" r="10" fill="#09090b"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#09090b"/></svg>
+    </div>
+  </div>
+  <div class="abs" id="h1" style="left:90px;right:90px;top:1230px;text-align:center;font-size:62px;font-weight:800">Неге пакеттің бағасы</div>
+  <div class="abs gl" id="h2" style="left:90px;right:90px;top:1320px;text-align:center;font-size:112px">өзгермейді?</div>
+</div>
+
+<!-- S2 SIMPLE -->
+<div class="sc" id="simple"><div class="card on" id="sQ" style="left:290px;top:540px;width:500px;height:500px;border-radius:50%"><div class="cc"><div class="gl" id="sQt" style="font-size:300px">?</div></div></div></div>
+
+<!-- S3 TEAM: four role cards assemble into one package -->
+<div class="sc" id="team"><div id="tCards"></div>
+  <svg class="abs" style="left:70px;top:400px" width="940" height="1180" viewBox="0 0 940 1180"><rect id="frame" x="4" y="4" width="932" height="1172" rx="48" fill="none" stroke="var(--ac)" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="filter:drop-shadow(0 0 18px var(--ac))"/></svg>
+  <div class="abs" id="fBadge" style="left:0;right:0;top:376px;text-align:center"><span style="display:inline-block;padding:10px 34px;border-radius:999px;background:var(--ac);color:#0b0b0d;font-weight:900;font-size:34px;letter-spacing:3px;box-shadow:0 0 30px var(--acg)">ПАКЕТ</span></div>
+</div>
+
+<!-- S4 CALC -->
+<div class="sc" id="calc">
+  <div class="card" id="cRow" style="left:90px;top:420px;width:900px;height:400px"><div class="cc"><div id="cIcons" style="display:flex;align-items:center;gap:20px"></div><div class="mut" style="font-size:32px;margin-top:30px">бірнеше маман бір командада</div></div></div>
+  <div class="abs" id="cEq" style="left:0;right:0;top:830px;text-align:center;font-size:80px;font-weight:900;color:rgba(255,255,255,.5);line-height:1">=</div>
+  <div class="card on" id="cBox" style="left:90px;top:960px;width:900px;height:600px"><div class="cc"><div class="lbl">ПАКЕТ БАҒАСЫ</div><div class="big" id="cSlot" style="font-size:130px;margin-top:20px;font-variant-numeric:tabular-nums">000 000</div><div id="cLockT" class="gl" style="font-size:64px;margin-top:30px">тұрақты</div></div></div>
+</div>
+
+<!-- S5 NO DISCOUNT -->
+<div class="sc" id="nod">
+  <div class="card on" id="nCard" style="left:90px;top:420px;width:900px;height:740px"><div class="cc"><div class="lbl">ПАКЕТ</div><div id="nLockWrap" style="margin-top:30px"></div><div class="big" style="font-size:64px;margin-top:30px">баға тұрақты</div></div></div>
+  <div class="disc" id="nDisc" style="left:820px;top:700px">−%</div>
+  <div class="card" id="nBot" style="left:90px;top:1200px;width:900px;height:360px"><div class="cc"><div style="display:flex;align-items:center;gap:30px"><div class="disc" style="position:relative;width:110px;height:110px;font-size:40px;background:#ff5a6a;box-shadow:0 0 30px rgba(255,90,106,.6)">−%</div><div style="font-size:50px;font-weight:800;text-align:left;line-height:1.15">пакетке<br>жеңілдік жоқ</div></div></div></div>
+</div>
+
+<!-- S6 SINGLE -->
+<div class="sc" id="single"><div id="sCards"></div></div>
+
+<!-- S7 PRICES -->
+<div class="sc" id="prices"><div id="pRows"></div></div>
+
+<!-- S8 CTA -->
+<div class="sc" id="cta">
+  <div class="card" id="ctaA" style="left:90px;top:420px;width:900px;height:550px"><div class="cc"><div class="lbl">БІР ҒАНА МАМАН</div><div style="display:flex;align-items:center;gap:30px;margin-top:34px"><div class="ic" style="width:150px;height:150px" id="ctaAi"></div><div class="disc" style="position:relative;width:130px;height:130px;font-size:48px">−%</div></div><div style="font-size:50px;font-weight:800;margin-top:34px">бағасын бірге келісеміз</div></div></div>
+  <div class="card" id="ctaB" style="left:90px;top:1010px;width:900px;height:550px"><div class="cc"><div class="lbl">ТОЛЫҚ КОМАНДА</div><div id="ctaBi" style="display:flex;gap:16px;margin-top:34px"></div><div class="gl" style="font-size:70px;margin-top:34px">пакетті таңдаңыз</div></div></div>
+</div>
+
+<div class="sc" id="logoS"><img src="assets/logo.png" class="abs" id="logoE" style="left:190px;top:700px;width:700px"></div>
+<div id="cap"></div>
+</div>
+<script>
+const D=0.3; const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+const V=v=>v+D; const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+function rise(el,t,a,d=.5,dist=40){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;el.style.filter=p<1?`blur(${(1-p)*12}px)`:'none';return p}
+function pop(el,t,a,d=.45){const p=P(t,a,d);el.style.opacity=clamp(p*3,0,1);el.style.transform=`scale(${p?.5+.5*eb(p):.5})`;return p}
+function glowIn(el,t,a,d=.6){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`scale(${1.2-.2*p})`;el.style.filter=p<1?`blur(${(1-p)*16}px)`:'none';return p}
+function hexA(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`}
+const ICS=(k,s)=>({
+op:`<svg width="${60*s}" height="${44*s}" viewBox="0 0 70 52" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="2" y="8" width="46" height="36" rx="9"/><path d="M48 20l18-10v32l-18-10"/></svg>`,
+vg:`<svg width="${60*s}" height="${48*s}" viewBox="0 0 70 56" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="2" y="16" width="44" height="34" rx="7"/><path d="M46 26l20-10v34l-20-10"/><circle cx="13" cy="9" r="7"/><circle cx="33" cy="9" r="7"/></svg>`,
+mb:`<svg width="${42*s}" height="${56*s}" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="10" y="2" width="36" height="64" rx="8"/><path d="M22 8h12"/></svg>`,
+ph:`<svg width="${58*s}" height="${48*s}" viewBox="0 0 70 58" fill="#fff"><path d="M24 4h22l5 8h11a6 6 0 016 6v32a6 6 0 01-6 6H8a6 6 0 01-6-6V18a6 6 0 016-6h11z"/><circle cx="35" cy="33" r="13" fill="none" stroke="#111" stroke-width="5"/></svg>`,
+user:`<svg width="${50*s}" height="${56*s}" viewBox="0 0 50 56" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="25" cy="16" r="12"/><path d="M4 54c0-12 9-20 21-20s21 8 21 20"/></svg>`})[k];
+const LOCK=(s,c='var(--ac)')=>`<svg width="${120*s}" height="${150*s}" viewBox="0 0 120 150"><path d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="${c}" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="${c}" style="filter:drop-shadow(0 0 20px ${c})"/><circle cx="60" cy="102" r="10" fill="#09090b"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#09090b"/></svg>`;
+
+const ROLES=[['op','Оператор','толық түсірілім',80000,'',27.32,28.48],['vg','Видеограф','Instagram контент',80000,'',25.06,26.3],['mb','Мобилограф','тек iPhone',45000,'',22.76,24.02],['ph','Фотограф','QR жүйесімен',60000,'',19.3,21.68]];
+const SC=[['hook',0,V(3.15)],['simple',V(3.15),V(4.75)],['team',V(4.75),V(8.15)],['calc',V(8.15),V(12.05)],['nod',V(12.05),V(14.85)],['single',V(14.85),V(17.95)],['prices',V(17.95),V(29.4)],['cta',V(29.4),V(36.7)],['logoS',V(36.7),200]];
+const TITLES={simple:['Жауабы','қарапайым'],team:['Пакет дегеніміз','дайын команда'],calc:['Бағасы алдын ала','есептелген'],nod:['Сондықтан','жеңілдік жоқ'],single:['Маманды жеке алсаңыз','жеңілдік бар'],prices:['Жеке','бағалар'],cta:['Сізге','не керек?']};
+
+const PH=[[3.28,4.6,'Жауабы *қарапайым*.'],[4.82,7.9,'Пакет дегеніміз бірнеше маманнан құралған *дайын команда*.'],[8.28,11.9,'Оның бағасы сол мамандарды біріктіріп, алдын ала *есептелген*.'],[12.18,14.8,'Сондықтан пакетке жеңілдік *қарастырылмаған*.'],
+[14.94,17.6,'Ал маманды *жеке* алсаңыз, *жеңілдік* сұрауға болады.'],[18.04,19.2,'Жеке бағалар мынадай.'],[19.3,22.6,'Фотограф, QR жүйесімен бірге, *60 000*.'],[22.76,24.9,'Мобилограф, *45 000*.'],[25.06,27.2,'Видеограф, *80 000*.'],[27.32,29.4,'Оператор, *80 000*.'],
+[29.5,32.9,'Бір ғана маман керек болса, жазыңыз, бағасын *бірге* келісеміз.'],[33.4,36.4,'Ал толық команда керек болса, *пакетті* таңдаңыз.']];
+const CH=[];PH.forEach(([a,b,txt])=>{txt=txt.replace(/\*([^*]+)\*/g,m=>m.replace(/ /g,' '));const w=txt.split(' ');const g=[];let c=[];
+ w.forEach(x=>{const len=(c.join(' ')+' '+x).replace(/\*/g,'').length;if(c.length&&(c.length>=3||len>24)){g.push(c);c=[]}c.push(x)});if(c.length)g.push(c);
+ const tot=txt.replace(/\*/g,'').length;let acc=0;g.forEach(gg=>{const s=gg.join(' ');const st=a+(b-a)*acc/tot;acc+=s.replace(/\*/g,'').length+1;CH.push([st,a+(b-a)*Math.min(acc,tot)/tot,s])})});
+let lastCap=-1;
+function caps(v){let idx=-1;for(let i=0;i<CH.length;i++){const nx=CH[i+1]?CH[i+1][0]:CH[i][1]+.5;if(v>=CH[i][0]-.04&&v<Math.min(nx,CH[i][1]+.5))idx=i}
+ const c=$('cap');if(idx<0){c.style.opacity=0;return}if(idx!==lastCap){c.innerHTML=CH[idx][2].replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/ /g,' ');lastCap=idx}
+ const p=eo(P(v,CH[idx][0]-.04,.18));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*10}px)`}
+
+// grid cards (2x2: 430x550, gap 40)
+const GRID=i=>[90+(i%2)*470,420+Math.floor(i/2)*590];
+const roleCard=(r,cls)=>`<div class="card ${cls}" style="width:430px;height:550px"><div class="cc"><div class="ic" style="width:170px;height:170px">${ICS(r[0],1.5)}</div><div style="font-size:44px;font-weight:800;margin-top:36px">${r[1]}</div><div class="mut" style="font-size:28px;margin-top:10px">${r[2]}</div></div></div>`;
+$('tCards').innerHTML=ROLES.map((r,i)=>{const [x,y]=GRID(i);return `<div class="abs tc" style="left:${x}px;top:${y}px">${roleCard(r,'')}</div>`}).join('');
+$('sCards').innerHTML=ROLES.map((r,i)=>{const [x,y]=GRID(i);return `<div class="abs scd" style="left:${x}px;top:${y}px">${roleCard(r,'on')}<div class="disc sd" style="left:300px;top:-20px;width:120px;height:120px;font-size:44px">−%</div></div>`}).join('');
+$('cIcons').innerHTML=ROLES.map((r,i)=>`<div class="ic ci" style="width:130px;height:130px">${ICS(r[0],1.1)}</div>`+(i<3?'<div class="cplus" style="font-size:56px;font-weight:900;color:rgba(255,255,255,.5)">+</div>':'')).join('');
+$('nLockWrap').innerHTML=`<div id="nLock">${LOCK(1.6)}</div>`;
+const RH=(1140-3*40)/4;
+$('pRows').innerHTML=[3,2,1,0].map((ri,i)=>{const r=ROLES[ri];return `<div class="card pr" data-r="${ri}" style="left:90px;top:${420+i*(RH+40)}px;width:900px;height:${RH}px"><div class="abs" style="left:50px;top:0;bottom:0;display:flex;align-items:center;gap:36px"><div class="ic" style="width:124px;height:124px">${ICS(r[0],1.1)}</div><div><div style="font-size:40px;font-weight:800">${r[1]}</div><div class="mut" style="font-size:26px;margin-top:8px">${r[2]}</div></div></div><div class="abs" style="right:50px;top:0;bottom:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:center"><div class="big pv" style="font-size:72px">0</div><div class="pd" style="margin-top:12px;padding:6px 18px;border-radius:999px;background:#4ee08f;color:#0b0b0d;font-weight:900;font-size:24px">−% келісуге болады</div></div></div>`}).join('');
+$('ctaAi').innerHTML=ICS('user',1.6);$('ctaBi').innerHTML=ROLES.map(r=>`<div class="ic" style="width:110px;height:110px">${ICS(r[0],.95)}</div>`).join('');
+
+window.seek=function(T){
+ const v=T-D;let cur=null;for(const s of SC){const on=T>=s[1]&&T<s[2];$(s[0]).style.display=on?'block':'none';if(on)cur=s}
+ const id=cur[0];
+ {const ent=eo(P(T,cur[1],.5));const st=$(id);const ex=id==='logoS'?0:P(T,cur[2]-.3,.3);st.style.opacity=Math.min(ent,1-ex);st.style.transform=`translateY(${(1-ent)*30}px)`;st.style.filter=(ent<1||ex>0)?`blur(${Math.max(1-ent,ex)*14}px)`:'none'}
+ $('glow').style.transform=`translate(${Math.sin(T*.3)*80}px,${Math.cos(T*.23)*60}px)`;
+ const [tl,tg]=TITLES[id]||['',''];$('tl').textContent=tl;$('tg').textContent=tg;
+ {const p=eo(P(T,cur[1],.5));const ex=P(T,cur[2]-.3,.3);const o=Math.min(p,1-ex);$('tl').style.opacity=o;$('tg').style.opacity=o;$('tg').style.transform=`scale(${1.12-.12*p})`;$('tg').style.filter=o<1?`blur(${(1-o)*14}px)`:'none';
+  const w=$('tg');w.style.fontSize='110px';if(w.scrollWidth>900)w.style.fontSize=(110*900/w.scrollWidth)+'px'}
+ let ac='#f0b46a';
+ if(id==='hook'){const tg=$('tag');const sw=Math.sin(T*2.2)*6*Math.exp(-T*.6);const p=eo(P(T,0,.6));tg.style.opacity=p;tg.style.transform=`translateY(${(1-p)*-200}px) rotate(${sw}deg)`;
+  const lk=$('lock');const lp=P(T,.7,.7);lk.style.transform=`translateY(${(1-eb(lp))*-500}px)`;lk.style.opacity=lp>0?1:0;
+  const sh=$('shackle');const cl=P(T,1.5,.18);sh.setAttribute('d',`M30 70 V${45-18*(1-cl)} a30 30 0 0 1 60 0 V${70-30*(1-cl)}`);
+  rise($('h1'),T,V(1.0),.45);glowIn($('h2'),T,V(1.7))}
+ if(id==='simple'){pop($('sQ'),T,V(3.3));const t=$('sQt');t.textContent=T>=V(3.84)?'!':'?';t.style.transform=`scale(${T>=V(3.84)?.7+.3*eb(P(T,V(3.84),.4)):1})`}
+ if(id==='team'){const starts=[[-500,-300,-25],[700,-260,20],[-520,700,18],[720,640,-22]];document.querySelectorAll('.tc').forEach((c,i)=>{const p=eio(P(T,V(4.9)+i*.18,.7));const [dx,dy,r]=starts[i];c.style.opacity=clamp(p*2,0,1);c.style.transform=`translate(${dx*(1-p)}px,${dy*(1-p)}px) rotate(${r*(1-p)}deg)`});
+  $('frame').style.strokeDashoffset=1-eio(P(T,V(6.9),.8));pop($('fBadge'),T,V(7.4))}
+ if(id==='calc'){rise($('cRow'),T,V(8.3),.45);document.querySelectorAll('.ci').forEach((c,i)=>pop(c,T,V(9.3)+i*.18));document.querySelectorAll('.cplus').forEach((c,i)=>pop(c,T,V(9.4)+i*.18));
+  rise($('cEq'),T,V(10.3),.4);rise($('cBox'),T,V(10.4),.45);const roll=T<V(11.14);if(roll){const q=['?','·','?'];const k=Math.floor(T*12);$('cSlot').textContent=[0,1,2].map(i=>q[(k+i)%3]).join(' ')}else{$('cSlot').innerHTML=`<span style="display:inline-block;transform:scale(${.6+.4*eb(P(T,V(11.14),.4))})">${LOCK(.9)}</span>`}pop($('cLockT'),T,V(11.3))}
+ if(id==='nod'){rise($('nCard'),T,V(12.2),.45);const d=$('nDisc');const t0=V(13.0);
+  if(T<t0){d.style.opacity=0}else{const fly=P(T,t0,.45);const back=P(T,t0+.45,.9);const x=820-260*eio(fly)+380*eo(back);const y=700-120*Math.sin(Math.PI*fly)+ (back>0?(-200*Math.sin(Math.PI*back*0.6)+520*back*back):0);d.style.opacity=1-back*.9;d.style.transform=`translate(${x-820}px,${y-700}px) rotate(${back*260}deg)`}
+  const sh=P(T,t0+.45,.35);$('nLock').style.transform=`translateX(${Math.sin(sh*Math.PI*6)*14*(1-sh)}px)`;rise($('nBot'),T,V(13.6),.45)}
+ if(id==='single'){ac='#4ee08f';document.querySelectorAll('.scd').forEach((c,i)=>{const p=eo(P(T,V(14.95),.6));const dir=[[-1,-1],[1,-1],[-1,1],[1,1]][i];c.style.transform=`translate(${dir[0]*30*(1-p)}px,${dir[1]*30*(1-p)}px)`;c.style.opacity=p;pop(c.querySelector('.sd'),T,V(16.4)+i*.12)})}
+ if(id==='prices'){document.querySelectorAll('.pr').forEach((r,i)=>{const R=ROLES[+r.dataset.r];rise(r,T,V(R[5])-.15,.45);r.className='card pr'+(T>=V(R[6])-.1&&T<V(R[6])+1.6?' on':'');const pv=r.querySelector('.pv');pv.textContent=fmt(R[3]*eio(P(T,V(R[6])-.1,.8)));pv.style.opacity=P(T,V(R[6])-.12,.15);pop(r.querySelector('.pd'),T,V(R[6])+.6)})}
+ if(id==='cta'){rise($('ctaA'),T,V(29.5),.45);$('ctaA').className='card'+(T>=V(30.9)&&T<V(33.3)?' on':'');rise($('ctaB'),T,V(33.4),.45);$('ctaB').className='card'+(T>=V(34.9)?' on':'')}
+ if(id==='logoS'){const l=$('logoE');const p=eo(P(T,V(36.7),.8));l.style.opacity=p;l.style.filter=`blur(${(1-p)*12}px)`}
+ const s=$('stage').style;s.setProperty('--ac',ac);s.setProperty('--acg',hexA(ac,.5));s.setProperty('--acs',hexA(ac,.16));
+ if(id!=='hook'&&id!=='logoS')caps(v);else $('cap').style.opacity=0;
+};
+window.DUR=39.5;
+</script>
+</body></html>
