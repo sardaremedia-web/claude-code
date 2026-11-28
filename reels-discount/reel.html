@@ -8,32 +8,32 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0F3473}
 #stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff;background:#0F3473}
 .abs{position:absolute}
 .sc{position:absolute;inset:0;display:none}
-.card{position:absolute;border-radius:36px;background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.05));border:1.5px solid rgba(255,255,255,.18);box-shadow:0 30px 70px rgba(4,14,44,.4),inset 0 1px 0 rgba(255,255,255,.1)}
-.card.on{border-color:var(--ac);box-shadow:0 0 60px var(--acg),inset 0 0 50px var(--acs)}
-.gl{font-weight:900;text-transform:uppercase;line-height:1;color:var(--ac);text-shadow:0 0 30px var(--acg),0 0 80px var(--acg)}
+.card{position:absolute;border-radius:36px;background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.05));border:1.5px solid rgba(255,255,255,.18);box-shadow:none}
+.card.on{border-color:var(--ac);border-width:3px;box-shadow:none}
+.gl{font-weight:900;text-transform:uppercase;line-height:1;color:var(--ac);text-shadow:none}
 .lbl{font-size:24px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,.5);text-transform:uppercase}
-.ic{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;background:var(--acs);border:2px solid var(--ac);box-shadow:0 0 30px var(--acg)}
+.ic{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;background:var(--acs);border:2px solid var(--ac);box-shadow:none}
 .big{font-weight:900;line-height:1}
 .mut{color:rgba(255,255,255,.62);font-weight:600}
 .cc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.disc{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:56px;color:#0F3473;background:#4ee08f;box-shadow:0 0 40px rgba(78,224,143,.7)}
+.disc{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:56px;color:#0F3473;background:#4ee08f;box-shadow:none}
 #tl{position:absolute;left:90px;right:90px;top:150px;text-align:center;font-size:44px;font-weight:800}
 #tg{position:absolute;left:90px;right:90px;top:212px;text-align:center;font-size:110px;white-space:nowrap}
 #cap{position:absolute;left:90px;right:90px;top:1650px;text-align:center;font-size:56px;font-weight:800;line-height:1.2}
-#cap em{font-style:normal;color:var(--ac);text-shadow:0 0 24px var(--acg)}
+#cap em{font-style:normal;color:#8fc3ff}
 </style></head>
-<body><div id="stage" style="--ac:#f0b46a;--acg:rgba(240,180,106,.5);--acs:rgba(240,180,106,.16)">
-<div id="glow" class="abs" style="width:1500px;height:1500px;left:-210px;top:240px;border-radius:50%;background:radial-gradient(circle,var(--acg),rgba(15,52,115,0) 60%);opacity:.35"></div>
+<body><div id="stage" style="--ac:#ffffff;--acg:rgba(255,255,255,0);--acs:rgba(255,255,255,.12)">
+
 <div id="tl"></div><div id="tg" class="gl"></div>
 
 <!-- S1 HOOK: price tag + lock -->
 <div class="sc" id="hook">
   <div class="abs" id="tag" style="left:240px;top:430px;width:600px;height:720px;transform-origin:300px 0">
-    <svg class="abs" width="600" height="720" viewBox="0 0 600 720"><path d="M300 0 L300 90" stroke="rgba(255,255,255,.5)" stroke-width="4"/><path d="M120 150 L300 90 L480 150 L480 690 Q480 710 460 710 L140 710 Q120 710 120 690 Z" fill="rgba(255,255,255,.07)" stroke="var(--ac)" stroke-width="4" style="filter:drop-shadow(0 0 30px var(--acg))"/><circle cx="300" cy="170" r="22" fill="#0F3473" stroke="var(--ac)" stroke-width="4"/></svg>
+    <svg class="abs" width="600" height="720" viewBox="0 0 600 720"><path d="M300 0 L300 70" stroke="rgba(255,255,255,.5)" stroke-width="4"/><path d="M60 150 L300 70 L540 150 L540 690 Q540 710 520 710 L80 710 Q60 710 60 690 Z" fill="rgba(255,255,255,.07)" stroke="var(--ac)" stroke-width="4" style=")"/><circle cx="300" cy="170" r="22" fill="#0F3473" stroke="var(--ac)" stroke-width="4"/></svg>
     <div class="abs lbl" style="left:0;right:0;top:250px;text-align:center">ПАКЕТ</div>
-    <div class="abs big" id="hPrice" style="left:0;right:0;top:310px;text-align:center;font-size:96px">115 000</div>
+    <div class="abs big" id="hPrice" style="left:100px;right:100px;top:300px;text-align:center;font-size:96px;white-space:nowrap">115 000</div>
     <div class="abs" id="lock" style="left:240px;top:470px;width:120px;height:150px">
-      <svg width="120" height="150" viewBox="0 0 120 150"><path id="shackle" d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="var(--ac)" style="filter:drop-shadow(0 0 20px var(--ac))"/><circle cx="60" cy="102" r="10" fill="#0F3473"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#0F3473"/></svg>
+      <svg width="120" height="150" viewBox="0 0 120 150"><path id="shackle" d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="var(--ac)" style=")"/><circle cx="60" cy="102" r="10" fill="#0F3473"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#0F3473"/></svg>
     </div>
   </div>
   <div class="abs" id="h1" style="left:90px;right:90px;top:1230px;text-align:center;font-size:62px;font-weight:800">Неге пакеттің бағасы</div>
@@ -45,8 +45,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0F3473}
 
 <!-- S3 TEAM: four role cards assemble into one package -->
 <div class="sc" id="team"><div id="tCards"></div>
-  <svg class="abs" style="left:70px;top:400px" width="940" height="1180" viewBox="0 0 940 1180"><rect id="frame" x="4" y="4" width="932" height="1172" rx="48" fill="none" stroke="var(--ac)" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="filter:drop-shadow(0 0 18px var(--ac))"/></svg>
-  <div class="abs" id="fBadge" style="left:0;right:0;top:338px;text-align:center"><span style="display:inline-block;padding:10px 34px;border-radius:999px;background:var(--ac);color:#0F3473;font-weight:900;font-size:34px;letter-spacing:3px;box-shadow:0 0 30px var(--acg)">ПАКЕТ</span></div>
+  <svg class="abs" style="left:70px;top:400px" width="940" height="1180" viewBox="0 0 940 1180"><rect id="frame" x="4" y="4" width="932" height="1172" rx="48" fill="none" stroke="var(--ac)" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style=")"/></svg>
+  <div class="abs" id="fBadge" style="left:0;right:0;top:338px;text-align:center"><span style="display:inline-block;padding:10px 34px;border-radius:999px;background:var(--ac);color:#0F3473;font-weight:900;font-size:34px;letter-spacing:3px">ПАКЕТ</span></div>
 </div>
 
 <!-- S4 CALC -->
@@ -60,7 +60,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0F3473}
 <div class="sc" id="nod">
   <div class="card on" id="nCard" style="left:90px;top:420px;width:900px;height:740px"><div class="cc"><div class="lbl">ПАКЕТ</div><div id="nLockWrap" style="margin-top:30px"></div><div class="big" style="font-size:64px;margin-top:30px">баға тұрақты</div></div></div>
   <div class="disc" id="nDisc" style="left:820px;top:700px;z-index:3">−%</div>
-  <div class="card" id="nBot" style="left:90px;top:1200px;width:900px;height:360px"><div class="cc"><div style="display:flex;align-items:center;gap:30px"><div class="disc" style="position:relative;width:110px;height:110px;font-size:40px;background:#ff5a6a;box-shadow:0 0 30px rgba(255,90,106,.6)">−%</div><div style="font-size:50px;font-weight:800;text-align:left;line-height:1.15">пакетке<br>жеңілдік жоқ</div></div></div></div>
+  <div class="card" id="nBot" style="left:90px;top:1200px;width:900px;height:360px"><div class="cc"><div style="display:flex;align-items:center;gap:30px"><div class="disc" style="position:relative;width:110px;height:110px;font-size:40px;background:#ff5a6a">−%</div><div style="font-size:50px;font-weight:800;text-align:left;line-height:1.15">пакетке<br>жеңілдік жоқ</div></div></div></div>
 </div>
 
 <!-- S6 SINGLE -->
@@ -94,7 +94,7 @@ vg:`<svg width="${60*s}" height="${48*s}" viewBox="0 0 70 56" fill="none" stroke
 mb:`<svg width="${42*s}" height="${56*s}" viewBox="0 0 56 70" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="10" y="2" width="36" height="64" rx="8"/><path d="M22 8h12"/></svg>`,
 ph:`<svg width="${58*s}" height="${48*s}" viewBox="0 0 70 58" fill="#fff"><path d="M24 4h22l5 8h11a6 6 0 016 6v32a6 6 0 01-6 6H8a6 6 0 01-6-6V18a6 6 0 016-6h11z"/><circle cx="35" cy="33" r="13" fill="none" stroke="#111" stroke-width="5"/></svg>`,
 user:`<svg width="${50*s}" height="${56*s}" viewBox="0 0 50 56" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"><circle cx="25" cy="16" r="12"/><path d="M4 54c0-12 9-20 21-20s21 8 21 20"/></svg>`})[k];
-const LOCK=(s,c='var(--ac)')=>`<svg width="${120*s}" height="${150*s}" viewBox="0 0 120 150"><path d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="${c}" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="${c}" style="filter:drop-shadow(0 0 20px ${c})"/><circle cx="60" cy="102" r="10" fill="#0F3473"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#0F3473"/></svg>`;
+const LOCK=(s,c='var(--ac)')=>`<svg width="${120*s}" height="${150*s}" viewBox="0 0 120 150"><path d="M30 70 V45 a30 30 0 0 1 60 0 V70" fill="none" stroke="${c}" stroke-width="12" stroke-linecap="round"/><rect x="10" y="68" width="100" height="78" rx="18" fill="${c}" style=""/><circle cx="60" cy="102" r="10" fill="#0F3473"/><rect x="56" y="104" width="8" height="20" rx="4" fill="#0F3473"/></svg>`;
 
 const ROLES=[['op','Оператор','толық түсірілім',80000,'',27.32,28.48],['vg','Видеограф','Instagram контент',80000,'',25.06,26.3],['mb','Мобилограф','тек iPhone',45000,'',22.76,24.02],['ph','Фотограф','QR жүйесімен',60000,'',19.3,21.68]];
 const SC=[['hook',0,V(3.15)],['simple',V(3.15),V(4.75)],['team',V(4.75),V(8.15)],['calc',V(8.15),V(12.05)],['nod',V(12.05),V(14.85)],['single',V(14.85),V(17.95)],['prices',V(17.95),V(29.4)],['cta',V(29.4),V(36.7)],['logoS',V(36.7),200]];
@@ -122,15 +122,19 @@ const RH=(1140-3*40)/4;
 $('pRows').innerHTML=[3,2,1,0].map((ri,i)=>{const r=ROLES[ri];return `<div class="card pr" data-r="${ri}" style="left:90px;top:${420+i*(RH+40)}px;width:900px;height:${RH}px"><div class="abs" style="left:50px;top:0;bottom:0;display:flex;align-items:center;gap:36px"><div class="ic" style="width:124px;height:124px">${ICS(r[0],1.1)}</div><div><div style="font-size:40px;font-weight:800">${r[1]}</div><div class="mut" style="font-size:26px;margin-top:8px">${r[2]}</div></div></div><div class="abs" style="right:50px;top:0;bottom:0;display:flex;flex-direction:column;align-items:flex-end;justify-content:center"><div class="big pv" style="font-size:72px">0</div><div class="pd" style="margin-top:12px;padding:6px 18px;border-radius:999px;background:#4ee08f;color:#0F3473;font-weight:900;font-size:24px">−% келісуге болады</div></div></div>`}).join('');
 $('ctaAi').innerHTML=ICS('user',1.6);$('ctaBi').innerHTML=ROLES.map(r=>`<div class="ic" style="width:110px;height:110px">${ICS(r[0],.95)}</div>`).join('');
 
+function fitW(el,maxW,base){el.style.fontSize=base+'px';el.style.display='inline-block';const w=el.getBoundingClientRect().width;el.style.display='';if(w>maxW)el.style.fontSize=(base*maxW/w)+'px'}
+let fittedOnce=false;
 window.seek=function(T){
+ if(!fittedOnce){fittedOnce=true;const hp=$('hPrice');const sp=document.createElement('span');sp.textContent=hp.textContent;hp.textContent='';hp.appendChild(sp);fitW(sp,400-80,96);
+  const h2=$('h2');const s2=document.createElement('span');s2.textContent=h2.textContent;h2.textContent='';h2.appendChild(s2);fitW(s2,820,112);}
  const v=T-D;let cur=null;for(const s of SC){const on=T>=s[1]&&T<s[2];$(s[0]).style.display=on?'block':'none';if(on)cur=s}
  const id=cur[0];
  {const ent=eo(P(T,cur[1],.5));const st=$(id);const ex=id==='logoS'?0:P(T,cur[2]-.3,.3);st.style.opacity=Math.min(ent,1-ex);st.style.transform=`translateY(${(1-ent)*30}px)`;st.style.filter=(ent<1||ex>0)?`blur(${Math.max(1-ent,ex)*14}px)`:'none'}
- $('glow').style.transform=`translate(${Math.sin(T*.3)*80}px,${Math.cos(T*.23)*60}px)`;
+ 
  const [tl,tg]=TITLES[id]||['',''];$('tl').textContent=tl;$('tg').textContent=tg;
  {const p=eo(P(T,cur[1],.5));const ex=P(T,cur[2]-.3,.3);const o=Math.min(p,1-ex);$('tl').style.opacity=o;$('tg').style.opacity=o;$('tg').style.transform=`scale(${1.12-.12*p})`;$('tg').style.filter=o<1?`blur(${(1-o)*14}px)`:'none';
-  const w=$('tg');w.style.fontSize='110px';if(w.scrollWidth>900)w.style.fontSize=(110*900/w.scrollWidth)+'px'}
- let ac='#f0b46a';
+  const w=$('tg');w.innerHTML=`<span>${tg}</span>`;fitW(w.firstChild,820,110)}
+ let ac='#ffffff';
  if(id==='hook'){const tg=$('tag');const sw=Math.sin(T*2.2)*6*Math.exp(-T*.6);const p=eo(P(T,0,.6));tg.style.opacity=p;tg.style.transform=`translateY(${(1-p)*-200}px) rotate(${sw}deg)`;
   const lk=$('lock');const lp=P(T,.7,.7);lk.style.transform=`translateY(${(1-eb(lp))*-500}px)`;lk.style.opacity=lp>0?1:0;
   const sh=$('shackle');const cl=P(T,1.5,.18);sh.setAttribute('d',`M30 70 V${45-18*(1-cl)} a30 30 0 0 1 60 0 V${70-30*(1-cl)}`);
