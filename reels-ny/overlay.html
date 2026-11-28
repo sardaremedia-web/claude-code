@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=block" rel="stylesheet">
+<style>
+/* flat New Year style: red / gold / white, no glow. Captions 1110, info band 1230–1560, side margin 90 */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:transparent;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff}
+.abs{position:absolute}
+.mod{position:absolute;left:0;right:0;top:0;bottom:0;opacity:0}
+.red{background:#b3172f;border-radius:28px}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:12px 26px;border-radius:999px;font-weight:900;font-size:28px;letter-spacing:2px}
+.gold{color:#f1cd7a}
+.lbl{font-size:24px;font-weight:800;letter-spacing:4px;color:#f1cd7a;text-transform:uppercase}
+#cap{position:absolute;left:0;right:0;top:1110px;display:flex;justify-content:center}
+#capbox{padding:14px 30px;border-radius:22px;background:rgba(18,10,12,.74);font-size:46px;font-weight:700;white-space:nowrap}
+#capbox b{color:#f1cd7a;font-weight:800}
+#scrim{position:absolute;left:0;right:0;bottom:0;height:900px;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,0));opacity:0}
+.gcard{position:absolute;left:90px;width:900px;border-radius:28px;background:#b3172f;display:flex;align-items:center;gap:34px;padding:0 44px}
+.ico{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;flex:none}
+</style></head>
+<body><div id="stage">
+<div id="scrim"></div>
+<canvas id="snow" class="abs" width="1080" height="1920" style="left:0;top:0"></canvas>
+<div class="abs" id="badge" style="left:90px;top:110px"><span class="chip" style="background:#b3172f;color:#fff;font-size:24px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f1cd7a" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1M12 2l-2 2M12 2l2 2M12 22l-2-2M12 22l2-2"/></svg>ЖАҢА ЖЫЛДЫҚ КЕШ</span></div>
+
+<!-- M1 hook -->
+<div class="mod" id="m1">
+  <div class="abs" id="h0" style="left:0;right:0;top:1230px;text-align:center"><span class="chip" style="background:#f1cd7a;color:#8f0f22">ШАҚЫРУ</span></div>
+  <div class="abs" id="h1" data-w="860" style="left:0;right:0;top:1310px;text-align:center;font-size:92px;font-weight:900;line-height:1">ЖАҢА ЖЫЛДЫҚ</div>
+  <div class="abs gold" id="h2" data-w="860" style="left:0;right:0;top:1410px;text-align:center;font-size:120px;font-weight:900;line-height:1">КЕШ</div>
+</div>
+<!-- M2 audience -->
+<div class="mod" id="m2">
+  <div class="abs lbl" style="left:0;right:0;top:1230px;text-align:center" id="m2l">кімдерге есігіміз ашық</div>
+  <div id="aud"></div>
+</div>
+<!-- M3 goals -->
+<div class="mod" id="m3">
+  <div class="abs lbl" style="left:0;right:0;top:1230px;text-align:center">кештің мақсаты</div>
+  <div class="gcard" id="gC" style="top:1290px;height:200px"><div class="gold" id="gN" style="font-size:100px;font-weight:900;line-height:1;width:150px">01</div><div id="gT" style="font-size:44px;font-weight:800;line-height:1.15"></div></div>
+  <div class="abs" id="gD" style="left:0;right:0;top:1520px;display:flex;justify-content:center;gap:12px"></div>
+</div>
+<!-- M4 awards -->
+<div class="mod" id="m4">
+  <div class="abs" id="aw" style="left:90px;width:900px;top:1230px;height:330px" >
+    <div class="red abs" style="inset:0"></div>
+    <div class="abs" style="left:44px;top:0;bottom:0;display:flex;align-items:center"><svg width="150" height="170" viewBox="0 0 64 72" fill="none" stroke="#f1cd7a" stroke-width="4" stroke-linejoin="round"><path d="M18 6h28v18a14 14 0 01-28 0z"/><path d="M18 12H8v6a10 10 0 0010 10M46 12h10v6a10 10 0 01-10 10M32 38v14M22 66h20l-2-14H24z"/></svg></div>
+    <div class="abs" style="left:240px;top:56px"><div class="lbl">марапаттау</div><div style="font-size:64px;font-weight:900;margin-top:8px">ЖЫЛ ҮЗДІКТЕРІ</div></div>
+    <div class="abs" style="left:240px;right:40px;top:210px;display:flex;gap:14px;flex-wrap:nowrap"><span class="chip" id="aw1" style="background:rgba(255,255,255,.16);font-size:22px;padding:10px 20px;letter-spacing:1px">номинациялар</span><span class="chip" id="aw2" style="background:#f1cd7a;color:#8f0f22;font-size:22px;padding:10px 20px;letter-spacing:1px">қала әкімінің қолынан</span></div>
+  </div>
+</div>
+<!-- M5 what awaits -->
+<div class="mod" id="m5">
+  <div class="abs lbl" style="left:0;right:0;top:1230px;text-align:center">кеште не болады</div>
+  <div class="gcard" id="wC" style="top:1290px;height:200px"><div class="ico" id="wI"></div><div><div id="wT" style="font-size:44px;font-weight:800;line-height:1.1"></div><div id="wS" style="font-size:28px;font-weight:600;color:rgba(255,255,255,.8);margin-top:8px"></div></div></div>
+  <div class="abs" id="wD" style="left:0;right:0;top:1520px;display:flex;justify-content:center;gap:12px"></div>
+</div>
+<!-- M6 statement -->
+<div class="mod" id="m6">
+  <div class="abs" id="s1" data-w="860" style="left:0;right:0;top:1250px;text-align:center;font-size:70px;white-space:nowrap;font-weight:900;line-height:1.05">ЖАЙ ҒАНА КЕШ ЕМЕС</div>
+  <div class="abs gold" id="s2" data-w="860" style="left:0;right:0;top:1360px;text-align:center;font-size:96px;font-weight:900;line-height:1">ЕРЕКШЕ КЕЗДЕСУ</div>
+</div>
+<!-- M7 ticket -->
+<div class="mod" id="m7">
+  <div class="abs" id="tk" style="left:90px;width:900px;top:1210px;height:360px">
+    <div class="red abs" style="inset:0"></div>
+    <div class="abs" style="left:0;right:0;top:180px;border-top:3px dashed rgba(241,205,122,.6)"></div>
+    <div class="abs" style="left:-20px;top:160px;width:40px;height:40px;border-radius:50%;background:#0a0a0a;opacity:.0"></div>
+    <div class="abs" id="t1" style="left:44px;top:34px"><div class="lbl">күні</div><div class="fit" data-w="520" style="font-size:62px;font-weight:900;line-height:1.1;white-space:nowrap">19 ЖЕЛТОҚСАН</div></div>
+    <div class="abs" id="t2" style="right:44px;top:34px;text-align:right"><div class="lbl">басталуы</div><div class="gold" style="font-size:62px;font-weight:900;line-height:1.1;white-space:nowrap">17:00</div></div>
+    <div class="abs" id="t3" style="left:44px;top:212px"><div class="lbl">өтетін орны</div><div class="fit" data-w="810" style="font-size:52px;font-weight:900;line-height:1.15;white-space:nowrap">«Балқаймақ» мейрамханасы</div></div>
+  </div>
+  <div class="abs" id="tw" style="left:0;right:0;top:1600px;text-align:center"><span class="chip" style="background:#f1cd7a;color:#8f0f22;font-size:30px">БІЗ СІЗДІ КҮТЕМІЗ!</span></div>
+</div>
+<div id="cap"><div id="capbox"></div></div>
+<div class="abs" id="credit" style="left:0;right:0;top:1760px;text-align:center;opacity:0"><img src="assets/logo.png" style="height:70px"></div>
+<div id="flash" class="abs" style="inset:0;background:#fff;opacity:0"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), P=(t,a,d)=>clamp((t-a)/d,0,1);
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const eb=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+function rise(el,t,a,d=.4,dist=30){const p=eo(P(t,a,d));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dist}px)`;return p}
+function pop(el,t,a,d=.35){const p=P(t,a,d);el.style.opacity=clamp(p*3,0,1);el.style.transform=`scale(${p?.6+.4*eb(p):.6})`;return p}
+function mod(id,t,a,b){const el=$(id);const i=eo(P(t,a,.35)),o=1-eio(P(t,b-.25,.25));const v=Math.min(i,o);el.style.opacity=v;el.style.transform=`translateY(${(1-i)*40}px)`;return v}
+const SVG={
+cam:'<svg width="56" height="46" viewBox="0 0 70 58" fill="#fff"><path d="M24 4h22l5 8h11a6 6 0 016 6v32a6 6 0 01-6 6H8a6 6 0 01-6-6V18a6 6 0 016-6h11z"/><circle cx="35" cy="33" r="13" fill="none" stroke="#b3172f" stroke-width="5"/></svg>',
+vid:'<svg width="58" height="44" viewBox="0 0 70 52" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="2" y="8" width="46" height="36" rx="9"/><path d="M48 20l18-10v32l-18-10"/></svg>',
+gift:'<svg width="54" height="54" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><rect x="4" y="18" width="40" height="26" rx="4"/><path d="M2 12h44v8H2zM24 12v32M24 12c-4-8-14-8-12-2 1 3 8 2 12 2zM24 12c4-8 14-8 12-2-1 3-8 2-12 2z"/></svg>',
+ticket:'<svg width="58" height="44" viewBox="0 0 58 44" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><path d="M4 6h50v10a6 6 0 000 12v10H4V28a6 6 0 000-12z"/><path d="M36 8v28" stroke-dasharray="4 4"/></svg>',
+hat:'<svg width="58" height="54" viewBox="0 0 58 54" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"><path d="M8 40C14 18 26 6 40 8c6 1 8 10 6 18"/><rect x="4" y="38" width="44" height="10" rx="5"/><circle cx="48" cy="30" r="6"/></svg>',
+music:'<svg width="48" height="54" viewBox="0 0 48 54" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M18 42V8l26-6v34"/><circle cx="11" cy="42" r="8"/><circle cx="37" cy="36" r="8"/></svg>',
+people:'<svg width="62" height="50" viewBox="0 0 62 50" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><circle cx="20" cy="14" r="9"/><circle cx="44" cy="16" r="8"/><path d="M2 48c0-10 8-17 18-17s18 7 18 17M38 30c10 0 20 6 20 18"/></svg>'};
+// snow (deterministic per t)
+const sn=$('snow').getContext('2d');const FL=[...Array(90)].map((_,i)=>{const r=(n)=>{const x=Math.sin(i*127.1+n*311.7)*43758.5453;return x-Math.floor(x)};return {x:r(1)*1080,y:r(2)*1920,s:2+r(3)*5,v:60+r(4)*90,w:r(5)*6.28,a:.45+r(6)*.45}});
+function snow(t){sn.clearRect(0,0,1080,1920);FL.forEach(f=>{const y=(f.y+t*f.v)%2000-40;const x=f.x+Math.sin(t*.8+f.w)*30;sn.globalAlpha=f.a;sn.fillStyle='#fff';sn.beginPath();sn.arc(x,y,f.s,0,6.283);sn.fill()})}
+
+const AUD=[['Декреттегі аналар',6.3],['Жас кәсіпкерлер',8.2],['Кәсіпкерлер',9.9],['Блогерлер',11.36]];
+$('aud').innerHTML=AUD.map((a,i)=>`<div class="abs au" style="left:${90+(i%2)*470}px;top:${1290+Math.floor(i/2)*130}px;width:430px;height:100px;border-radius:24px;background:#b3172f;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800">${a[0]}</div>`).join('');
+const GOALS=[[13.22,'Бір-бірімізбен<br>жақынырақ танысу'],[18.44,'Жаңа орта<br>қалыптастыру'],[19.95,'Пайдалы байланыс<br>орнату'],[21.36,'Кәсіп пен блог бастаған<br>жандарды қолдау'],[24.76,'Жас кәсіпкерлерге<br>мүмкіндік сыйлау'],[27.72,'Бір-бірімізге шабыт<br>пен мотивация сыйлау']];
+$('gD').innerHTML=GOALS.map(()=>'<div class="gd" style="width:14px;height:14px;border-radius:7px;background:rgba(255,255,255,.35)"></div>').join('');
+const WAIT=[[40.0,'cam','Әдемі фотозона',''],[41.6,'vid','Sardare Media','фотограф · видеограф'],[44.34,'gift','Демеушілердің сыйлықтары',''],[45.7,'ticket','Сертификаттар ұтысы',''],[46.96,'hat','Аяз атаның сыйлығы',''],[48.4,'music','Көңілді бағдарлама',''],[49.7,'people','Жаңа таныстар','']];
+$('wD').innerHTML=WAIT.map(()=>'<div class="wd" style="width:14px;height:14px;border-radius:7px;background:rgba(255,255,255,.35)"></div>').join('');
+
+const PH=[[2.18,6.24,'Жаркенттің белсенді жандарын *жаңа жылдық кешке* шақырамыз.'],[6.3,8.02,'Декреттегі аналардан бастап,'],[8.16,11.16,'кәсібін жаңа бастаған жастарға, кәсіпкерлер мен'],[11.36,13.12,'блогерлерге есігіміз *ашық*.'],
+[13.22,16.36,'Бұл кештің *басты мақсаты*: бір қаладағы'],[16.42,18.38,'бір-бірімізбен жақынырақ танысу,'],[18.44,21.36,'жаңа орта қалыптастыру, пайдалы байланыс орнату,'],[21.36,24.42,'кәсіп пен блог бастаған жандарды қолдау,'],[24.76,27.54,'жас кәсіпкерлердің бастамаларына мүмкіндік сыйлау,'],[27.72,30.9,'бір-бірімізге шабыт пен мотивация сыйлау.'],
+[30.9,34.78,'*Жыл үздіктерін* анықтаймыз, әр түрлі номинациялар бойынша,'],[35.0,38.04,'арнайы марапаттарды қала әкімінің өз қолынан алуға мүмкіндік бар.'],[38.12,40.0,'Кеш қонақтарын не күтеді?'],[40.0,44.22,'Әдемі фотозона және *Sardare Media* ұжымынан фотограф, видеографтар қызметте болады.'],
+[44.34,46.96,'Демеушілердің түрлі сыйлықтары мен сертификаттар ұтысы,'],[46.96,50.8,'*Аяз атаның* сыйлығы, көңілді бағдарлама мен жаңа таныстар.'],[50.9,52.8,'Бұл жай ғана жаңа жылдық кеш емес.'],[53.02,58.44,'Бұл Жаркенттегі білімге, ізденіске, дамуға ұмтылған жандардың басын қосатын *ерекше кездесу*.'],
+[58.44,63.72,'*19 желтоқсан*, басталу уақыты *17:00*, өтетін орны *Балқаймақ* мейрамханасы.'],[63.96,68.3,'Жаңа жылды *бірге* қарсы алайық, біз сіздерді күтеміз!']];
+const CH=[];PH.forEach(([a,b,txt])=>{txt=txt.replace(/\*([^*]+)\*/g,m=>m.replace(/ /g,' '));const w=txt.split(' ');const g=[];let c=[];
+ w.forEach(x=>{const len=(c.join(' ')+' '+x).replace(/\*/g,'').length;if(c.length&&(c.length>=3||len>24)){g.push(c);c=[]}c.push(x)});if(c.length)g.push(c);
+ const tot=txt.replace(/\*/g,'').length;let acc=0;g.forEach(gg=>{const s=gg.join(' ');const st=a+(b-a)*acc/tot;acc+=s.replace(/\*/g,'').length+1;CH.push([st,a+(b-a)*Math.min(acc,tot)/tot,s])})});
+let lastCap=-1;
+function caps(t){let idx=-1;for(let i=0;i<CH.length;i++){const nx=CH[i+1]?CH[i+1][0]:CH[i][1]+.4;if(t>=CH[i][0]-.03&&t<Math.min(nx,CH[i][1]+.4))idx=i}
+ const box=$('capbox');if(idx<0){$('cap').style.opacity=0;return}if(idx!==lastCap){box.innerHTML=CH[idx][2].replace(/\*([^*]+)\*/g,'<b>$1</b>').replace(/ /g,' ');lastCap=idx}
+ const p=eo(P(t,CH[idx][0]-.03,.12));$('cap').style.opacity=1;box.style.transform=`translateY(${(1-p)*8}px) scale(${.96+.04*p})`;box.style.opacity=.4+.6*p}
+
+let fitted=false;function fitAll(){document.querySelectorAll('[data-w]').forEach(e=>{const max=+e.dataset.w;const sp=document.createElement('span');sp.innerHTML=e.innerHTML;e.innerHTML='';e.appendChild(sp);sp.style.whiteSpace='nowrap';const w=sp.getBoundingClientRect().width;if(w>max){const fs=parseFloat(getComputedStyle(e).fontSize);e.style.fontSize=(fs*max/w)+'px'}})}
+window.seek=function(T){if(!fitted){fitted=true;document.querySelectorAll('.mod').forEach(m=>m.style.opacity=1);fitAll()}
+ snow(T);
+ const bp=eo(P(T,.2,.4));$('badge').style.opacity=bp*(1-P(T,67.6,.4));
+ // modules
+ const v1=mod('m1',T,.15,6.25);rise($('h0'),T,.2);rise($('h1'),T,.4,.4,50);pop($('h2'),T,.75);
+ mod('m2',T,6.3,13.18);rise($('m2l'),T,6.3);document.querySelectorAll('.au').forEach((a,i)=>pop(a,T,AUD[i][1]));
+ if(mod('m3',T,13.2,30.95)>0){let k=0;GOALS.forEach((g,i)=>{if(T>=g[0])k=i});$('gN').textContent=String(k+1).padStart(2,'0');$('gT').innerHTML=GOALS[k][1];
+  const p=P(T,GOALS[k][0],.3);$('gC').style.transform=`translateX(${(1-eo(p))*80}px)`;$('gC').style.opacity=k===0?1:.3+.7*eo(p);
+  document.querySelectorAll('.gd').forEach((d,i)=>{d.style.background=i<=k?'#f1cd7a':'rgba(255,255,255,.35)';d.style.width=i===k?'40px':'14px'})}
+ if(mod('m4',T,30.95,38.06)>0){pop($('aw1'),T,32.0);pop($('aw2'),T,35.4)}
+ if(mod('m5',T,38.1,50.85)>0){let k=0;WAIT.forEach((w,i)=>{if(T>=w[0])k=i});const w=WAIT[k];$('wI').innerHTML=SVG[w[1]];$('wT').textContent=w[2];$('wS').textContent=w[3];
+  const p=P(T,w[0],.3);$('wC').style.transform=`translateX(${(1-eo(p))*80}px)`;$('wC').style.opacity=T<WAIT[0][0]?eo(P(T,38.1,.35))*0:(k===0?eo(P(T,40.0,.3)):.3+.7*eo(p));
+  document.querySelectorAll('.wd').forEach((d,i)=>{d.style.background=i<=k&&T>=WAIT[0][0]?'#f1cd7a':'rgba(255,255,255,.35)';d.style.width=i===k&&T>=WAIT[0][0]?'40px':'14px'})}
+ if(mod('m6',T,50.9,58.44)>0){rise($('s1'),T,50.95,.4,40);pop($('s2'),T,56.0,.4)}
+ if(mod('m7',T,58.44,68.5)>0){rise($('t1'),T,58.5);rise($('t2'),T,60.3);rise($('t3'),T,61.9);pop($('tw'),T,65.0)}
+ $('credit').style.opacity=eo(P(T,66.0,.5));
+ // dark scrim only while info shows
+ let m=0;['m1','m2','m3','m4','m5','m6','m7'].forEach(id=>m=Math.max(m,parseFloat($(id).style.opacity)||0));$('scrim').style.opacity=m*.9;
+ caps(T);if(T<2.1)$('cap').style.opacity=0;
+ // section flashes on hard cuts
+ const FL=[[13.2,.12],[30.98,.12],[38.06,.12],[50.9,.12],[58.44,.12]];let fo=0;FL.forEach(([a,d])=>{if(T>=a&&T<a+d)fo=(1-P(T,a,d))*.55});$('flash').style.opacity=fo;
+};
+window.DUR=68.5;
+</script>
+</body></html>
